@@ -1,0 +1,212 @@
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: rgba(136,136,136,0.9);
+    }
+
+    /* Navegación principal */
+    nav {
+      background: linear-gradient(to bottom, #ffffff, #e4e9ed);
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      padding: 10px;
+      margin: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      text-align: center;
+      border-bottom: 15px solid #4a90e2;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+    }
+
+    nav li {
+      float: left;
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000000;
+      padding: 10px 20px;
+      display: block;
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      box-shadow: #333 0px 2px 1px;
+    }
+
+    /* Submenú desplegable */
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background-color: #1575e39d;
+      top: 40px;
+      left: 0;
+      padding: 10px 0;
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    nav ul ul li {
+      float: none;
+    }
+
+    nav ul ul a {
+      color: white;
+      padding: 8px 16px;
+      white-space: nowrap;
+    }
+
+    nav li:hover > ul {
+      display: block;
+    }
+
+    /* Buscador */
+    .search-bar {
+      margin: 20px;
+      clear: both;
+      text-align: right;
+    }
+
+    .search-bar input[type="search"] {
+      padding: 8px 12px;
+      width: 200px;
+      border: 1px solid #ccd;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    /* Panel general */
+    .panel, .panel1 {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Sección inferior (suscripción + tabs) */
+    .bottom-section {
+      margin: 20px;
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    .subscribe-box{
+      flex: 0.4;
+      background-color: white;
+      border-radius: 12px;
+      padding: 50px;
+      margin-right: 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+    .muestra {
+      flex: 1;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+
+    /* Formulario */
+    .subscribe-box h4 {
+      margin-top: 0;
+      
+    }
+
+    .subscribe-box input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 18px;
+      box-sizing: border-box;
+    }
+
+    .subscribe-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3cb043;
+      color: white;
+      border: none;
+      border-radius: 18px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .subscribe-box button:hover {
+      transition: 0.5s;
+      background-color: #2f8735;
+    }
+
+    /* Cuadro de pestañas */
+    .tabs {
+      width: 100%;
+      background-color: #4a90e2;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-buttons {
+      display: flex;
+      border-bottom: 2px solid white;
+    }
+    
+
+    .tab-buttons button {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 20px;
+      cursor: pointer;
+      color: #121212;
+      border-bottom: 2px solid transparent;
+      font-size: 16px;
+    }
+
+    .tab-buttons button:hover{
+      transition: 1s;
+      background-color: white;
+      font-weight: bold;
+      border-top-left-radius: 12px ;
+      border-top-right-radius: 12px ;
+    }
+
+
+    .tab-buttons button.active {
+      padding: 20px;
+      background-color: #4a90e2;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .tab-buttons button.active:hover {
+      transition: 0.5s;
+      background-color: white;
+      font-weight: bold;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .tab-content {
+      flex: 1;
+      padding: 15px;
+      padding-left: 50px;
+      background-color: white;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }

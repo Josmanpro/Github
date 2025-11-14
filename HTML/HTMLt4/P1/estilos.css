@@ -1,0 +1,59 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    /* Banner */
+    .banner {
+      background-color: #1e5a99; /* azul fuerte */
+      color: white;
+      text-align: center;
+      padding: 90px 0;
+      max-height: 40%;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Contenedor con grid */
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+      gap: 10px;
+      width: 95%;
+      min-height: 100vh;
+      margin: auto;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      background: white;
+      border: 1px solid white;
+    }
+
+    /* Estilos de bloques */
+    .bloque {
+      background-color: #6d8fc4; /* azul medio */
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 30px 0;
+    }
+
+    .coleccion {
+      background-color: #a7bce2; /* azul claro */
+      color: #004080;
+    }
+
+    /* Fila 1: Artículos (ocupan 2 columnas) */
+    .articulo1 {
+      grid-column: span 2;
+
+    }
+
+    /* Para que los textos estén bien centrados */
+    .bloque {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+    }

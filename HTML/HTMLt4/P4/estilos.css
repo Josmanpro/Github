@@ -1,0 +1,11 @@
+    .contenedor {
+      display: grid;
+      grid-template-areas:
+        "menu image1 image2 image3"
+        "menu image4 image5 image6"
+        "menu image7 image8 image9"
+        "menu image10 image11 image12";
+      grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columnas */
+      grid-template-rows: 25% 25% 25% 25%; /* filas */
+      height: 100vh;
+    }

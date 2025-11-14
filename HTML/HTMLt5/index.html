@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title class="contenedor">Taller DOM</title>
+  <link rel="stylesheet" type="text/css" href="estilos.css">
+  <script src="script.js"></script>  
+</head>
+<body>
+
+  <h3>Taller DOM</h3>
+  <p>Presiona los botones para ver los resultados de las consultas DOM:</p>
+
+  <nav class="contenedor_1">
+    <button onclick="mostrarH3()">a) Mostrar H3</button>
+    <button onclick="mostrarPorID()">b) ID “cursos”</button>
+    <button onclick="mostrarURLs()">c) Mostrar URLs</button>
+    <button onclick="mostrarParrafos()">d) Mostrar Párrafos</button>
+    <button onclick="mostrarClaseMenu()">e) Clase “menu”</button>
+    <button onclick="mostrarH4()">f) Mostrar H4</button>
+    <button onclick="mostrarListas()">g) Mostrar Listas</button>
+    <button onclick="limpiarResultados()">Limpiar</button>
+  </nav>
+  
+  <div class="divs"> 
+    <div id="resultadosH3"></div>
+    <div id="resultadosID"></div>
+    <div id="resultadosURLs"></div>
+    <div id="resultadosParrafos"></div>
+    <div id="resultadosClaseMenu"></div>
+    <div id="resultadosH4"></div>
+    <div id="resultadosListas"></div>
+  </div>
+  <header>
+    <a href="http://www.google.com" class="color_link">
+      <img src="logo_pequeno.png" alt="Logo" class="logo">
+    </a>
+    <h2>Cursos de informática gratis</h2>
+  </header>
+
+  <nav>
+    <ul class="menu">
+      <li><a href="#cursos">Cursos </a></li>
+      <li><a href="#cursos_colaboradores"> Colaboradores </a></li>
+      <li><a href="#articulos"> Artículos </a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h4><i>La primera web en español sobre cursos de informática gratis online.</i></h4>
+
+    <section class="cursos">
+      <section>
+        <h3 id="cursos">Cursos</h3>
+        <article>
+          <h4>Access 2016</h4>
+          <p>Microsoft Access 2016 es la aplicación de bases de datos de Microsoft Office 2016.</p>
+        </article>
+        <article>
+          <h4>Excel 2016</h4>
+          <p>Excel es un programa del tipo Hoja de Cálculo que permite realizar operaciones con números organizados en una cuadrícula.</p>
+        </article>
+        <article>
+          <h4>Internet</h4>
+          <p>Este curso introductorio al mundo de Internet pretende darte una visión general de qué es, para qué sirve y cómo se utiliza Internet.</p>
+        </article>
+      </section>
+
+      <section>
+        <h3 id="cursos_colaboradores">Cursos de colaboradores</h3>
+        <article>
+          <h4>autoCAD 2015</h4>
+          <p>Autocad es el programa favorito de industrias completas.</p>
+        </article>
+        <article>
+          <h4>Estadística con Excel</h4>
+          <p>El presente curso tiene por objeto utilizar toda la potencia del programa Microsoft Excel para resolver problemas de aplicación de la Estadística Descriptiva e Inferencial.</p>
+        </article>
+        <article>
+          <h4>Joomla</h4>
+          <p>Podemos definir Joomla como C.M.S o Content Management System.</p>
+        </article>
+      </section>
+    </section>
+
+    <section class="articulos">
+      <h3 id="articulos">Artículos</h3>
+      <ul>
+        <li>- Instalar Ubuntu</li>
+        <li>- Etiqueta Picture</li>
+        <li>- Google Allo</li>
+        <li>- Premiere Clip</li>
+        <li>- Word App</li>
+        <li>- Photoshop Fix</li>
+      </ul>
+    </section>
+  </main>
+
+  <aside>
+    <p> Síguenos en <a href="https://www.facebook.com" target="_blank"><span id="sin_subrayar">Facebook</span></a></p>
+    <p><a href="https://www.youtube.com" target="_blank">En este enlace puedes ver los vídeos de aulaClic en YouTube:<img src="graficos/camera.gif" alt="Cámara"></a></p>
+  </aside>
+
+  <footer>
+    <hr>
+    <p>Página web</p>
+    <p><a href="http://www.google.com" target="_blank">Política de cookies</a></p>
+    <p>Prohibida la reproducción por cualquier medio. Los cursos están protegidos en el <span>Registro de la Propiedad Intelectual</span>.</p>
+  </footer>
+
+</body>
+</html>

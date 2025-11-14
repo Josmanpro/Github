@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="cocacola.png" alt="Logo CocaCola">
+  <title>Coca-Cola</title>
+  <style>
+    body {
+      background-image: url('image.png');
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Contenedor principal */
+    .contenedor {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1200px;
+      background-color: #fdfaf6;
+      border: 2px solid black;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Fila superior */
+    .fila-superior {
+      padding: 15px;
+      background-color: #fdfaf6;
+      overflow: hidden; /* para contener floats */
+    }
+
+    .logo {
+      width: 100%;
+      min-height: 120px;
+      margin-right: 20px;
+      text-align: center;
+    }
+
+    .logo img {
+      border: 2px solid black;
+      border-radius: 10px;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .info {
+      overflow: hidden;
+      border: 2px solid black;
+      background-color: #fff;
+      padding: 10px;
+    }
+
+    .info h2 {
+      color: darkred;
+      font-size: 24px;
+      margin: 0 0 10px 0;
+      text-align: center;
+    }
+
+    .info p {
+      font-size: 16px;
+      margin: 5px 0;
+      text-align: justify;
+    }
+
+    /* Fila intermedia */
+    .fila-titulo {
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+      background-color: hsl(0, 85%, 95%);
+    }
+
+    /* Fila inferior (productos) */
+    .fila-inferior {
+      padding: 20px;
+      text-align: center;
+      background-color: #fdfaf6;
+    }
+
+    .producto {
+      display: inline-block; /* 🔹 se alinean uno al lado del otro */
+      width: 30%;
+      margin: 10px;
+      vertical-align: top;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: white;
+      opacity: 0.95; /* transparencia */
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .producto img {
+      width: 95%;
+      height: 550px;
+      border-radius: 5px;
+    }
+
+    .producto p {
+      margin: 8px 0;
+      font-weight: bold;
+    }
+    .producto:hover {
+      opacity: 1;
+      background: #000;
+      color: #fdfaf6;
+      border-color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor general -->
+  <div class="contenedor">
+
+    <!-- Fila superior -->
+    <div class="fila-superior">
+      <div class="logo">
+        <img  src="Coca-Cola.jpg" alt="Logo CocaCola">
+      </div>
+      <div class="info">
+        <h2>°-° CocaCola °-°</h2>
+        <p>
+          The Coca-Cola Company es una empresa multinacional fundada en 1886 en Atlanta, Estados Unidos.  
+          Es reconocida mundialmente por su bebida insignia, Coca-Cola, y un portafolio de más de 500 marcas, 
+          incluyendo Fanta, Sprite, Powerade y AdeS.
+        </p>
+        <p>
+          Coca-Cola opera en más de 200 países y se enfoca en refrescos, hidratación, jugos, cafés y bebidas energéticas.  
+          Su misión es refrescar al mundo e inspirar momentos de optimismo y felicidad.
+        </p>
+      </div>
+    </div>
+
+    <!-- Fila intermedia -->
+    <div class="fila-titulo">
+      Productos y/o Servicios ofertados por la empresa
+    </div>
+
+    <!-- Fila inferior (3 columnas con inline-block) -->
+    <div class="fila-inferior">
+      <div class="producto" >
+        <p>Coca-Cola Original</p>
+        <img src="image1.png" alt="Coca-Cola Original">
+      </div>
+      <div class="producto">
+        <p>Coca-Cola Special Edition</p>
+        <img src="image2.png" alt="Coca-Cola Ice">
+      </div>
+      <div class="producto">
+        <p>Coca-Cola Zero</p>
+        <img src="image3.png" alt="Coca-Cola Zero">
+      </div>
+      <div class="producto">
+        <p>Coca-Cola Ice</p>
+        <img src="image4.png" alt="Coca-Cola Original">
+      </div>
+      <div class="producto">
+        <p>Coca-Cola black</p>
+        <img src="image5.png" alt="Coca-Cola Ice">
+      </div>
+      <div class="producto">
+        <p>Coca-Cola</p>
+        <img src="image6.png" alt="Coca-Cola Zero">
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

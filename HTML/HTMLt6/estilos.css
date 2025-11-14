@@ -1,0 +1,155 @@
+/* Fondo general */
+body {
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #004aad;
+}
+
+/* Contenedor principal */
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px;
+}
+
+/* Cajas principales */
+.formulario{
+  background: #ffffffcc;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 400px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.multimedia {
+  background: #ffffffcc;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  width: 400px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.formulario:hover, .multimedia:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  text-align: center;
+  color: #004aad;
+  border-bottom: 2px solid #66a6ff;
+  padding-bottom: 5px;
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0 12px 0;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #66a6ff;
+  box-shadow: 0 0 5px #66a6ff;
+  outline: none;
+}
+
+/* Botones */
+.botones {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-enviar {
+  background-color: #004aad;
+  color: white;
+}
+
+.btn-enviar:hover {
+  background-color: #007bff;
+}
+
+.btn-reset {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-reset:hover {
+  background-color: #999;
+  color: white;
+}
+
+/* Radios y checkboxes */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Videos */
+video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+video:hover {
+  transform: scale(1.03);
+}
+
+#mensajePass {
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.laser-trail {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 10px 3px red;
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.5); }
+}
