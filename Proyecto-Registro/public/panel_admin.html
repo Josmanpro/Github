@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador - Registros SENA</title>
+
+    <style>
+        body {
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #008000;
+        }
+
+        #busqueda {
+            display: block;
+            margin: 15px auto;
+            padding: 10px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px #bbb;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #008000;
+            color: white;
+        }
+
+        tr:hover {
+            background: #e6ffe6;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Panel de Registros - SENA</h2>
+
+<input type="text" id="busqueda" placeholder="Buscar por nombre, serial o procedencia...">
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Procedencia</th>
+            <th>Serial</th>
+            <th>Fecha</th>
+            <th>Entrada</th>
+            <th>Salida</th>
+            <th>Tipo</th>
+        </tr>
+    </thead>
+    <tbody id="tablaRegistros"></tbody>
+</table>
+
+<!-- FIREBASE -->
+<script type="module">
+    import { initializeApp } 
+        from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
+    import { 
+        getFirestore, 
+        collection, 
+        onSnapshot 
+    } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+    // Config de Firebase (la tuya)
+    const firebaseConfig = { 
+        apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
+        authDomain: "registro-portatiles-sena.firebaseapp.com",
+        projectId: "registro-portatiles-sena",
+        storageBucket: "registro-portatiles-sena.firebasestorage.app",
+        messagingSenderId: "140602261232",
+        appId: "1:140602261232:web:e0360347eb1e56273c8c35"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const cuerpoTabla = document.getElementById("tablaRegistros");
+    const busqueda = document.getElementById("busqueda");
+
+    let registros = [];
+
+    // Escuchar en tiempo real los registros
+    onSnapshot(collection(db, "registros"), (snapshot) => {
+        registros = [];
+        snapshot.forEach(doc => registros.push(doc.data()));
+        mostrarRegistros(registros);
+    });
+
+    function mostrarRegistros(data) {
+        cuerpoTabla.innerHTML = "";
+
+        data.forEach(reg => {
+            const fila = document.createElement("tr");
+
+            fila.innerHTML = `
+                <td>${reg.nombre}</td>
+                <td>${reg.procedencia}</td>
+                <td>${reg.serial}</td>
+                <td>${reg.fecha}</td>
+                <td>${reg.entrada}</td>
+                <td>${reg.salida || "—"}</td>
+                <td>${reg.tipo}</td>
+            `;
+
+            cuerpoTabla.appendChild(fila);
+        });
+    }
+
+    // Filtro de búsqueda
+    busqueda.addEventListener("input", () => {
+        const texto = busqueda.value.toLowerCase();
+
+        const filtrados = registros.filter(r =>
+            r.nombre.toLowerCase().includes(texto) ||
+            r.procedencia.toLowerCase().includes(texto) ||
+            r.serial.toLowerCase().includes(texto)
+        );
+
+        mostrarRegistros(filtrados);
+    });
+</script>
+
+</body>
+</html>

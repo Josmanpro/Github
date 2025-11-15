@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar QR - Registro Portátiles SENA</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            background: #007bff;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #qr-result {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Generar QR del Aprendiz</h1>
+
+    <div class="container">
+
+        <label for="documento">Documento del Aprendiz</label>
+        <input type="text" id="documento" placeholder="Ej: 123456789">
+
+        <label for="nombre">Nombre Completo</label>
+        <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
+
+        <label for="formacion">Formacion</label>
+        <input type="text" id="formacion" placeholder="Ej: Técnico en Sistemas">
+
+        <button onclick="generarQR()">Generar QR</button>
+
+        <div id="qr-result"></div>
+
+    </div>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
+            authDomain: "registro-portatiles-sena.firebaseapp.com",
+            projectId: "registro-portatiles-sena",
+            storageBucket: "registro-portatiles-sena.firebasestorage.app",
+            messagingSenderId: "140602261232",
+            appId: "1:140602261232:web:e0360347eb1e56273c8c35"
+        };
+
+        window.firebaseApp = initializeApp(firebaseConfig);
+        window.db = getFirestore(window.firebaseApp);
+    </script>
+
+    <!-- Script generador QR -->
+    <script src="qrgenerator.js"></script>
+
+</body>
+</html>

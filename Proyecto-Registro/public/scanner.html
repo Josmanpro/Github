@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escáner QR - SENA</title>
+
+    <style>
+        body {
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #008000;
+        }
+        #reader {
+            width: 320px;
+            margin: auto;
+        }
+        #mensaje {
+            margin-top: 15px;
+            text-align: center;
+            background: #d8ffd8;
+            padding: 10px;
+            border: 1px solid #00a000;
+            border-radius: 6px;
+            display: none;
+        }
+    </style>
+
+    <!-- Librería para leer códigos QR -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+
+<h2>Escáner QR - Registro de Portátiles</h2>
+
+<div id="reader"></div>
+
+<div id="mensaje"></div>
+
+<!-- Firebase y Firestore -->
+<script type="module">
+
+    import { initializeApp } 
+        from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
+    import { 
+        getFirestore, 
+        collection, 
+        addDoc, 
+        query, 
+        where, 
+        getDocs, 
+        updateDoc 
+    } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+    // 📌 TU CONFIG DE FIREBASE
+    const firebaseConfig = { 
+        apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
+        authDomain: "registro-portatiles-sena.firebaseapp.com",
+        projectId: "registro-portatiles-sena",
+        storageBucket: "registro-portatiles-sena.firebasestorage.app",
+        messagingSenderId: "140602261232",
+        appId: "1:140602261232:web:e0360347eb1e56273c8c35"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const mensaje = document.getElementById("mensaje");
+
+    function mostrarMensaje(texto) {
+        mensaje.innerText = texto;
+        mensaje.style.display = "block";
+        setTimeout(() => mensaje.style.display = "none", 3000);
+    }
+
+    async function procesarQR(textoQR) {
+        let datos;
+
+        try {
+            datos = JSON.parse(textoQR);
+        } catch (e) {
+            mostrarMensaje("QR inválido.");
+            return;
+        }
+
+        const { nombre, procedencia, serial } = datos;
+
+        // Buscar si ya existe un registro sin salida
+        const q = query(
+            collection(db, "registros"),
+            where("nombre", "==", nombre),
+            where("serial", "==", serial),
+            where("salida", "==", "")
+        );
+
+        const result = await getDocs(q);
+
+        // SI NO HAY REGISTRO → Crear entrada
+        if (result.empty) {
+            await addDoc(collection(db, "registros"), {
+                nombre,
+                procedencia,
+                serial,
+                fecha: new Date().toLocaleDateString(),
+                entrada: new Date().toLocaleTimeString(),
+                salida: "",
+                tipo: "qr"
+            });
+
+            mostrarMensaje("Entrada registrada ✔");
+        } 
+        else {
+            // SI YA EXISTE → Registrar salida
+            const docID = result.docs[0].id;
+
+            await updateDoc(result.docs[0].ref, {
+                salida: new Date().toLocaleTimeString()
+            });
+
+            mostrarMensaje("Salida registrada ✔");
+        }
+    }
+
+    // INICIALIZAR LECTOR
+    const lector = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });
+
+    lector.render((decodedText) => {
+        procesarQR(decodedText);
+    });
+</script>
+
+</body>
+</html>

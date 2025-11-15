@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso Portátiles - SENA</title>
+
+    <style>
+        body {
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #008000;
+            margin-top: 30px;
+        }
+
+        .contenedor {
+            max-width: 500px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px #bbb;
+        }
+
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            font-size: 16px;
+            color: white;
+            background: #008000;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .boton:hover {
+            background: #006600;
+        }
+
+        .seccion {
+            margin-top: 25px;
+        }
+
+        h3 {
+            color: #004d00;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-top: -5px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sistema de Ingreso de Portátiles - SENA</h1>
+
+    <div class="contenedor">
+
+        <!-- Sección Aprendiz -->
+        <div class="seccion">
+            <h3>Aprendices</h3>
+            <p>Seleccione el método para registrarse al ingresar con portátil.</p>
+
+            <a href="registro.html" class="boton">Registro Manual</a>
+            <a href="generar_qr.html" class="boton">Generar mi Código QR</a>
+        </div>
+
+        <!-- Sección Guardas -->
+        <div class="seccion">
+            <h3>Guardas de Seguridad</h3>
+            <p>Escanear códigos QR o registrar salidas.</p>
+
+            <a href="scanner.html" class="boton">Escáner de QR</a>
+        </div>
+
+        <!-- Sección Administrador -->
+        <div class="seccion">
+            <h3>Administración</h3>
+            <p>Ver todos los registros en tiempo real.</p>
+
+            <a href="panel_admin.html" class="boton">Panel de Registros</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
