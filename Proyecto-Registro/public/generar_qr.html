@@ -26,14 +26,20 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
+        .input-group {
+            margin-bottom: 15px;
+            margin-right: 24.6px;
+        }
+
         label {
             font-weight: bold;
+            display: block;
         }
 
         input, select, button {
             width: 100%;
             padding: 12px;
-            margin-top: 10px;
+            margin-top: 6px;
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 15px;
@@ -64,14 +70,25 @@
 
     <div class="container">
 
-        <label for="documento">Documento del Aprendiz</label>
-        <input type="text" id="documento" placeholder="Ej: 123456789">
+        <div class="input-group">
+            <label for="documento">Documento del Aprendiz</label>
+            <input type="text" id="documento" placeholder="Ej: 123456789">
+        </div>
 
-        <label for="nombre">Nombre Completo</label>
-        <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
+        <div class="input-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
+        </div>
 
-        <label for="formacion">Formacion</label>
-        <input type="text" id="formacion" placeholder="Ej: Técnico en Sistemas">
+        <div class="input-group">
+            <label for="formacion">Formación</label>
+            <input type="text" id="formacion" placeholder="Ej: Técnico en Sistemas">
+        </div>
+
+        <div class="input-group">
+            <label for="ficha">Ficha</label>
+            <input type="text" id="ficha" placeholder="Ej: 3141010">
+        </div>
 
         <button onclick="generarQR()">Generar QR</button>
 
