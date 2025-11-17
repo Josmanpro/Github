@@ -9,7 +9,6 @@
         body {
             background: #f4f4f4;
             font-family: Arial, sans-serif;
-            padding: 20px;
         }
 
         h2 {
@@ -25,6 +24,13 @@
             max-width: 400px;
             border-radius: 6px;
             border: 1px solid #aaa;
+        }
+
+        .conteiner {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
         }
 
         table {
@@ -58,20 +64,22 @@
 
 <input type="text" id="busqueda" placeholder="Buscar por nombre, serial o procedencia...">
 
-<table>
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Procedencia</th>
-            <th>Serial</th>
-            <th>Fecha</th>
-            <th>Entrada</th>
-            <th>Salida</th>
-            <th>Tipo</th>
-        </tr>
-    </thead>
-    <tbody id="tablaRegistros"></tbody>
-</table>
+<div class="conteiner">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Procedencia</th>
+                <th>Serial</th>
+                <th>Fecha</th>
+                <th>Entrada</th>
+                <th>Salida</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody id="tablaRegistros"></tbody>
+    </table>
+</div>
 
 <!-- FIREBASE -->
 <script type="module">
@@ -84,7 +92,6 @@
         onSnapshot 
     } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
-    // Config de Firebase (la tuya)
     const firebaseConfig = { 
         apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
         authDomain: "registro-portatiles-sena.firebaseapp.com",
@@ -102,12 +109,36 @@
 
     let registros = [];
 
-    // Escuchar en tiempo real los registros
+    // Escuchar colección REAL en Firestore
     onSnapshot(collection(db, "registros"), (snapshot) => {
-        registros = [];
-        snapshot.forEach(doc => registros.push(doc.data()));
+        registros = snapshot.docs.map(doc => doc.data());
         mostrarRegistros(registros);
     });
+
+    function formatearFecha(timestamp) {
+        if (!timestamp) return "Sin fecha";
+
+        const fecha = timestamp.toDate();
+        const dia = String(fecha.getDate()).padStart(2, "0");
+        const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+        const año = fecha.getFullYear();
+
+        return `${dia}/${mes}/${año}`;
+    }
+
+    function formatearHora(timestamp) {
+        if (!timestamp) return "Sin hora";
+
+        const fecha = timestamp.toDate();
+        let horas = fecha.getHours();
+        const minutos = String(fecha.getMinutes()).padStart(2, "0");
+        const ampm = horas >= 12 ? "p.m." : "a.m.";
+
+        horas = horas % 12;
+        horas = horas ? horas : 12;
+
+        return `${horas}:${minutos} ${ampm}`;
+    }
 
     function mostrarRegistros(data) {
         cuerpoTabla.innerHTML = "";
@@ -116,27 +147,26 @@
             const fila = document.createElement("tr");
 
             fila.innerHTML = `
-                <td>${reg.nombre}</td>
-                <td>${reg.procedencia}</td>
-                <td>${reg.serial}</td>
-                <td>${reg.fecha}</td>
-                <td>${reg.entrada}</td>
-                <td>${reg.salida || "—"}</td>
-                <td>${reg.tipo}</td>
+                <td>${reg.nombre || ""}</td>
+                <td>${reg.procedencia || ""}</td>
+                <td>${reg.serial || ""}</td>
+                <td>${formatearFecha(reg.fecha)}</td>
+                <td>${formatearHora(reg.entrada)}</td>
+                <td>${reg.salida ? formatearHora(reg.salida) : "—"}</td>
+                <td>${reg.tipo || ""}</td>
             `;
 
             cuerpoTabla.appendChild(fila);
         });
     }
 
-    // Filtro de búsqueda
     busqueda.addEventListener("input", () => {
         const texto = busqueda.value.toLowerCase();
 
         const filtrados = registros.filter(r =>
-            r.nombre.toLowerCase().includes(texto) ||
-            r.procedencia.toLowerCase().includes(texto) ||
-            r.serial.toLowerCase().includes(texto)
+            (r.nombre || "").toLowerCase().includes(texto) ||
+            (r.procedencia || "").toLowerCase().includes(texto) ||
+            (r.serial || "").toLowerCase().includes(texto)
         );
 
         mostrarRegistros(filtrados);

@@ -31,6 +31,9 @@
             margin-top: 10px;
             display: block;
         }
+        .input-group {
+            margin-right: 22px;
+        }
 
         input, select, button {
             width: 100%;
@@ -68,20 +71,30 @@
     <h2>Registro de Portátiles - SENA</h2>
 
     <form id="registroForm">
-        <label>Nombre completo:</label>
-        <input type="text" id="nombre" required>
+        <div class="input-group">
+            <label>Nombre completo:</label>
+            <input type="text" id="nombre" required>
+        </div>
 
         <label>Procedencia (Programa):</label>
-        <select id="procedencia" required>
-            <option value="">Seleccione...</option>
-            <option value="ADSO">ADSO</option>
-            <option value="Asistencia Administrativa">Asistencia Administrativa</option>
-            <option value="Contabilidad">Contabilidad</option>
-            <option value="Invitado">Invitado</option>
-        </select>
+            <select id="procedencia" required>
+                <option value="">Seleccione...</option>
+                <option value="ADSO">ADSO</option>
+                <option value="Asistencia Administrativa">Asistencia Administrativa</option>
+                <option value="Contabilidad">Contabilidad</option>
+                <option value="Invitado">Invitado</option>
+            </select>
+        
+        <div class="input-group">
+            <label>Serial o referencia del portátil:</label>
+            <input type="text" id="serial" required>
+        </div>
 
-        <label>Serial o referencia del portátil:</label>
-        <input type="text" id="serial" required>
+        <div class="input-group">
+            <label>Hora de entrada:</label>
+            <input type="text" id="horaEntrada" readonly>
+        </div>
+
 
         <button type="submit">Registrar Entrada</button>
     </form>
@@ -115,6 +128,25 @@
         const form = document.getElementById("registroForm");
         const mensajeExito = document.getElementById("mensajeExito");
 
+        function obtenerHoraFormato12() {
+            const fecha = new Date();
+            let horas = fecha.getHours();
+            let minutos = fecha.getMinutes();
+            const ampm = horas >= 12 ? "PM" : "AM";
+
+            horas = horas % 12;
+            horas = horas ? horas : 12; // 0 → 12
+
+            minutos = minutos < 10 ? "0" + minutos : minutos;
+
+            return `${horas}:${minutos} ${ampm}`;
+        }
+        
+
+        // Mostrar la hora al cargar la página
+        document.getElementById("horaEntrada").value = obtenerHoraFormato12();
+
+
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
@@ -128,7 +160,7 @@
                     procedencia,
                     serial,
                     fecha: serverTimestamp(),
-                    entrada: new Date().toLocaleTimeString(),
+                    entrada: new Date(),
                     salida: "",
                     tipo: "manual"
                 });
