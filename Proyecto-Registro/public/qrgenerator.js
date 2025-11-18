@@ -15,11 +15,15 @@ script.onload = () => {
 // Función principal
 async function generarQR() {
 
-    const documento = document.getElementById("documento").value.trim();
     const nombre = document.getElementById("nombre").value.trim();
+    const documento = document.getElementById("documento").value.trim();
+    const formacion = document.getElementById("formacion").value;
+    const ficha = document.getElementById("ficha").value;
+    const jornada = document.getElementById("jornada").value;
+    const serial = document.getElementById("serial").value;
     const contenedor = document.getElementById("qr-result");
 
-    if (documento === "" || nombre === "") {
+    if (documento === "" || nombre === "" || formacion === "" || ficha === "" || jornada === "" || serial === "") {
         alert("Por favor completa todos los campos antes de generar el QR.");
         return;
     }
@@ -29,8 +33,12 @@ async function generarQR() {
 
     // Datos que irán dentro del QR
     const datosQR = {
-        documento: documento,
         nombre: nombre,
+        documento: documento,
+        formacion: formacion,
+        ficha: ficha,
+        jornada: jornada,
+        serial: serial,
         fecha_registro: new Date().toISOString()
     };
 
@@ -42,7 +50,7 @@ async function generarQR() {
     });
 
     // ================= FIRESTORE ======================
-    // Guardar en la colección "preregistros"
+    // Guardar en la colección "registros"
     try {
         const db = window.db;
 
@@ -51,8 +59,12 @@ async function generarQR() {
         );
 
         await addDoc(collection(db, "registros"), {
-            documento: documento,
             nombre: nombre,
+            documento: documento,
+            formacion: formacion,
+            ficha: ficha,
+            jornada: jornada,
+            serial: serial,
             formacion: document.getElementById("formacion").value.trim(),
             fecha_registro: new Date(),
             tipo: "generacion_qr"
