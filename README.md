@@ -14,3 +14,16 @@ en el terminal
 
 
 git pull
+
+
+Para subir los archivos a la BdD, Firebase
+se usa desde el powershell
+usar 
+esto sirve para que se pueda usar desde
+cualquier dispositivo
+
+cd ..
+cd ..
+cd 'C:\Users\JosephA\Desktop\SENA\Ins Jhon Freddy Gerente de ficha\Github\Proyecto-Registro'
+
+firebase deploy 
