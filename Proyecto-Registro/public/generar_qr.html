@@ -35,6 +35,11 @@
             font-weight: bold;
             display: block;
         }
+        
+        .jornada {
+            margin-bottom: 15px;
+
+        }
 
         input, select, button {
             width: 100%;
@@ -68,16 +73,19 @@
 
     <h1>Generar QR del Aprendiz</h1>
 
+    <div class="boton-inicio"> 
+        <a href="index.html" class="boton">Inicio</a>
+    </div>
     <div class="container">
+
+        <div class="input-group">
+            <label for="nombre">Nombre Completo del Aprendiz</label>
+            <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
+        </div>
 
         <div class="input-group">
             <label for="documento">Documento del Aprendiz</label>
             <input type="text" id="documento" placeholder="Ej: 123456789">
-        </div>
-
-        <div class="input-group">
-            <label for="nombre">Nombre Completo</label>
-            <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
         </div>
 
         <div class="input-group">
@@ -89,6 +97,27 @@
             <label for="ficha">Ficha</label>
             <input type="text" id="ficha" placeholder="Ej: 3141010">
         </div>
+        
+        <div class="jornada">
+            <label for="jornada">Jornada</label>
+            <select id="jornada">
+                <option value="Seleccione">Seleccione...</option>
+                <option value="Mañana">Mañana</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Nocturna">Nocturna</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="serial">Serial o Referencia del Portátil</label>
+            <input type="text" id="serial" placeholder="Ej: SN123456">
+        </div>
+
+        <div class="input-group">
+            <label>Hora de entrada</label>
+            <input type="text" id="horaEntrada" readonly>
+        </div>
+        
 
         <button onclick="generarQR()">Generar QR</button>
 
@@ -110,8 +139,63 @@
             appId: "1:140602261232:web:e0360347eb1e56273c8c35"
         };
 
-        window.firebaseApp = initializeApp(firebaseConfig);
-        window.db = getFirestore(window.firebaseApp);
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.db = db;
+
+        // Mostrar la hora al cargar la página
+        document.getElementById("horaEntrada").value = obtenerHoraFormato12();
+
+
+        function obtenerHoraFormato12() {
+            const fecha = new Date();
+            let horas = fecha.getHours();
+            let minutos = fecha.getMinutes();
+            const ampm = horas >= 12 ? "PM" : "AM";
+
+            horas = horas % 12;
+            horas = horas ? horas : 12; // 0 → 12
+
+            minutos = minutos < 10 ? "0" + minutos : minutos;
+
+            return `${horas}:${minutos} ${ampm}`;
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const documento = document.getElementById("documento").value;
+            const formacion = document.getElementById("formacion").value;
+            const ficha = document.getElementById("ficha").value;
+            const jornada = document.getElementById("jornada").value;
+            const serial = document.getElementById("serial").value;
+
+            try {
+                await addDoc(collection(db, "registros"), {
+                    nombre,
+                    documento,
+                    formacion,
+                    ficha,
+                    jornada,
+                    serial,
+                    horaEntrada: obtenerHoraFormato12(),
+                    fecha: serverTimestamp(),
+                    tipo: "QR"
+                });
+
+                mensajeExito.style.display = "block";
+                form.reset();
+
+                setTimeout(() => {
+                    mensajeExito.style.display = "none";
+                }, 2500);
+
+            } catch (error) {
+                alert("Error al guardar: " + error);
+            }
+        });
     </script>
 
     <!-- Script generador QR -->

@@ -70,28 +70,48 @@
 
     <h2>Registro de Portátiles - SENA</h2>
 
+    <div class="boton-inicio"> 
+        <a href="index.html" class="boton">Inicio</a>
+    </div>
+
     <form id="registroForm">
         <div class="input-group">
-            <label>Nombre completo:</label>
-            <input type="text" id="nombre" required>
+            <label>Nombre Completo del Aprendiz</label>
+            <input type="text" id="nombre" placeholder="Ej: Juan Pérez" required>
         </div>
 
-        <label>Procedencia (Programa):</label>
-            <select id="procedencia" required>
-                <option value="">Seleccione...</option>
-                <option value="ADSO">ADSO</option>
-                <option value="Asistencia Administrativa">Asistencia Administrativa</option>
-                <option value="Contabilidad">Contabilidad</option>
-                <option value="Invitado">Invitado</option>
+        <div class="input-group">
+            <label for="documento">Documento del Aprendiz</label>
+            <input type="text" id="documento" placeholder="Ej: 123456789">
+        </div>
+
+        <div class="input-group">
+            <label for="formacion">Formación</label>
+            <input type="text" id="formacion" placeholder="Ej: Técnico en Sistemas">
+        </div>
+
+        <div class="input-group">
+            <label for="ficha">Ficha</label>
+            <input type="text" id="ficha" placeholder="Ej: 3141010">
+        </div>
+
+        <div class="jornada">
+            <label for="jornada">Jornada</label>
+            <select id="jornada">
+                <option value="Seleccione">Seleccione...</option>
+                <option value="Mañana">Mañana</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Nocturna">Nocturna</option>
             </select>
+        </div>
         
         <div class="input-group">
-            <label>Serial o referencia del portátil:</label>
-            <input type="text" id="serial" required>
+            <label>Serial o Referencia del Portátil</label>
+            <input type="text" id="serial" placeholder="Ej: SN123456" required>
         </div>
 
         <div class="input-group">
-            <label>Hora de entrada:</label>
+            <label>Hora de entrada</label>
             <input type="text" id="horaEntrada" readonly>
         </div>
 
@@ -151,17 +171,22 @@
             e.preventDefault();
 
             const nombre = document.getElementById("nombre").value;
-            const procedencia = document.getElementById("procedencia").value;
+            const documento = document.getElementById("documento").value;
+            const formacion = document.getElementById("formacion").value;
+            const ficha = document.getElementById("ficha").value;
+            const jornada = document.getElementById("jornada").value;
             const serial = document.getElementById("serial").value;
 
             try {
                 await addDoc(collection(db, "registros"), {
                     nombre,
-                    procedencia,
+                    documento,
+                    formacion,
+                    ficha,
+                    jornada,
                     serial,
+                    horaEntrada: obtenerHoraFormato12(),
                     fecha: serverTimestamp(),
-                    entrada: new Date(),
-                    salida: "",
                     tipo: "manual"
                 });
 

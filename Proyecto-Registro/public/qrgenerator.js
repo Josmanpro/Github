@@ -44,13 +44,13 @@ async function generarQR() {
     // ================= FIRESTORE ======================
     // Guardar en la colección "preregistros"
     try {
-        const { db } = window;
+        const db = window.db;
 
         const { collection, addDoc } = await import(
             "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
         );
 
-        await addDoc(collection(db, "preregistros"), {
+        await addDoc(collection(db, "registros"), {
             documento: documento,
             nombre: nombre,
             formacion: document.getElementById("formacion").value.trim(),
