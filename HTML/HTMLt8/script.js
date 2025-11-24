@@ -1,16 +1,21 @@
-function validarFormulario(e) {
-  e.preventDefault();
-  const pass1 = document.getElementById("pass1").value;
-  const pass2 = document.getElementById("pass2").value;
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-  if (pass1 !== pass2) {
-    alert("Las contraseñas no coinciden.");
-    return false;
-  }
-  
-  return true;
-}
-document.addEventListener("DOMContentLoaded", function() {
+const firebaseConfig = {
+  apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
+  authDomain: "registro-portatiles-sena.firebaseapp.com",
+  projectId: "registro-portatiles-sena",
+  storageBucket: "registro-portatiles-sena.firebasestorage.app",
+  messagingSenderId: "140602261232",
+  appId: "1:140602261232:web:e0360347eb1e56273c8c35"
+};
+
+// Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// --- VERIFICADOR DE CONTRASEÑAS ---
+document.addEventListener("DOMContentLoaded", () => {
   const pass1 = document.getElementById("pass1");
   const pass2 = document.getElementById("pass2");
   const mensaje = document.createElement("p");
@@ -39,27 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
   pass2.addEventListener("input", verificarContraseñas);
 });
 
-document.addEventListener("mousemove", function(e) {
-  const trail = document.createElement("div");
-  trail.classList.add("laser-trail");
-  document.body.appendChild(trail);
-  trail.style.left = e.pageX + "px";
-  trail.style.top = e.pageY + "px";
-
-  setTimeout(() => trail.remove(), 500);
-});
-function soloNumeros(input) {
-  input.value = input.value.replace(/[^0-9]/g, ''); 
-}
-function soloLetras(input) {
-  input.value = input.value.replace(/[^a-zA-Z\s]/g, ''); 
-}
-const db = window.db;
-
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-
+// --- GUARDAR FIRESTORE ---
 document.getElementById("miFormulario").addEventListener("submit", async (e) => {
   e.preventDefault();
   try {
@@ -81,7 +66,6 @@ document.getElementById("miFormulario").addEventListener("submit", async (e) => 
 
     alert("Formulario enviado y guardado en Firebase ✔");
     e.target.reset();
-
   } catch (error) {
     console.error("Error al guardar:", error);
     alert("Hubo un error al guardar ❌");

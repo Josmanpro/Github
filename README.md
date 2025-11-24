@@ -27,3 +27,18 @@ cd ..
 cd 'C:\Users\JosephA\Desktop\SENA\Ins Jhon Freddy Gerente de ficha\Github\Proyecto-Registro'
 
 firebase deploy 
+
+
+Actualizar firebase CLI
+
+objeto binario independiente: Descarga la versión nueva 
+"https://firebase.tools/bin/win/instant/latest" y reemplázala en tu sistema.
+npm: 
+Ejecuta 
+npm install -g firebase-tools.
+
+Desinstalar firebase CLI
+
+npm: 
+Ejecuta 
+npm uninstall -g firebase-tools

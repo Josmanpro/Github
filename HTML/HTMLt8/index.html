@@ -1,178 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario con Validaciones y Multimedia</title>
-  <link rel="stylesheet" href="estilos.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="estilos.css" />
+  <script type="module" src="script.js"></script>
 </head>
 <body>
   <header>
     <h1>Formulario con Validaciones y Multimedia</h1>
   </header>
 
-  <!-- Sonido de fondo -->
   <audio autoplay loop muted>
-    <source src="Maria_Canela.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
+    <source src="Maria_Canela.mp3" type="audio/mpeg" />
   </audio>
 
   <main class="contenedor">
-    <!-- Formulario -->
     <section class="formulario">
       <h2>Formulario de Contacto</h2>
 
-      <form id="miFormulario" onsubmit="validarFormulario(event)">
-        
+      <form id="miFormulario">
         <div class="opcion1">
-          <input type="checkbox" id="mayorEdad" required>
-            <label for="mayorEdad">Certifico que soy mayor de edad</label>
+          <input type="checkbox" id="mayorEdad" required />
+          <label for="mayorEdad">Certifico que soy mayor de edad</label>
         </div>
 
         <label>Sexo:</label>
         <div class="opcion">
-            <input type="radio" name="sexo" value="Hombre" required> Hombre
+          <input type="radio" name="sexo" value="Hombre" required /> Hombre
         </div>
 
         <div class="opcion">
-          <input type="radio" name="sexo" value="Mujer"> Mujer
+          <input type="radio" name="sexo" value="Mujer" /> Mujer
         </div>
 
         <div class="campo">
           <label>Nombre:</label>
-          <input type="text" name="nombre" maxlength="30" oninput="soloLetras(this)" required>
+          <input type="text" name="nombre" maxlength="30" required />
         </div>
 
         <div class="campo">
           <label>Apellido:</label>
-          <input type="text" name="apellido" maxlength="30" oninput="soloLetras(this)" required>
+          <input type="text" name="apellido" maxlength="30" required />
         </div>
 
         <div class="campo">
           <label>Digite una contraseña:</label>
-          <input type="password" name="pass1" id="pass1" maxlength="15" required>
+          <input type="password" name="pass1" id="pass1" maxlength="15" required />
         </div>
 
         <div class="campo">
           <label>Confirme contraseña:</label>
-          <input type="password" name="pass2" id="pass2" maxlength="15" required>
+          <input type="password" name="pass2" id="pass2" maxlength="15" required />
         </div>
 
-          <label>Tipo de documento:</label>
-          <select class="seleccione" name="tipoDoc" required>
-            <option value="">Seleccione</option>
-            <option>Cédula de Ciudadanía</option>
-            <option>Cédula de Extranjería</option>
-          </select>
+        <label>Tipo de documento:</label>
+        <select class="seleccione" name="tipoDoc" required>
+          <option value="">Seleccione</option>
+          <option>Cédula de Ciudadanía</option>
+          <option>Cédula de Extranjería</option>
+        </select>
 
         <div class="campo">
           <label>No. Documento:</label>
-          <input type="text" id="numDoc" name="numDoc" pattern="[0-9]+" title="Solo se permiten números" oninput="soloNumeros(this)" required>
+          <input type="text" id="numDoc" name="numDoc" required />
         </div>
 
-          <label>Ciudad de expedición:</label>
-          <select class="seleccione" name="ciudad" required>
-            <option value="">--- Elige Ciudad ---</option>
-            <option>Bogotá</option>
-            <option>Ibagué</option>
-            <option>Medellín</option>
-            <option>Cali</option>
-            <option>Barranquilla</option>
-            <option>Cartagena</option>
-            <option>Otros</option>
-          </select>
+        <label>Ciudad de expedición:</label>
+        <select class="seleccione" name="ciudad" required>
+          <option value="">--- Elige Ciudad ---</option>
+          <option>Bogotá</option>
+          <option>Ibagué</option>
+          <option>Medellín</option>
+          <option>Cali</option>
+          <option>Barranquilla</option>
+          <option>Cartagena</option>
+          <option>Otros</option>
+        </select>
 
         <div class="campo">
           <label>No. Teléfono:</label>
-          <input type="text" name="telefono" pattern="[0-9]+" title="Solo se permiten números" oninput="soloNumeros(this)" required>
+          <input type="text" name="telefono" required />
         </div>
 
         <div class="campo">
           <label>Dirección:</label>
-          <input type="text" name="direccion" maxlength="100">
+          <input type="text" name="direccion" maxlength="100" />
         </div>
 
         <div class="campo">
           <label>Tipo de acción:</label>
-
           <div class="opcion">
-            <label>
-              <input type="radio" name="accion" value="Derecho de Petición">
-              PQRs
-            </label>
+            <label><input type="radio" name="accion" value="PQRs" /> PQRs</label>
           </div>
-
           <div class="opcion">
-            <label>
-              <input type="radio" name="accion" value="Queja">
-              Queja
-            </label>
+            <label><input type="radio" name="accion" value="Queja" /> Queja</label>
           </div>
-
           <div class="opcion">
-            <label>
-              <input type="radio" name="accion" value="Reclamo">
-              Reclamo
-            </label>
+            <label><input type="radio" name="accion" value="Reclamo" /> Reclamo</label>
           </div>
-
           <div class="opcion">
-            <label>
-              <input type="radio" name="accion" value="Felicitacion">
-              Felicitación
-            </label>
+            <label><input type="radio" name="accion" value="Felicitacion" /> Felicitación</label>
           </div>
+        </div>
 
         <div class="campo">
           <label>Mensaje:</label>
-          <textarea name="mensaje" maxlength="300" rows="5" placeholder="Escriba su mensaje..." required></textarea>
+          <textarea name="mensaje" maxlength="300" rows="5" required></textarea>
         </div>
 
         <div class="botones">
           <button type="submit" class="btn-enviar">Enviar</button>
           <button type="reset" class="btn-reset">Restaurar</button>
         </div>
-
       </form>
     </section>
+
     <br>
     <br>
-    <!-- Multimedia -->
+
     <section class="multimedia">
       <h2>Videos</h2>
       <video controls autoplay muted>
-        <source src="Con_Animo.mp4" type="video/mp4">
-        Tu navegador no soporta video.
+        <source src="Con_Animo.mp4" type="video/mp4" />
       </video>
       <video controls loop>
-        <source src="Como_Oreo.mp4" type="video/mp4">
-        Tu navegador no soporta video.
+        <source src="Como_Oreo.mp4" type="video/mp4" />
       </video>
     </section>
   </main>
-  <!-- Firebase -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
-    authDomain: "registro-portatiles-sena.firebaseapp.com",
-    projectId: "registro-portatiles-sena",
-    storageBucket: "registro-portatiles-sena.firebasestorage.app",
-    messagingSenderId: "140602261232",
-    appId: "1:140602261232:web:e0360347eb1e56273c8c35"
-  };
-
-  // Inicializar Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  // Hacer accesible la BD al script.js
-  window.db = db;
-</script>
-
-
 </body>
 </html>
