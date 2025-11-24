@@ -43,7 +43,9 @@ npm:
 Ejecuta 
 npm uninstall -g firebase-tools
 
-RECOMENDACION
+RECOMENDACION!!!!
+
+En la carpeta que se tiene el proyecto 
 
 Si se quiere usar un proyecto diferente 
 en firebase 
@@ -60,6 +62,3 @@ firebase use (el proyecto deseado con el id)
 luego verificar si esta bien conectado con 
 
 firebase use
-
-luego si usar el 
-firebase deploy
