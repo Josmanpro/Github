@@ -2,12 +2,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
-  authDomain: "registro-portatiles-sena.firebaseapp.com",
-  projectId: "registro-portatiles-sena",
-  storageBucket: "registro-portatiles-sena.firebasestorage.app",
-  messagingSenderId: "140602261232",
-  appId: "1:140602261232:web:e0360347eb1e56273c8c35"
+  apiKey: "AIzaSyAJS4j-yNthEhkAr_iTc7-pXqwz2Aut8VY",
+  authDomain: "formulario-2f1fb.firebaseapp.com",
+  projectId: "formulario-2f1fb",
+  storageBucket: "formulario-2f1fb.firebasestorage.app",
+  messagingSenderId: "786842042154",
+  appId: "1:786842042154:web:14165c00a1fdeab253e853"
 };
 
 // Inicializar Firebase

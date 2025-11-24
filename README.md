@@ -42,3 +42,24 @@ Desinstalar firebase CLI
 npm: 
 Ejecuta 
 npm uninstall -g firebase-tools
+
+RECOMENDACION
+
+Si se quiere usar un proyecto diferente 
+en firebase 
+primero:
+
+firebase projects:list
+para saber que proyectos tiene en firebase 
+
+luego copiar el id de el proyecto deseado
+y usar el siguiente comando 
+
+firebase use (el proyecto deseado con el id)
+
+luego verificar si esta bien conectado con 
+
+firebase use
+
+luego si usar el 
+firebase deploy
