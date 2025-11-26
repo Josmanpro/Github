@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario con Validaciones y Multimedia</title>
   <link rel="stylesheet" href="estilos.css" />
-  <script type="module" src="script.js"></script>
 </head>
 <body>
   <header>
@@ -92,16 +91,16 @@
         <div class="campo">
           <label>Tipo de acción:</label>
           <div class="opcion">
-            <label><input type="radio" name="accion" value="PQRs" /> PQRs</label>
+            <label><input type="radio" name="accion" value="PQRs" required /> PQRs</label>
           </div>
           <div class="opcion">
-            <label><input type="radio" name="accion" value="Queja" /> Queja</label>
+            <label><input type="radio" name="accion" value="Queja" required /> Queja</label>
           </div>
           <div class="opcion">
-            <label><input type="radio" name="accion" value="Reclamo" /> Reclamo</label>
+            <label><input type="radio" name="accion" value="Reclamo" required /> Reclamo</label>
           </div>
           <div class="opcion">
-            <label><input type="radio" name="accion" value="Felicitacion" /> Felicitación</label>
+            <label><input type="radio" name="accion" value="Felicitacion" required /> Felicitación</label>
           </div>
         </div>
 
@@ -123,13 +122,14 @@
     <section class="multimedia">
       <h2>Videos</h2>
       <video controls autoplay muted>
-        <source src="Con_Animo.mp4" type="video/mp4" />
+        <source src="*" type="video/mp4" />
       </video>
       <video controls loop>
         <source src="Como_Oreo.mp4" type="video/mp4" />
       </video>
     </section>
   </main>
+<script type="module" src="script.js"></script>
 </body>
 </html>
 

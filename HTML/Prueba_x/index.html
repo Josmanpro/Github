@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal con Botón</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #8B3A3A;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* Fondo oscuro */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .3s ease;
+            z-index: 9999;
+        }
+
+        .overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Caja del modal */
+        .modal {
+            background: white;
+            padding: 35px;
+            width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Cerrar */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .btn {
+            background: #8B3A3A;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<header>Modal con Botón</header>
+
+<main>
+    <h1>Contenido de la Página</h1>
+    <p>Haz clic en el botón para abrir el popup:</p>
+
+    <button class="btn" id="openBtn">Mostrar popup</button>
+</main>
+
+<!-- Modal -->
+<div id="overlay" class="overlay">
+    <div class="modal">
+        <span class="close" id="closeBtn">&times;</span>
+
+        <h2>Tratamiento de Datos</h2>
+        <p>
+            Al ingresar a este sitio web, aceptas las políticas de tratamiento de datos.
+            <br><br>
+            Fecha de actualización: <b>26/08/2024</b>
+        </p>
+
+        <button class="btn" id="acceptBtn">AUTORIZO</button>
+    </div>
+</div>
+
+<script>
+    const overlay = document.getElementById("overlay");
+    const openBtn = document.getElementById("openBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const acceptBtn = document.getElementById("acceptBtn");
+
+    // Abrir popup
+    openBtn.onclick = () => {
+        overlay.classList.add("active");
+    };
+
+    // Cerrar con la X
+    closeBtn.onclick = () => {
+        overlay.classList.remove("active");
+    };
+
+    // Cerrar con el botón AUTORIZO
+    acceptBtn.onclick = () => {
+        overlay.classList.remove("active");
+    };
+</script>
+
+</body>
+</html>
