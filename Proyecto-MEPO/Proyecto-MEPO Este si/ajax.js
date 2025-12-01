@@ -7,7 +7,7 @@ const productos = {
             precios: {
                 "Éxito": 3200,
                 "D1": 2950,
-                "Justo y Bueno": 3100,
+                "Mercacentro": 3100,
                 "Surtiplaza": 3300
             }
         },
