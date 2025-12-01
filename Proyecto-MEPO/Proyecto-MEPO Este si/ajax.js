@@ -1,5 +1,4 @@
-// Simulación de una base de datos de productos.
-// En una aplicación real, esta información vendría de un servidor.
+
 const productos = {
     lacteos: [
         {

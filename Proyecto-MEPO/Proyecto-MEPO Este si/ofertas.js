@@ -6,7 +6,7 @@ const ofertas = [
         precioOriginal: 15500,
         precioDescuento: 11990,
         supermercado: "D1",
-        url: "#" // Enlace a la oferta
+        url: "#"
     },
     {
         nombre: "Jabón de Tocador Palmolive 3x90g",
