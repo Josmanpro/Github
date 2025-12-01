@@ -10,7 +10,7 @@ const ofertas = [
     },
     {
         nombre: "Jabón de Tocador Palmolive 3x90g",
-        imagen: "imagenes/jabon.png",
+        imagen: "imagenes/jabon.webp",
         precioOriginal: 8500,
         precioDescuento: 6990,
         supermercado: "Éxito",
@@ -26,7 +26,7 @@ const ofertas = [
     },
     {
         nombre: "Papel Higiénico Familia 10 rollos",
-        imagen: "imagenes/papel.png",
+        imagen: "imagenes/papel.webp",
         precioOriginal: 22000,
         precioDescuento: 18900,
         supermercado: "Justo y Bueno",
@@ -34,7 +34,7 @@ const ofertas = [
     },
     {
         nombre: "Gaseosa Coca-Cola 2.5L",
-        imagen: "imagenes/gaseosa.png",
+        imagen: "imagenes/gaseosa.webp",
         precioOriginal: 6500,
         precioDescuento: 5500,
         supermercado: "D1",
