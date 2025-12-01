@@ -13,7 +13,7 @@ const productos = {
         },
         {
             nombre: "Queso Campesino 500g",
-            imagen: "https://placehold.co/300x200/E3F2FD/333?text=Queso+Campesino",
+            imagen: "imagenes/comparar/Quesocampesino.jpg",
             precios: {
                 "Éxito": 12500,
                 "D1": 11900,
@@ -23,7 +23,7 @@ const productos = {
         },
         {
             nombre: "Yogurt Natural 1L",
-            imagen: "https://placehold.co/300x200/E3F2FD/333?text=Yogurt+Natural",
+            imagen: "imagenes/comparar/yogurt.png",
             precios: {
                 "Éxito": 5500,
                 "D1": 5200,
@@ -35,7 +35,7 @@ const productos = {
     granos: [
         {
             nombre: "Arroz Diana 500g",
-            imagen: "https://placehold.co/300x200/FFF3E0/333?text=Arroz+Diana",
+            imagen: "imagenes/comparar/Arrozdiana.webp",
             precios: {
                 "Éxito": 2200,
                 "D1": 1990,
@@ -45,7 +45,7 @@ const productos = {
         },
         {
             nombre: "Lentejas Rojas 500g",
-            imagen: "https://placehold.co/300x200/FFF3E0/333?text=Lentejas+Rojas",
+            imagen: "imagenes/comparar/lentejas.avif",
             precios: {
                 "Éxito": 3500,
                 "D1": 3200,
@@ -57,7 +57,7 @@ const productos = {
     aseo: [
         {
             nombre: "Jabón en Polvo Fab 500g",
-            imagen: "https://placehold.co/300x200/E0F2F1/333?text=Jabón+Fab",
+            imagen: "imagenes/comparar/jabonfab.jpg",
             precios: {
                 "Éxito": 4800,
                 "D1": 4500,
@@ -67,7 +67,7 @@ const productos = {
         },
         {
             nombre: "Limpiavidrios 750ml",
-            imagen: "https://placehold.co/300x200/E0F2F1/333?text=Limpiavidrios",
+            imagen: "imagenes/comparar/limpiavidrios.jpg",
             precios: {
                 "Éxito": 6500,
                 "D1": 6200,
