@@ -62,4 +62,4 @@ firebase use (el proyecto deseado con el id)
 luego verificar si esta bien conectado con 
 
 firebase use
-1
+1 yissspro
