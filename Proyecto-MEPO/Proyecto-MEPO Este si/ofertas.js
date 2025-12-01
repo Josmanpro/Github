@@ -2,7 +2,7 @@
 const ofertas = [
     {
         nombre: "Aceite de Girasol 900ml",
-        imagen: "imagenes/aceite.png",
+        imagen: "imagenes/ofertas/aceite.png",
         precioOriginal: 15500,
         precioDescuento: 11990,
         supermercado: "D1",
@@ -10,7 +10,7 @@ const ofertas = [
     },
     {
         nombre: "Jabón de Tocador Palmolive 3x90g",
-        imagen: "imagenes/jabon.webp",
+        imagen: "imagenes/ofertas/jabon.webp",
         precioOriginal: 8500,
         precioDescuento: 6990,
         supermercado: "Éxito",
@@ -18,7 +18,7 @@ const ofertas = [
     },
     {
         nombre: "Cereal Zucaritas 250g",
-        imagen: "imagenes/cereal.png",
+        imagen: "imagenes/ofertas/cereal.png",
         precioOriginal: 9800,
         precioDescuento: 7500,
         supermercado: "Surtiplaza",
@@ -26,7 +26,7 @@ const ofertas = [
     },
     {
         nombre: "Papel Higiénico Familia 10 rollos",
-        imagen: "imagenes/papel.webp",
+        imagen: "imagenes/ofertas/papel.webp",
         precioOriginal: 22000,
         precioDescuento: 18900,
         supermercado: "Justo y Bueno",
@@ -34,7 +34,7 @@ const ofertas = [
     },
     {
         nombre: "Gaseosa Coca-Cola 2.5L",
-        imagen: "imagenes/gaseosa.webp",
+        imagen: "imagenes/ofertas/gaseosa.webp",
         precioOriginal: 6500,
         precioDescuento: 5500,
         supermercado: "D1",
