@@ -64,3 +64,4 @@ luego verificar si esta bien conectado con
 firebase use
 1 yissspro
 2 sebaxx314
+3 josep el gay
