@@ -3,7 +3,7 @@ const productos = {
     lacteos: [
         {
             nombre: "Leche Entera 1L",
-            imagen: "https://placehold.co/300x200/E3F2FD/333?text=Leche+Entera",
+            imagen: "imagenes/comparar/leche.webp",
             precios: {
                 "Éxito": 3200,
                 "D1": 2950,
