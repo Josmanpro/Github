@@ -1,208 +1,175 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Lato');
+/* --- Estilos para la página de Login --- */
 
-/* Variables convertidas a CSS */
-:root {
-  --font-primary: 'Montserrat','Arial',sans-serif;
-  --font-body: 'Lato','Arial',sans-serif;
-
-  --color-primary: #8D6CC7;
-  --color-primary-dark: #7f5abf; /* darken aproximado */
-  --color-light-gray: #DAE2F1;
-}
-
-/* GLOBAL */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  background:
-    linear-gradient(
-      rgba(220, 234, 237, .7),
-      rgba(220, 234, 237, .7)
-    ),
-    url("http://res.cloudinary.com/jenelle-miller/image/upload/v1518619522/doodles_cuau2z.png") repeat;
-}
-
-.main-header {
-    background-color: var(--white-color);
-    border-bottom: 1px solid #eee;
+/* Contenedor para centrar vertical y horizontalmente el formulario */
+.login-page-wrapper {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    min-height: calc(100vh - 80px); /* 80px es la altura aproximada del header */
+    background-color: var(--light-color);
+    padding: 2rem 1rem;
 }
 
-.container {
-  height: 100%;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.form-container {
+    width: 100%;
+    max-width: 420px;
 }
 
-h1 {
-  font-family: var(--font-primary);
-  color: var(--primary-color);
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 32px;
-}
-
-/* FORM */
 .form-background {
-  background: #fff;
-  width: 420px;
-  border-radius: 10px;
-  padding: 32px;
-  box-shadow: 0px 15px 88px -37px rgba(0,0,0,0.17);
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    text-align: center;
 }
 
-form {
-  text-transform: capitalize;
-  font-family: var(--font-body);
-  text-align: center;
+.form-background h1 {
+    font-family: var(--font-family);
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
 }
 
-input {
-  width: 100%;
-  margin-bottom: 15px;
-  border-radius: 30px;
-  border: 1px solid var(--color-light-gray);
-  padding: 15px 20px;
-  color: #8498AF;
-  font-size: .9rem;
-  transition: .4s;
+/* Mensaje de error */
+.error-message {
+    color: #d32f2f;
+    background-color: #ffcdd2;
+    border: 1px solid #e57373;
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    display: none; /* Se muestra con JavaScript si hay un error */
 }
 
-input:last-child {
-  margin-bottom: 0;
+/* Estilos del formulario */
+#loginForm {
+    display: flex;
+    flex-direction: column;
 }
 
-input:focus {
-  border-color: var(--color-primary);
-  outline: none;
+.input-group {
+    margin-bottom: 1.5rem;
 }
 
-[type="submit"] {
-  background: var(--color-primary);
-  border-radius: 30px;
-  padding: 16px 30px;
-  width: 100%;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: .8rem;
-  transition: .4s;
-  font-family: var(--font-primary);
-  border: none;
-  box-shadow: none;
-  margin: 0;
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-[type="submit"]:hover {
-  background: var(--color-primary-dark);
-  cursor: pointer;
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
-.sign-up-divider {
-  font-family: var(--font-primary);
-  text-align: center;
-  color: #C4C8D4;
-  font-size: .8rem;
-  letter-spacing: .5px;
-  padding: 24px 0;
-  position: relative;
+.btn-login-form {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
 }
 
-.sign-up-divider::before,
-.sign-up-divider::after {
-  content: '';
-  display: inline-block;
-  width: 27%;
-  height: 1px;
-  background: var(--color-light-gray);
-  vertical-align: middle;
+.btn-login-form:hover {
+    background-color: var(--secondary-color);
 }
 
-.sign-up-divider::before {
-  margin-right: 5%;
+.forgot-password {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
-.sign-up-divider::after {
-  margin-left: 5%;
+.forgot-password:hover {
+    color: var(--secondary-color);
 }
 
-/* Social Icons */
-.social-media-icons {
-  text-align: center;
-  color: #fff;
+/* Divisor social */
+.social-divider {
+    position: relative;
+    text-align: center;
+    margin: 2rem 0 1.5rem 0;
+    color: #999;
+    font-size: 0.9rem;
 }
 
-.social-media-icons li {
-  margin-right: 10px;
-  list-style: none;
-  display: inline-block;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  font-size: 1rem;
-  padding-top: 15px;
-  transition: .3s;
+.social-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #eee;
 }
 
-.social-media-icons li a {
-  color: #fff;
+.social-divider span {
+    background-color: var(--white-color);
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
 }
 
-/* Google */
-li.google {
-  background: #EA5859;
+/* Iconos de redes sociales */
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
-li.google:hover {
-  background: #d65152;
-  cursor: pointer;
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Facebook */
-li.facebook {
-  background: #527ED5;
+.social-icon:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
 }
 
-li.facebook:hover {
-  background: #4a72c2;
-  cursor: pointer;
+.social-icon.google { background-color: #DB4437; }
+.social-icon.facebook { background-color: #4267B2; }
+.social-icon.twitter { background-color: #1DA1F2; }
+
+/* Prompt para registrarse */
+.sign-up-prompt {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
 }
 
-/* Twitter */
-li.twitter {
-  background: #61BDED;
+.sign-up-prompt a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-li.twitter:hover {
-  background: #57add6;
-  cursor: pointer;
-}
-
-.login {
-  text-align: center;
-  margin-top: 24px;
-  font-size: .8rem;
-  font-family: var(--font-primary);
-}
-
-.login a {
-  margin-left: 4px;
-  text-decoration: none;
-  color: var(--color-primary);
-  transition: .3s;
-}
-
-.login a:hover {
-  color: var(--color-primary-dark);
+.sign-up-prompt a:hover {
+    color: var(--secondary-color);
 }
