@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Importamos las variables y estilos base para mantener consistencia */
 :root {
     --primary-color: #4CAF50;
@@ -194,3 +195,6 @@ main p {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
+=======
+
+>>>>>>> 835d0d556865589bb9d7c5eb47d16bc1b5d373a2

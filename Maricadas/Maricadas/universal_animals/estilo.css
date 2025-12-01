@@ -1,0 +1,731 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Barra superior */
+.barra-superior {
+    background-color: #f7a34b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    color: white;
+}
+
+.inicio {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+}
+
+.inicio img {
+    width: 25px;
+}
+
+.inicio a {
+    text-decoration: none;
+    color: white;
+    padding-top: 10px; /* mueve hacia abajo */
+}
+
+.redes a {
+    text-decoration: none;
+    color: white;
+    font-size: 10px;
+    margin-left: 0px;
+    
+}
+
+.redes img {
+    width: 40px;
+    vertical-align: middle;
+    margin-right: 2px;
+    
+}
+
+
+/* Menú principal */
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #fffdfd;
+}
+
+.logo img {
+    height: 80px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 70px;
+    margin: 6;
+    padding: 6;
+    margin-top: 50px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+ transition: color 0.2s ease; /* Animación suave */
+}
+
+.menu a:hover {
+    color: #6bbd63;       /* Cambia a verde al pasar el mouse */
+}
+
+/* Contenedor general */
+.acciones {
+    display: flex;
+    gap: 15px;            /* Espacio entre los íconos */
+    align-items: center;
+    margin-right: 28px;
+    margin-top: -50px;
+}
+
+
+/* Cada opción de acción */
+.accion {
+    text-align: center;
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+}
+
+/* --- Unificar color de Buscador, Mi cuenta y Carrito --- */
+
+/* Color normal */
+.acciones a,
+.buscador-link,
+.accion a {
+    color: black !important;
+    text-decoration: none;
+}
+
+/* Evitar morado de visitado */
+.acciones a:visited,
+.buscador-link:visited,
+.accion a:visited {
+    color: black !important;
+}
+
+/* Verde al pasar el mouse */
+.acciones a:hover,
+.buscador-link:hover,
+.accion a:hover {
+    color: #6bbd63 !important;
+}
+
+
+
+
+.buscador-link {
+    text-decoration: none;  
+    color: black;     
+
+}
+
+
+/* Estilo para las imágenes */
+.accion img {
+    width: 38px;          /* Tamaño de los ícons */
+    display: block;
+    margin: 0 auto 2px;   /* Centrado y espacio con el texto */
+}
+
+/* Fondo modal */
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    z-index: 9999;
+}
+
+/* Caja del buscador */
+.search-box {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Input del buscador */
+#modalSearchInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+}
+
+/* Botón de buscador */
+.search-box button {
+    padding: 10px 16px;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Botón Cerrar */
+.close-search {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+/* Slider */
+.slider {
+    max-width: 1060px;
+    height: 350px;
+    margin: 0 auto 0 auto;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 3px ;    
+    border-radius: 12px;
+}
+
+.slides {
+    display: flex;
+    width: 100%; 
+    height: 100%; 
+    transition: transform 0.4s ease;
+}
+
+.slide {
+    min-width: 100%; 
+    height: 100%;
+}
+
+.slider img {
+    display: block;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;         
+    border-radius: 8px;       
+}
+
+
+/* Puntos */
+.dots {
+    text-align: center;
+    position: absolute;
+    bottom: 10px; 
+    width: 100%; 
+}
+
+.dot {
+    height: 12px; 
+    width: 12px; 
+    margin: 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+
+/*categorias Perro*/
+.categorias-Perro {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 40px;
+    background: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    
+}
+
+.categoria {
+    flex: 1;
+    min-width: 150px;
+}
+
+.categoria h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.categoria ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categoria ul li {
+    font-size: 14px;
+    color: #333;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.categoria ul li:hover {
+    text-decoration: underline;
+    color: #f7a34b;
+}
+
+
+/*categoria Gato*/
+.categoria-Gato {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    padding: 20px 40px;
+    background: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    cursor: nowrap;
+}
+
+.categoria {
+    flex: 1;
+    min-width: 120px;
+}
+
+.categoria h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    
+}
+
+.categoria ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categoria ul li {
+    font-size: 14px;
+    color: #333;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.categoria ul li:hover {
+    text-decoration: underline;
+    color: #f7a34b;
+}
+
+
+/*Categoria Pez*/
+.categorias-Pez {
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;       /* centra verticalmente */
+    gap: 60px;                 /* más espacio entre categorías */
+    padding: 60px 40px;        /* aumenta el padding superior/inferior */
+    background: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.categoria {
+    text-align: center;   /* centra el texto dentro de cada categoría */
+    min-width: 150px;
+    font-size: 14px;      /* texto más visible */
+    font-weight: 500;
+}
+
+
+/*Categoria Hámster*/
+.Categoria-Hamster {
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;
+    gap: 65px; 
+    padding: 60px 40px;        /* aumenta el padding superior/inferior */
+    background: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.Categorias {
+    text-align: center;   /* centra el texto dentro de cada categoría */
+    min-width: 150px;
+    font-size: 14px;      /* texto más visible */
+    font-weight: 500;
+}
+
+
+/*Categoria Aves_Ornamentales*/
+.categorias-Aves_Ornamentales {
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;       /* centra verticalmente */
+    gap: 60px;                 /* más espacio entre categorías */
+    padding: 60px 40px;        /* aumenta el padding superior/inferior */
+    background: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.categoria {
+    text-align: center;   /* centra el texto dentro de cada categoría */
+    min-width: 150px;
+    font-size: 14px;      /* texto más visible */
+    font-weight: 500;
+}
+
+
+/*Categoria Conejo*/
+.categorias-Conejo {
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;       /* centra verticalmente */
+    gap: 60px;                 /* más espacio entre categorías */
+    padding: 60px 40px;        /* aumenta el padding superior/inferior */
+    background: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.categoria {
+    text-align: center;   /* centra el texto dentro de cada categoría */
+    min-width: 150px;
+    font-size: 14px;      /* texto más visible */
+    font-weight: 500;
+}
+
+/*Top de ventas Perro*/
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 5px;
+  width: fit-content;
+  margin: 0 auto 25px auto;
+}
+
+.tab-content {
+    padding: 5px 10px;
+    margin-bottom: 10px; /* o 0 si quieres que quede más pegado */
+}
+
+
+.tab-content iframe {
+    width: 100%;
+    height: 640px; /* 🔽 ANTES: 650px → bajamos para evitar scroll innecesario */
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tabs button {
+  border: none;
+  background: transparent;
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.tabs button:hover {
+  transform: scale(1.1);  /* Hace que crezca un poco */
+  background: #e6e6e6;    /* Fondo suave al pasar */
+}
+
+.tabs button.active {
+  background: #fff;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.products-TopPerro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: stretch; 
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px; 
+  object-fit: contain;  
+  border: solid #45a049 2px;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.card p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+  margin-top: auto; 
+}
+
+.btn {
+  width: 100%;           /* Mismo ancho en todas las tarjetas */
+  padding: 10px 15px;
+  margin-top: 10px;      /* Se queda al fondo de la tarjeta */
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #45a049;
+}
+@media (max-width: 600px) {
+  .products-TopPerro {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+  }
+}
+
+/*Top de ventas Gato*/
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 5px;
+  width: fit-content;
+  margin: 0 auto 25px auto;
+}
+
+.tabs button {
+  border: none;
+  background: transparent;
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.tabs button:hover {
+  transform: scale(1.1);  /* Hace que crezca un poco */
+  background: #e6e6e6;    /* Fondo suave al pasar */
+}
+
+.tabs button.active {
+  background: #fff;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.products-TopGato {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: stretch; /* Hace que todas las tarjetas tengan la misma altura */
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  min-height: 420px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px; 
+  object-fit: contain;  
+  border: solid #45a049 2px;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.card p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+  margin-top: auto; 
+}
+
+.btn {
+  width: 100%;           /* Mismo ancho en todas las tarjetas */
+  padding: 10px 15px;
+  margin-top: 10px;      /* Se queda al fondo de la tarjeta */
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #45a049;
+}
+iframe {
+    width: 100%;
+    height: 1100px;
+    border: none;
+    overflow: hidden; 
+}
+@media (max-width: 600px) {
+  .products-TopGato {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+  }
+}
+
+
+
+/* FOOTER */
+.footer {
+  background-color: #f28c13;
+  color: white;
+  padding: 50px 0 20px;
+  margin-top: 40px;
+  font-family: Arial, sans-serif;
+}
+
+
+.footer-container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+}
+
+.footer-section h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.footer-section a,
+.footer-section p {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 8px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin-right: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-icons img {
+  width: 30px;
+  margin-right: 2px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding: 8px 4px;
+  font-size: 11px;
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-bottom a {
+  color: white;
+  text-decoration: none;
+  margin: 0 18px;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+

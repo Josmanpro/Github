@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top de ventas</title>
+  <link rel="stylesheet" href="estilo.css">
+
+  <script defer src="script.js"></script>
+
+  <style>
+    /* Ajuste para que no se superpongan fondos */
+    #iframeModal {
+        background: transparent !important;
+    }
+  </style>
+
+</head>
+<body>
+
+<h2><strong> Top de ventas</strong></h2>
+
+<div class="tabs">
+  <button class="tab-btn" onclick="location.href='TopPerro.html'">Perros</button>
+  <button class="tab-btn" onclick="location.href='TopGato.html'">Gatos</button>
+</div>
+
+<div class="products-TopPerro">
+
+  <!-- Producto 1 -->
+  <div class="card">
+    <img src="imagenes/Perro1.jpg" alt="Producto 1">
+    <p>Alimento seco Hill’s Science Diet <br> Adult 7+ Para mayores de 7 años.</p>
+    <p>Presentación: 15.5 lb (7 kg)<br>Receta: Pollo</p>
+    <p class="price">Precio: $16.000</p>
+
+    <button class="btn" onclick="abrirModal('index.html')">Seleccionar Opciones</button>
+  </div>
+
+  <!-- Producto 2 -->
+  <div class="card">
+    <img src="imagenes/Perro2.jpg" alt="Producto 2">
+    <p>Hill’s Science Diet Light Small Bites - Adultos (1-6) años.</p>
+    <p>Presentación: 15.5 lb (7 kg)<br>Receta: Pollo con cebada</p>
+    <p class="price">Precio: $13.900</p>
+
+    <button class="btn" onclick="abrirModal('index.html')">Seleccionar Opciones</button>
+  </div>
+
+  <!-- Producto 3 -->
+  <div class="card">
+    <img src="imagenes/Perro3.jpg" alt="Producto 3">
+    <p>Hill’s Science Diet Sensitive Stomach & Skin - Small & Mini Adulto.</p>
+    <p>Presentación: 4 lb (1.81 kg)<br>Receta: Pollo con arroz</p>
+    <p class="price">Precio: $21.200</p>
+
+    <button class="btn" onclick="abrirModal('index.html')">Seleccionar Opciones</button>
+  </div>
+
+  <!-- Producto 4 -->
+  <div class="card">
+    <img src="imagenes/Perro4.jpg" alt="Producto 4">
+    <p>Hill’s Science Diet Perfect Digestion - Adultos (1-6) años.</p>
+    <p>Presentación: 3.5 lb (1.59 kg)<br>Receta: Salmón, arroz integral y grano</p>
+    <p class="price">Precio: $15.700</p>
+
+    <button class="btn" onclick="abrirModal('index.html')">Seleccionar Opciones</button>
+  </div>
+
+  <!-- Producto 5 -->
+  <div class="card">
+    <img src="imagenes/Perro5.jpg" alt="Producto 5">
+    <p>Hill’s Science Diet Healthy Mobility Small Bites Adult.</p>
+    <p>Presentación: 15.5 lb (7.03 kg)<br>Receta: Pollo</p>
+    <p class="price">Precio: $18.600</p>
+
+    <button class="btn" onclick="abrirModal('index.html')">Seleccionar Opciones</button>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" style="
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+">
+    <div style="
+        width:80%; 
+        height:80%;
+        background:transparent; 
+        border-radius:10px;
+        position:relative;
+        overflow:hidden;
+    ">
+        <button onclick="cerrarModal()" 
+            style="
+                position:absolute; 
+                top:10px; 
+                right:10px; 
+                padding:5px 10px; 
+                background:red; 
+                color:white; 
+                border:none; 
+                cursor:pointer;">
+            X
+        </button>
+
+        <iframe id="iframeModal" src="" style="width:100%; height:100%; border:none;"></iframe>
+    </div>
+</div>
+
+</body>
+</html>
