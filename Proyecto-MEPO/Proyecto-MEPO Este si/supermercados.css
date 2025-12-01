@@ -1,0 +1,191 @@
+/* Importamos las variables y estilos base para mantener consistencia */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2E7D32;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --white-color: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 8px;
+    --shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* --- Header y Navegación (Reutilizamos estilos) --- */
+.main-header {
+    background-color: var(--white-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.main-nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+.btn-login {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.btn-login:hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- Contenido Principal de Supermercados --- */
+main h1 {
+    text-align: center;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+main p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.supermarkets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* --- Tarjeta de Supermercado --- */
+.supermarket-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.supermarket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.card-logo-container {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.card-logo {
+    max-width: 150px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.card-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+.card-detail {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.card-detail .icon {
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.card-detail p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.card-actions .btn {
+    flex-grow: 1;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+@media (max-width: 768px) {
+    .supermarkets-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-actions {
+        flex-direction: column;
+    }
+}

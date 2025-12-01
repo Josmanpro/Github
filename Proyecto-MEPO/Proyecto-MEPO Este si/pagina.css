@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #4CAF50; 
+    --secondary-color: #2E7D32;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --white-color: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    color: var(--dark-color);
+    background-color: var(--white-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header --- */
+.main-header {
+    background-color: var(--white-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background-color: var(--light-color);
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.search-box {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.search-box input {
+    flex-grow: 1;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-box button {
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- How it Works Section --- */
+.how-it-works {
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.step {
+    flex-basis: 30%;
+}
+
+.step .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* --- Stores Section --- */
+.stores {
+    background-color: var(--light-color);
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.stores h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.logos-grid img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logos-grid img:hover {
+    transform: scale(1.2);
+}
+
+.main-footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--light-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-nav a {
+        margin: 0.5rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .steps {
+        flex-direction: column;
+    }
+    .main-footer .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
