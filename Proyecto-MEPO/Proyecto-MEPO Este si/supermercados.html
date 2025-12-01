@@ -14,8 +14,11 @@
                 $("#mapexito").click(function(){
                     $("#exito").slideToggle(600);
                 });
-                $("").click(function(){
-                    $("").slideToggle(600);
+                $("#mapd").click(function(){
+                    $("#done").slideToggle(600);
+                });
+                $("#mapsurti").click(function(){
+                    $("#surtiplaza").slideToggle(600);
                 });
             });
         </script>
@@ -38,7 +41,7 @@
 <main class="container">
     <h1>Nuestros Supermercados Aliados</h1>
 
-    <div id="supermercados-grid" class="supermarkets-grid"></div>
+    <div id="supermercados-grid" class="superrkets-grid"></div>
 </main>
 <div class="supermarkets-grid"> 
 <!-- SUPERMERCADO 1 --> 
@@ -66,78 +69,81 @@
             <!-- Botón que abre el mapa --> 
             <button id="mapexito" class="btn btn-secondary">Ver Mapa</button>
         </div> 
-        <div id="exito" style="display: none;">
+        <div id="exito" class="mapo" style="display: none;">
              <iframe 
             src="https://www.google.com/maps/d/embed?mid=1619EnBY76AoqEjHCA7W0rOiq9kf10So&ehbc=2E312F" 
-            width="640" 
-            height="480">
+            width="100%" 
+            height="300">
 
             </iframe>
-           <!-- surtiplaza <iframe src="https://www.google.com/maps/d/embed?mid=10kORHmVVkuUkfLfEw1sSUD9ePe8Sggk&ehbc=2E312F" width="640" height="480"></iframe>-->
-            
-           <!-- SUPER D1<iframe src="https://www.google.com/maps/d/embed?mid=1yBAaI1scyIsjUEqRSXGL7hXZQbKQJF4&ehbc=2E312F" width="640" height="480"></iframe> -->
+      
         </div>
     </div> 
 </div> 
-<div class="supermarket-card"> 
-    <div class="card-logo-container"> 
-        <img src="imagenes/d1.png" alt="D1" class="card-logo"> 
-    </div> 
-    <div class="card-info">
-         <h3>D1</h3> 
-         <div class="card-detail">
-             <span class="icon">🏬</span> 
-             <p>Los precios más bajos, siempre.</p> 
+<div class="supermarkets-grid">
+    <div class="supermarket-card"> 
+        <div class="card-logo-container"> 
+            <img src="imagenes/d1.png" alt="D1" class="card-logo"> 
         </div> 
-        <div class="card-detail">
-             <span class="icon">📍</span> 
-             <p>Calle 50 # 4-45, Ibagué, Tolima</p>
+        <div class="card-info">
+            <h3>D1</h3> 
+            <div class="card-detail">
+                <span class="icon">🏬</span> 
+                <p>Los precios más bajos, siempre.</p> 
+            </div> 
+            <div class="card-detail">
+                <span class="icon">📍</span> 
+                <p>Calle 50 # 4-45, Ibagué, Tolima</p>
+            </div>
+            <div class="card-detail">
+                <span class="icon">⏰</span>
+                <p> Lunes a Sábado: 8:00 AM - 8:00 PM<br> Domingo: 9:00 AM - 6:00 PM </p> 
+            </div> 
+        </div> 
+        <div class="card-actions"> 
+            <a href="https://www.d1.com.co" class="btn btn-primary" target="_blank">Página Web</a>
+            <button id="mapd" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
         </div>
-        <div class="card-detail">
-             <span class="icon">⏰</span>
-              <p> Lunes a Sábado: 8:00 AM - 8:00 PM<br> Domingo: 9:00 AM - 6:00 PM </p> 
+        <div id="done" style="display: none;">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1yBAaI1scyIsjUEqRSXGL7hXZQbKQJF4&ehbc=2E312F" 
+                width="640"
+                height="480">
+            </iframe>
         </div> 
-    </div> 
-    <div class="card-actions"> 
-        <a href="https://www.d1.com.co" class="btn btn-primary" target="_blank">Página Web</a>
-         <a href="https://maps.app.goo.gl/xxxx" class="btn btn-secondary" target="_blank">Ver Mapa</a> 
-    </div> 
+    </div>
 </div> 
-<div class="supermarket-card"> 
-    <div class="card-logo-container"> 
-        <img src="imagenes/surti.png" alt="Surtiplaza" class="card-logo"> 
-    </div> 
-    <div class="card-info">
-         <h3>Surtiplaza</h3> 
-         <div class="card-detail"> 
-            <span class="icon">🏬</span> 
-            <p>La plaza de tu hogar.</p> 
+<div class="supermarkets-grid">
+    <div class="supermarket-card"> 
+        <div class="card-logo-container"> 
+            <img src="imagenes/surti.png" alt="Surtiplaza" class="card-logo"> 
         </div> 
-        <div class="card-detail"> 
-            <span class="icon">📍</span>
-             <p>Cra. 3 # 5-70, Ibagué, Tolima</p> 
+        <div class="card-info">
+            <h3>Surtiplaza</h3> 
+            <div class="card-detail"> 
+                <span class="icon">🏬</span> 
+                <p>La plaza de tu hogar.</p> 
+            </div> 
+            <div class="card-detail"> 
+                <span class="icon">📍</span>
+                <p>Cra. 3 # 5-70, Ibagué, Tolima</p> 
+            </div> 
+            <div class="card-detail"> 
+                <span class="icon">⏰</span> 
+                <p> Lunes a Sábado: 8:00 AM - 8:00 PM<br> Domingo: 9:00 AM - 1:00 PM </p>
+            </div> 
         </div> 
-        <div class="card-detail"> 
-            <span class="icon">⏰</span> 
-            <p> Lunes a Sábado: 8:00 AM - 8:00 PM<br> Domingo: 9:00 AM - 1:00 PM </p>
+        <div class="card-actions"> 
+            <a href="https://www.surtiplaza.com.co" class="btn btn-primary" target="_blank">Página Web</a> 
+            <button id="mapsurti" class="btn btn-secondary">Ver Mapa</button> 
         </div> 
     </div> 
-    <div class="card-actions"> 
-        <a href="https://www.surtiplaza.com.co" class="btn btn-primary" target="_blank">Página Web</a> 
-        <a href="#mapa-surtiplaza" class="btn btn-secondary">Ver Mapa</a> 
-    </div> 
-</div> <!-- MAPA DE SURTIPLAZA -->
- <div id="mapa-surtiplaza" style="margin-top: 20px;"> 
-    <iframe style="display: none;" 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5647149396435!2d-75.23176108523302!3d4.43897079669923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38e6b7c5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sSurtiplaza!5e0!3m2!1ses!2sco!4v1620000000003!5m2!1ses!2sco" 
-    width="100%" 
-    height="350" 
-    style="border:0"
-    allowfullscreen="" 
-    loading="lazy"> 
-</iframe> 
+    <div id="surtiplaza" style="display: none;"> 
+        <iframe src="https://www.google.com/maps/d/embed?mid=10kORHmVVkuUkfLfEw1sSUD9ePe8Sggk&ehbc=2E312F" 
+            width="640" 
+            height="480">
+        </iframe>
+    </div>
 </div>
-
 <script src="supermer.js"></script>
 
 </body>

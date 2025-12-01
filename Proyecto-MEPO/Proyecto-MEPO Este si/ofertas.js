@@ -9,7 +9,7 @@ const ofertas = [
         url: "#"
     },
     {
-        nombre: "Jabón de Tocador Palmolive 3x90g",
+        nombre: "Jabón de Tocador Palmolive 3x110g",
         imagen: "imagenes/ofertas/jabon.webp",
         precioOriginal: 8500,
         precioDescuento: 6990,
@@ -17,7 +17,7 @@ const ofertas = [
         url: "#"
     },
     {
-        nombre: "Cereal Zucaritas 250g",
+        nombre: "Cereal Zucaritas 190g",
         imagen: "imagenes/ofertas/cereal.png",
         precioOriginal: 9800,
         precioDescuento: 7500,
@@ -25,7 +25,7 @@ const ofertas = [
         url: "#"
     },
     {
-        nombre: "Papel Higiénico Familia 10 rollos",
+        nombre: "Papel Higiénico Familia 12 rollos",
         imagen: "imagenes/ofertas/papel.webp",
         precioOriginal: 22000,
         precioDescuento: 18900,
