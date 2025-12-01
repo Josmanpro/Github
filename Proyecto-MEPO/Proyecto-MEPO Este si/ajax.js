@@ -1,5 +1,4 @@
-// Simulación de una base de datos de productos.
-// En una aplicación real, esta información vendría de un servidor.
+
 const productos = {
     lacteos: [
         {
@@ -8,7 +7,7 @@ const productos = {
             precios: {
                 "Éxito": 3200,
                 "D1": 2950,
-                "Justo y Bueno": 3100,
+                "Mercacentro": 3100,
                 "Surtiplaza": 3300
             }
         },
@@ -18,7 +17,7 @@ const productos = {
             precios: {
                 "Éxito": 12500,
                 "D1": 11900,
-                "Justo y Bueno": 13000,
+                "Mercacentro": 13000,
                 "Surtiplaza": 12800
             }
         },
@@ -28,7 +27,7 @@ const productos = {
             precios: {
                 "Éxito": 5500,
                 "D1": 5200,
-                "Justo y Bueno": 5390,
+                "Mercacentro": 5390,
                 "Surtiplaza": 5600
             }
         }
@@ -40,7 +39,7 @@ const productos = {
             precios: {
                 "Éxito": 2200,
                 "D1": 1990,
-                "Justo y Bueno": 2100,
+                "Mercacentro": 2100,
                 "Surtiplaza": 2300
             }
         },
@@ -50,7 +49,7 @@ const productos = {
             precios: {
                 "Éxito": 3500,
                 "D1": 3200,
-                "Justo y Bueno": 3600,
+                "Mercacentro": 3600,
                 "Surtiplaza": 3700
             }
         }
@@ -62,7 +61,7 @@ const productos = {
             precios: {
                 "Éxito": 4800,
                 "D1": 4500,
-                "Justo y Bueno": 4900,
+                "Mercacentro": 4900,
                 "Surtiplaza": 5100
             }
         },
@@ -72,7 +71,7 @@ const productos = {
             precios: {
                 "Éxito": 6500,
                 "D1": 6200,
-                "Justo y Bueno": 6800,
+                "Mercacentro": 6800,
                 "Surtiplaza": 6900
             }
         }

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+/* Quitamos fondo y modal interno */
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+.modal-producto-clean {
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+/* Imagen y estructura */
+.producto-contenido {
+    display: flex;
+    gap: 25px;
+}
+
+/* Ajustes imagen */
+.producto-imagen img {
+    width: 230px;
+    height: auto;
+}
+
+/* Título estilo original */
+.titulo {
+    font-size: 22px;
+    font-weight: bold;
+    border: 2px solid #4aa3ff;
+    padding: 8px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+/* Precios */
+.precio {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff5e00;
+}
+
+.subtotal {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Tamaño botones */
+.peso-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.peso-btn {
+    border: 2px solid black;
+    padding: 8px 15px;
+    border-radius: 25px;
+    background: white;
+    cursor: pointer;
+}
+
+.peso-btn.active {
+    background: black;
+    color: white;
+}
+
+/* Cantidad */
+.cantidad-controles {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cantidad-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Botón carrito */
+.boton-carrito {
+    width: 100%;
+    padding: 15px;
+    background: #ffa646;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.boton-carrito:hover {
+    background: #ff9030;
+}
+
+/* Para que el iframe no genere scroll raro */
+html, body {
+    overflow: hidden;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="modal-producto-clean">
+
+    <div class="producto-contenido">
+
+        <div class="producto-imagen">
+            <img src="img/monello.png" alt="Producto">
+        </div>
+
+        <div class="producto-info">
+
+            <div class="titulo">Alimento Seco Monello Cat, Salmón Atún y Pollo</div>
+
+            <div class="precio">$32.000</div>
+            <div class="subtotal">Subtotal: <strong id="subtotal">$32.000</strong></div>
+
+            <label>Tamaño</label>
+            <div class="peso-buttons">
+                <button class="peso-btn active">1.5 lb</button>
+                <button class="peso-btn">7 kg</button>
+            </div>
+
+            <label>Cantidad</label>
+            <div class="cantidad-controles">
+                <button class="cantidad-btn">-</button>
+                <input type="number" value="1" min="1" style="width:40px;text-align:center;">
+                <button class="cantidad-btn">+</button>
+            </div>
+
+            <button class="boton-carrito">🛒 Agregar al carrito</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
