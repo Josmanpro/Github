@@ -1,0 +1,385 @@
+<!DOCTYPE html> 
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Pet Shop</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="carrito.css">
+
+    <!-- ESTILOS PARA LAS PÁGINAS INTERNAS -->
+    <style>
+        .pagina {
+            display: none;
+            padding: 40px;
+            background: #fff;
+            min-height: 60vh;
+        }
+        .pagina.activa {
+            display: block;
+        }
+        .btn-volver {
+            background: #ff8c00;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function abrirPagina(id) {
+            // Ocultar todas las pantallas internas
+            document.querySelectorAll(".pagina").forEach(p => p.classList.remove("activa"));
+
+            // Ocultar contenido principal
+            document.getElementById("contenido-principal").style.display = "none";
+
+            // Mostrar pantalla correspondiente
+            document.getElementById(id).classList.add("activa");
+
+            window.scrollTo(0, 0);
+        }
+
+        function volverInicio() {
+            document.querySelectorAll(".pagina").forEach(p => p.classList.remove("activa"));
+            document.getElementById("contenido-principal").style.display = "block";
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- TODO EL CONTENIDO PRINCIPAL SE ENVUELVE AQUÍ -->
+    <div id="contenido-principal">
+
+        <!-- MODAL DE BUSQUEDA -->
+        <div id="searchModal" class="search-modal">
+            <div class="search-box">
+                <input type="text" id="modalSearchInput" placeholder="Buscar"
+                    onkeydown="if(event.key==='Enter') ejecutarBusqueda()">
+                <button onclick="ejecutarBusqueda()">🔍</button>
+                <span class="close-search" onclick="cerrarBuscador()">✖</span>
+            </div>
+        </div>
+
+        <!-- Barra superior -->
+        <div class="barra-superior">
+            <div class="inicio">
+                <img src="imagenes/home.png" alt="Inicio">
+                <a href="#">INICIO</a>
+            </div>
+
+            <div class="redes">
+                <a href="https://www.facebook.com/UniversalAnimalsPetShop?locale=es_LA" target="_blank">
+                    <img src="imagenes/facebook.png" alt="Facebook">
+                </a>
+
+                <a href="https://www.instagram.com/universalanimal_petshop?igsh=bTd0ZWVoM2RsOWUx" target="_blank">
+                    <img src="imagenes/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+
+        <!-- Menú principal -->
+        <header>
+            <div class="logo">
+                <img src="imagenes/logo.png" alt="Universal Pet Shop">
+            </div>
+
+            <nav>
+                <ul class="menu">
+                    <li><a href="Perro.html">Perro ▾</a></li>
+                    <li><a href="Gato.html">Gato ▾</a></li>
+                    <li><a href="Pez.html">Pez ▾</a></li>
+                    <li><a href="Hamster.html">Hámster ▾</a></li>
+                    <li><a href="Aves_Ornamentales.html">Aves Ornamentales ▾</a></li>
+                    <li><a href="Conejo.html">Conejo ▾</a></li>
+                </ul>
+            </nav>
+
+            <div class="acciones">
+                <div class="accion" onclick="abrirBuscador()">
+                    <img src="imagenes/Lupa.png" alt="Buscar">
+                    <label>Buscador</label>
+                </div>
+
+                <div class="accion">
+                    <a href="Login.php">
+                        <strong>
+                            <img src="imagenes/Usuario.png" alt="Mi cuenta">
+                            <small>Mi cuenta</small>
+                        </strong>
+                    </a>
+                </div>
+
+                <div class="accion">
+                    <div class="accion cart-btn" onclick="openCart()">
+                        <img src="imagenes/Carrito.png" alt="Carrito">
+                        <small>Carrito</small>
+                    </div>
+                </div>
+        </header>
+
+        <!-- Slider -->
+        <section class="slider">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="imagenes/Portada.png" alt="Bienvenidos">
+                </div>
+                <div class="slide">
+                    <img src="imagenes/Propaganda.png" alt="Productos">
+                </div>
+                <div class="slide">
+                    <img src="imagenes/propagandaa.png" alt="Ofertas">
+                </div>
+                <div class="slide">
+                    <img src="imagenes/Propaganda3.png" alt="Regalos">
+                </div>
+            </div>
+
+            <button class="prev"></button>
+            <button class="next"></button>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <!-- Contenido de pestañas -->
+        <div id="perros" class="tab-content active">
+            <iframe src="TopPerro.html"></iframe>
+        </div>
+
+        <!-- Sidebar carrito -->
+        <div class="cart" id="cart">
+            <div class="cart-header">
+                Tu Carrito - 0
+                <span class="close-cart" onclick="closeCart()">✖</span>
+            </div>
+
+            <div id="cart-items"></div>
+
+            <div class="totals">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0</span>
+                </div>
+
+                <div class="total-row">
+                    <span>Envío:</span>
+                    <span id="envio">$0</span>
+                </div>
+
+                <div class="total-row" style="font-weight:bold;">
+                    <span>Total:</span>
+                    <span id="total">$0</span>
+                </div>
+            </div>
+
+            <button class="pay-btn">Pagar Ahora</button>
+        </div>
+
+    </div> <!-- FIN DE CONTENIDO PRINCIPAL -->
+
+   <!-- PÁGINAS INTERNAS -->
+<div id="sobre" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Sobre Universal Animals</h1>
+    <p>
+        Universal Animals es un Pet Shop ubicado en la ciudad de Ibagué – Tolima. 
+        Desde nuestros inicios hemos trabajado por ofrecer productos de calidad 
+        que garanticen el bienestar integral de tus mascotas. Nos especializamos en 
+        alimentos, accesorios, medicamentos básicos, juguetes y orientación para el 
+        cuidado responsable de animales de compañía.
+    </p>
+    <p>
+        Nuestro compromiso es brindar asesoría clara, atención cercana y productos 
+        garantizados para mejorar la calidad de vida de tus compañeros peludos.
+    </p>
+</div>
+
+<div id="servicios" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Servicios</h1>
+    <ul>
+        <li>Venta de alimentos premium y regulares para perros, gatos y otras especies</li>
+        <li>Accesorios: collares, correas, camas, ropa, areneras, jaulas y juguetes</li>
+        <li>Orientación veterinaria básica para cuidados esenciales</li>
+        <li>Asesoría nutricional según raza, edad y condición del animal</li>
+        <li>Domicilios a toda la ciudad de Ibagué</li>
+        <li>Promociones y combos especiales cada semana</li>
+    </ul>
+</div>
+
+<div id="terminos" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Términos y Condiciones</h1>
+    <p>
+        Al comprar en Universal Animals, el cliente acepta nuestras políticas de 
+        envío, devolución y privacidad. Los precios pueden cambiar sin previo aviso 
+        según disponibilidad y ajustes del proveedor.
+    </p>
+    <p>
+        Una vez entregado el producto, el cliente cuenta con 3 días hábiles para 
+        solicitar cambios únicamente por defectos de fábrica. No aplica en alimentos 
+        abiertos o productos usados.
+    </p>
+    <p>
+        Universal Animals no se hace responsable por daños ocasionados por un uso 
+        incorrecto del producto.
+    </p>
+</div>
+
+<div id="horarios" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Horarios de Atención</h1>
+    <p><b>Lunes a Viernes:</b> 8:00 AM – 7:00 PM</p>
+    <p><b>Sábados:</b> 8:00 AM – 6:00 PM</p>
+    <p><b>Domingos y Festivos:</b> 9:00 AM – 4:00 PM</p>
+</div>
+
+<div id="rastreo" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Rastrear Pedido</h1>
+    <p>Ingresa el número de guía asignado al realizar tu compra.</p>
+    <input type="text" placeholder="Número de guía">
+    <button>Buscar</button>
+</div>
+
+<div id="preguntas" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Preguntas Frecuentes (FAQ)</h1>
+
+    <h3>¿Realizan envíos a domicilio?</h3>
+    <p>Sí, entregamos en toda la ciudad de Ibagué.</p>
+
+    <h3>¿Los productos son originales?</h3>
+    <p>Todos nuestros productos cuentan con sello de seguridad y fecha de vencimiento vigente.</p>
+
+    <h3>¿Cuál es el tiempo estimado de entrega?</h3>
+    <p>Entre 30 y 90 minutos según la zona.</p>
+
+    <h3>¿Puedo pagar contra entrega?</h3>
+    <p>Sí, aceptamos efectivo y transferencias.</p>
+
+    <h3>¿Hacen cambios?</h3>
+    <p>Sí, únicamente por defectos de fábrica dentro de los primeros 3 días hábiles.</p>
+</div>
+
+<div id="privacidad" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Políticas de Privacidad</h1>
+    <p>
+        Universal Animals garantiza la protección de los datos personales brindados por 
+        los usuarios. La información proporcionada se utiliza únicamente para procesar 
+        pedidos, brindar asistencia y mejorar la experiencia del cliente.
+    </p>
+    <p>
+        No compartimos datos con terceros. El cliente puede solicitar la modificación o 
+        eliminación de sus datos cuando lo requiera.
+    </p>
+</div>
+
+<div id="entrega" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Políticas de Entrega</h1>
+    <p>
+        Los pedidos se envían dentro de Ibagué. El tiempo de entrega puede variar según 
+        la ubicación. En caso de retrasos por clima, tráfico u otras situaciones externas, 
+        notificaremos al cliente de inmediato.
+    </p>
+    <p>
+        Es responsabilidad del cliente verificar el estado del producto al recibirlo.
+    </p>
+</div>
+
+<div id="mapa" class="pagina">
+    <span class="btn-volver" onclick="volverInicio()">← Volver</span>
+    <h1>Mapa del Sitio</h1>
+    <ul>
+        <li>Inicio</li>
+        <li>Perro</li>
+        <li>Gato</li>
+        <li>Pez</li>
+        <li>Hámster</li>
+        <li>Aves Ornamentales</li>
+        <li>Conejo</li>
+        <li>Sobre Nosotros</li>
+        <li>Servicios</li>
+        <li>Preguntas Frecuentes</li>
+        <li>Políticas de Privacidad</li>
+        <li>Políticas de Entrega</li>
+        <li>Mapa del Sitio</li>
+        <li>Contacto</li>
+    </ul>
+</div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <img src="imagenes/Empresa.jpg" class="footer-logo" alt="Universal Animals Logo">
+                <p class="footer-title">Síguenos en:</p>
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/UniversalAnimalsPetShop?locale=es_LA" target="_blank">
+                        <img src="imagenes/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/universalanimal_petshop?igsh=bTd0ZWVoM2RsOWUx" target="_blank">
+                        <img src="imagenes/instagram.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>ACERCA DE UNIVERSAL ANIMALS</h3>
+                <a href="#" onclick="abrirPagina('sobre')">Sobre Universal Animals</a>
+                <a href="#" onclick="abrirPagina('servicios')">Servicios</a>
+                <a href="#" onclick="abrirPagina('terminos')">Términos y condiciones</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>INFORMACIÓN</h3>
+                <p>Celular: 3009792145</p>
+                <a href="#" onclick="abrirPagina('horarios')">Horarios de atención</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>¿DÓNDE ESTÁ MI PEDIDO?</h3>
+                <a href="#" onclick="abrirPagina('rastreo')">Rastrear guía</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>LINKS DE INTERÉS</h3>
+                <a href="#" onclick="abrirPagina('preguntas')">Preguntas frecuentes</a>
+                <a href="#" onclick="abrirPagina('privacidad')">Políticas de privacidad</a>
+                <a href="#" onclick="abrirPagina('entrega')">Políticas de entrega</a>
+                <a href="#" onclick="abrirPagina('mapa')">Mapa del sitio</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Universal Animals. Todos los derechos reservados
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    
+
+</body>
+
+</html>

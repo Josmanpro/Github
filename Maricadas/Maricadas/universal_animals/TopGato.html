@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top de ventas</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<h2><strong> Top de ventas</strong></h2>
+
+<div class="tabs">
+  <button class="tab-btn" onclick="location.href='TopPerro.html'">Perros</button>
+  <button class="tab-btn" onclick="location.href='TopGato.html'">Gatos</button>
+</div>
+
+<div class="products-TopGato">
+
+  <!-- Producto 1 -->
+  <div class="card">
+    <img src="imagenes/gato1.png">
+    <p>Alimento seco Monello Select Súper Premium cat piel y pelaje.</p>
+    <p>Presentación: 3.31 lb (1.5 kg) <br> Receta: Salmón</p>
+    <p class="price">Precio: $</p>
+    <button class="btn" onclick="abrirModal()">Seleccionar Opciones</button>
+  </div>
+
+  <!-- Producto 2 -->
+  <div class="card">
+    <img src="imagenes/gato2.png">
+    <p>Alimento seco Monello Cat castrados.</p>
+    <p>Presentación: 22.27 lb (10.1 kg) <br> Receta: Pollo</p>
+    <p class="price">Precio: $</p>
+    <button class="btn" onclick="abrirModal()">Seleccionar Opciones</button>
+  </div>
+
+  <!-- Producto 3 -->
+  <div class="card">
+    <img src="imagenes/gato3.png">
+    <p>Alimento seco Monello Cat, Salmón, atún y pollo.</p>
+    <p>Presentación: 15.5 lb (7 kg)</p>
+    <p class="price">Precio: $</p>
+    <button class="btn" onclick="abrirModal()">Seleccionar Opciones</button>
+  </div>
+
+  <!-- Producto 4 -->
+  <div class="card">
+    <img src="imagenes/gato4.png">
+    <p>Alimento seco Monello Gatos bolas de pelo.</p>
+    <p>Presentación: 15.5 lb (7 kg)</p>
+    <p class="price">Precio: $</p>
+    <button class="btn" onclick="abrirModal()">Seleccionar Opciones</button>
+  </div>
+
+  <!-- Producto 5 -->
+  <div class="card">
+    <img src="imagenes/gato5.png">
+    <p>Alimento seco Monello Select Súper Premium cat gatitos y madres.</p>
+    <p>Presentación: 3.31 lb (1.5 kg)</p>
+    <p class="price">Precio: $</p>
+    <button class="btn" onclick="abrirModal()">Seleccionar Opciones</button>
+  </div>
+
+</div>
+
+<!-- 🔽 MODAL CORRECTO AL FINAL -->
+<div id="modal" style="
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;">
+    
+    <div style="
+        width:80%; 
+        height:80%;
+        background:white;
+        border-radius:10px;
+        position:relative;
+        overflow:hidden;">
+        
+        <button onclick="cerrarModal()" 
+            style="position:absolute; top:10px; right:10px; padding:5px 10px; background:red; color:white; border:none;">
+            X
+        </button>
+
+        <iframe id="iframeModal" style="width:100%; height:100%; border:none;"></iframe>
+    </div>
+</div>
+
+</body>
+</html>
