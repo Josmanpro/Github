@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofertas - Mepo</title>
-    <link rel="stylesheet" href="pagina.css">
+    <title>Ofertas del Día - Mepo</title>
+    <!-- Enlazamos a nuestro nuevo CSS específico para esta página -->
+    <link rel="stylesheet" href="ofertas.css">
 </head>
 <body>
 
 <header class="main-header">
     <div class="container">
-        <a href="index.html" class="logo">Mepo</a>
+        <a href="pagina.html" class="logo">Mepo</a>
         <nav class="main-nav">
             <a href="pagina.html">Inicio</a>
             <a href="comparar.html">Comparar</a>
@@ -22,7 +23,11 @@
 </header>
 
 <main class="container">
-    <h1>Ofertas del día</h1>
+    <h1>Ofertas Imperdibles</h1>
+    <p>Aprovecha las mejores ofertas y descuentos de hoy en los supermercados de Ibagué.</p>
+    <div id="ofertas-grid" class="offers-grid">
+    </div>
 </main>
+<script src="ofertas.js"></script>
 </body>
 </html>
