@@ -31,6 +31,12 @@ body {
     url("http://res.cloudinary.com/jenelle-miller/image/upload/v1518619522/doodles_cuau2z.png") repeat;
 }
 
+.main-header {
+    background-color: var(--white-color);
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
 .container {
   height: 100%;
   text-transform: uppercase;
@@ -42,7 +48,7 @@ body {
 
 h1 {
   font-family: var(--font-primary);
-  color: var(--color-primary);
+  color: var(--primary-color);
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 32px;
