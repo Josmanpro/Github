@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Mepo</title>
-    
-    <!-- Google Fonts: Poppins -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome para los iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Nuestros CSS -->
     <link rel="stylesheet" href="pagina.css">
     <link rel="stylesheet" href="login.css">
 
-    <!-- Firebase (lo dejo como lo tenías) -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="firebase-config.js"></script>
+    <!-- Firebase y login -->
+    <script type="module" src="firebase-config.js"></script>
     <script type="module" src="login.js"></script>
 </head>
 <body>
@@ -37,14 +32,13 @@
         </div>
     </header>
 
-    <!-- Contenedor principal para centrar el formulario -->
     <div class="login-page-wrapper">
         <div class="container">
             <div class="form-container">
                 <div class="form-background">
                     <h1>Iniciar sesión</h1>
-                    <p id="errorMsg" class="error-message"></p>
-                
+                    <p id="errorMsg" class="error-message" style="color:red;"></p>
+
                     <form id="loginForm">
                         <div class="input-group">
                             <input type="email" id="email" placeholder="Correo electrónico" required>
@@ -54,23 +48,22 @@
                         </div>
                         <button type="submit" class="btn-login-form">Ingresar</button>
                     </form>
-                    
+
                     <a href="recuperar.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
-                    
-                    <div class="social-divider">
-                        <span>o inicia con</span>
-                    </div>
-                    
+
+                    <div class="social-divider"><span>o inicia con</span></div>
+
                     <div class="social-media">
                         <a href="#" class="social-icon google"><i class="fab fa-google"></i></a>
                         <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                
+
                 <p class="sign-up-prompt">¿Necesitas una cuenta? <a href="registro.html">Registrarse</a></p>
             </div>
         </div>
     </div>
+
 </body>
 </html>
