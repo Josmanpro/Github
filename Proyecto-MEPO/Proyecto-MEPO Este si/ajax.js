@@ -13,7 +13,7 @@ const productos = {
         },
         {
             nombre: "Queso Campesino 500g",
-            imagen: "https://placehold.co/300x200/E3F2FD/333?text=Queso+Campesino",
+            imagen: "https://productos.camoti.co/wp-content/uploads/2023/09/Queso-Campesino-500g-Diagonal-2-Copiar.jpg",
             precios: {
                 "Éxito": 12500,
                 "D1": 11900,
