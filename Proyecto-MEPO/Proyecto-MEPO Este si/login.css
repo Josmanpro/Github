@@ -2,7 +2,8 @@
 
 /* Contenedor para centrar vertical y horizontalmente el formulario */
 .login-page-wrapper {
-    display: flex;
+    display: grid;
+    place-items: center;
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 80px); /* 80px es la altura aproximada del header */
@@ -12,7 +13,7 @@
 
 .form-container {
     width: 100%;
-    max-width: 420px;
+    max-width: 650px;
 }
 
 .form-background {
@@ -21,6 +22,8 @@
     padding: 2.5rem;
     box-shadow: var(--shadow);
     text-align: center;
+    height: auto;
+    width: 400px;
 }
 
 .form-background h1 {
@@ -50,6 +53,7 @@
 
 .input-group {
     margin-bottom: 1.5rem;
+    margin-right: 32.9px;
 }
 
 .input-group input {
