@@ -2,9 +2,6 @@
 /* Nota: Este archivo es muy similar a login.css para mantener la consistencia visual. */
 
 /* Contenedor para centrar vertical y horizontalmente el formulario */
-body {
-
-}
 .login-page-wrapper {
     display: grid;
     place-items: center;

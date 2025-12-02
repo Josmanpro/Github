@@ -1,12 +1,15 @@
 /* --- Estilos para la página de Login --- */
 
 /* Contenedor para centrar vertical y horizontalmente el formulario */
+
+
 .login-page-wrapper {
     display: grid;
     place-items: center;
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 80px); /* 80px es la altura aproximada del header */
+    background-image: url(imagenes/fondo.png);
     background-color: var(--light-color);
     padding: 2rem 1rem;
 }
