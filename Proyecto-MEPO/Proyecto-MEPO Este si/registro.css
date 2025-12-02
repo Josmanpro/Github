@@ -26,6 +26,8 @@
     text-align: center;
     height: auto;
     width: 400px;
+    box-shadow: var(--primary-color) 1px 1px 20px;
+    border-radius: 10px;
 }
 
 .form-background h1 {
@@ -62,10 +64,11 @@
     width: 100%;
     padding: 1rem;
     border: 1px solid #ccc;
-    border-radius: var(--border-radius);
+    border-radius: 10px;
     font-size: 1rem;
     font-family: var(--font-family);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .input-group input:focus {
@@ -78,7 +81,7 @@
     background-color: var(--primary-color);
     color: var(--white-color);
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: 10px;
     padding: 1rem;
     font-size: 1.1rem;
     font-weight: 600;
