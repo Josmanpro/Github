@@ -115,14 +115,32 @@
 
     // Escuchar colección REAL en Firestore
     onSnapshot(collection(db, "registros"), (snapshot) => {
-        registros = snapshot.docs.map(doc => doc.data());
+        // mapeamos con id por si lo necesitamos
+        registros = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         mostrarRegistros(registros);
+    }, (err) => {
+        console.error("Error escuchando registros:", err);
     });
 
-    function formatearFecha(timestamp) {
-        if (!timestamp) return "Sin fecha";
+    // Formatea campo fecha que puede ser Firestore Timestamp, Date o string
+    function formatearFecha(ts) {
+        if (!ts) return "Sin fecha";
 
-        const fecha = timestamp.toDate();
+        let fecha;
+        // Firestore Timestamp (tiene toDate)
+        if (typeof ts === "object" && ts !== null && typeof ts.toDate === "function") {
+            fecha = ts.toDate();
+        } else if (ts instanceof Date) {
+            fecha = ts;
+        } else if (typeof ts === "string") {
+            // intentar parsear string (si está en formato ISO o similar)
+            const parsed = new Date(ts);
+            if (!isNaN(parsed)) fecha = parsed;
+            else return ts; // devolver la string tal cual si no se puede parsear
+        } else {
+            return "Sin fecha";
+        }
+
         const dia = String(fecha.getDate()).padStart(2, "0");
         const mes = String(fecha.getMonth() + 1).padStart(2, "0");
         const año = fecha.getFullYear();
@@ -130,10 +148,33 @@
         return `${dia}/${mes}/${año}`;
     }
 
-    function formatearHora(timestamp) {
-        if (!timestamp) return "Sin hora";
+    // Formatea hora que puede venir como Timestamp, Date o string (o ya formateada)
+    function formatearHora(ts) {
+        if (!ts) return "Sin hora";
 
-        const fecha = timestamp.toDate();
+        // Si ya es una string (por ejemplo "10:30 AM") la devolvemos tal cual
+        if (typeof ts === "string") {
+            // Si viene en ISO (ej: "2025-12-03T10:30:00Z"), mejor parsear y formatear
+            const isoTest = /^\d{4}-\d{2}-\d{2}T/;
+            if (isoTest.test(ts)) {
+                const parsed = new Date(ts);
+                if (!isNaN(parsed)) ts = parsed;
+                else return ts;
+            } else {
+                return ts;
+            }
+        }
+
+        // Si es Firestore Timestamp con toDate()
+        let fecha;
+        if (typeof ts === "object" && ts !== null && typeof ts.toDate === "function") {
+            fecha = ts.toDate();
+        } else if (ts instanceof Date) {
+            fecha = ts;
+        } else {
+            return "Sin hora";
+        }
+
         let horas = fecha.getHours();
         const minutos = String(fecha.getMinutes()).padStart(2, "0");
         const ampm = horas >= 12 ? "p.m." : "a.m.";
@@ -148,6 +189,10 @@
         cuerpoTabla.innerHTML = "";
 
         data.forEach(reg => {
+            // escoger primer campo de hora disponible (puede ser string o Timestamp)
+            const horaEntradaCampo = reg.horaEntrada || reg.entrada || reg.hora || null;
+            const horaSalidaCampo = reg.salida || reg.horaSalida || reg.hourOut || null; // intento cubrir posibles nombres
+
             const fila = document.createElement("tr");
 
             fila.innerHTML = `
@@ -155,8 +200,8 @@
                 <td>${reg.procedencia || ""}</td>
                 <td>${reg.serial || ""}</td>
                 <td>${formatearFecha(reg.fecha)}</td>
-                <td>${formatearHora(reg.entrada)}</td>
-                <td>${reg.salida ? formatearHora(reg.salida) : "—"}</td>
+                <td>${formatearHora(horaEntradaCampo)}</td>
+                <td>${horaSalidaCampo ? formatearHora(horaSalidaCampo) : "—"}</td>
                 <td>${reg.tipo || ""}</td>
             `;
 
@@ -176,6 +221,7 @@
         mostrarRegistros(filtrados);
     });
 </script>
+
 
 </body>
 </html>
