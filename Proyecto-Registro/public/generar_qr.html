@@ -72,7 +72,7 @@
 <body>
 
     <h1>Generar QR del Aprendiz</h1>
-
+    
     <div class="boton-inicio"> 
         <a href="index.html" class="boton">Inicio</a>
     </div>
@@ -97,11 +97,11 @@
             <label for="ficha">Ficha</label>
             <input type="text" id="ficha" placeholder="Ej: 3141010">
         </div>
-        
+
         <div class="jornada">
             <label for="jornada">Jornada</label>
             <select id="jornada">
-                <option value="Seleccione">Seleccione...</option>
+                <option value="">Seleccione...</option>
                 <option value="Mañana">Mañana</option>
                 <option value="Tarde">Tarde</option>
                 <option value="Nocturna">Nocturna</option>
@@ -117,7 +117,6 @@
             <label>Hora de entrada</label>
             <input type="text" id="horaEntrada" readonly>
         </div>
-        
 
         <button onclick="generarQR()">Generar QR</button>
 
@@ -128,7 +127,7 @@
     <!-- Firebase -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
@@ -144,9 +143,7 @@
 
         window.db = db;
 
-        // Mostrar la hora al cargar la página
         document.getElementById("horaEntrada").value = obtenerHoraFormato12();
-
 
         function obtenerHoraFormato12() {
             const fecha = new Date();
@@ -154,52 +151,103 @@
             let minutos = fecha.getMinutes();
             const ampm = horas >= 12 ? "PM" : "AM";
 
-            horas = horas % 12;
-            horas = horas ? horas : 12; // 0 → 12
-
+            horas = horas % 12 || 12;
             minutos = minutos < 10 ? "0" + minutos : minutos;
 
             return `${horas}:${minutos} ${ampm}`;
         }
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
+        window.guardarEnFirebase = async function (datos) {
+            try {
+                await addDoc(collection(db, "registros"), {
+                    ...datos,
+                    fecha: serverTimestamp(),
+                    tipo: "QR"
+                });
+                console.log("Guardado en Firebase");
+            } catch (error) {
+                console.error("Error al guardar:", error);
+            }
+        };
+    </script>
 
+    <!-- LIBRERÍA PARA GENERAR QR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+    <!-- Script generador -->
+    <script>
+        function generarQR() {
             const nombre = document.getElementById("nombre").value;
             const documento = document.getElementById("documento").value;
             const formacion = document.getElementById("formacion").value;
             const ficha = document.getElementById("ficha").value;
             const jornada = document.getElementById("jornada").value;
             const serial = document.getElementById("serial").value;
+            const horaEntrada = document.getElementById("horaEntrada").value;
 
-            try {
-                await addDoc(collection(db, "registros"), {
-                    nombre,
-                    documento,
-                    formacion,
-                    ficha,
-                    jornada,
-                    serial,
-                    horaEntrada: obtenerHoraFormato12(),
-                    fecha: serverTimestamp(),
-                    tipo: "QR"
-                });
-
-                mensajeExito.style.display = "block";
-                form.reset();
-
-                setTimeout(() => {
-                    mensajeExito.style.display = "none";
-                }, 2500);
-
-            } catch (error) {
-                alert("Error al guardar: " + error);
+            if (!nombre || !documento || !formacion || !ficha || !jornada || !serial) {
+                alert("Por favor complete todos los campos.");
+                return;
             }
-        });
-    </script>
 
-    <!-- Script generador QR -->
-    <script src="qrgenerator.js"></script>
+            const textoQR = `
+                Nombre: ${nombre}
+                Documento: ${documento}
+                Formación: ${formacion}
+                Ficha: ${ficha}
+                Jornada: ${jornada}
+                Serial: ${serial}
+                Hora: ${horaEntrada}
+            `;
+
+            // Generar QR
+            const qr = new QRious({
+                value: textoQR,
+                size: 280
+            });
+
+            const imagenQR = qr.toDataURL();
+
+document.getElementById("qr-result").innerHTML = `
+    <h3>QR Generado:</h3>
+    <img id="qrImagen" src="${imagenQR}" style="max-width: 280px; margin-bottom: 15px;" />
+
+    <button onclick="descargarQR()" 
+        style="
+            background:#0055aa;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            color:white;
+            cursor:pointer;
+            width:100%;
+        ">
+        Descargar QR
+    </button>
+`;
+
+
+            // Guardar en Firebase
+            guardarEnFirebase({
+                nombre,
+                documento,
+                formacion,
+                ficha,
+                jornada,
+                serial,
+                horaEntrada
+            });
+        }
+    function descargarQR() {
+    const qrImagen = document.getElementById("qrImagen").src;
+
+    const enlace = document.createElement("a");
+    enlace.href = qrImagen;
+    enlace.download = "qr_aprendiz.png";
+    enlace.click();
+}
+
+    </script>
 
 </body>
 </html>
