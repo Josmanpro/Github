@@ -1,84 +1,102 @@
-// Importar las funciones necesarias de Firebase
-import { app } from "./firebase-config.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+// Importar Firebase
+import { app, auth, db } from "./firebase-config.js";
+import { createUserWithEmailAndPassword } 
+  from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { setDoc, doc } 
+  from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-// Inicializar los servicios de Firebase
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-// Obtener referencias a los elementos del DOM
-const form = document.getElementById("registerForm");
+// Elementos del formulario
+const form = document.getElementById("miFormulario");
 const errorMsg = document.getElementById("errorMsg");
 const successMsg = document.getElementById("successMsg");
 
-/**
- * Traduce los códigos de error de Firebase a mensajes amigables para el usuario.
- * @param {object} error - El objeto de error devuelto por Firebase.
- * @returns {string} Un mensaje de error en español.
- */
+// Traducción de errores
 function traducirError(error) {
     switch (error.code) {
-        case 'auth/email-already-in-use':
-            return 'Este correo electrónico ya está en uso. Prueba con otro.';
-        case 'auth/invalid-email':
-            return 'El formato del correo electrónico no es válido.';
-        case 'auth/weak-password':
-            return 'La contraseña es muy débil. Debe tener al menos 6 caracteres.';
+        case "auth/email-already-in-use":
+            return "Este correo ya está registrado.";
+        case "auth/invalid-email":
+            return "El correo no es válido.";
+        case "auth/weak-password":
+            return "La contraseña es muy débil (mínimo 6 caracteres).";
         default:
-            return 'Ocurrió un error inesperado. Por favor, inténtalo de nuevo.';
+            return "Error inesperado. Intenta nuevamente.";
     }
 }
 
-// Escuchar el evento de envío del formulario
 form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+    e.preventDefault();
 
-    // Limpiar mensajes anteriores
-    errorMsg.textContent = "";
-    errorMsg.style.display = 'none';
-    successMsg.textContent = "";
-    successMsg.style.display = 'none';
+    errorMsg.style.display = "none";
+    successMsg.style.display = "none";
 
-    // Obtener los valores de los campos del formulario
     const nombre = document.getElementById("nombre").value;
     const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
+    const password = document.getElementById("pass1").value;
+    const confirmPassword = document.getElementById("pass2").value;
 
-    // --- 1️⃣ VALIDACIÓN EN EL LADO DEL CLIENTE (antes de llamar a Firebase) ---
     if (password !== confirmPassword) {
         errorMsg.textContent = "❌ Las contraseñas no coinciden.";
-        errorMsg.style.display = 'block';
-        return; // Detener la ejecución si las contraseñas no coinciden
+        errorMsg.style.display = "block";
+        return;
     }
 
     try {
-        // --- 2️⃣ CREAR USUARIO EN FIREBASE AUTHENTICATION ---
+        // Crear usuario en Auth
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        // --- 3️⃣ GUARDAR DATOS ADICIONALES EN FIRESTORE ---
-        // Usamos el UID del usuario como ID del documento para una relación única.
+        // Guardar usuario en Firestore
         await setDoc(doc(db, "usuarios", user.uid), {
-            nombre: nombre,
-            email: email,
-            fechaRegistro: new Date().toISOString() // Guardar la fecha actual en formato ISO
+            nombre,
+            email,
+            uid: user.uid,
+            fechaRegistro: new Date(),
+            rol: "cliente"
         });
 
-        // --- 4️⃣ MOSTRAR MENSAJE DE ÉXITO Y REDIRIGIR ---
-        successMsg.textContent = "✔ ¡Cuenta creada exitosamente! Redirigiendo...";
-        successMsg.style.display = 'block';
+        successMsg.textContent = "✔ Cuenta creada y guardada exitosamente!";
+        successMsg.style.display = "block";
 
-        // Redirigir al usuario a la página de login después de 2 segundos
         setTimeout(() => {
             window.location.href = "login.html";
         }, 2000);
 
     } catch (error) {
-        // --- 5️⃣ MANEJO DE ERRORES ---
-        console.error("Error durante el registro:", error);
+        console.error(error);
         errorMsg.textContent = traducirError(error);
-        errorMsg.style.display = 'block';
+        errorMsg.style.display = "block";
     }
+});
+
+
+// --- VALIDACIÓN DE CONTRASEÑAS EN TIEMPO REAL ---
+document.addEventListener("DOMContentLoaded", function () {
+    const pass1 = document.getElementById("pass1");
+    const pass2 = document.getElementById("pass2");
+    const mensaje = document.createElement("p");
+
+    mensaje.id = "mensajePass";
+    mensaje.style.fontWeight = "bold";
+    mensaje.style.marginTop = "5px";
+
+    pass2.insertAdjacentElement("afterend", mensaje);
+
+    function verificarContraseñas() {
+        if (pass2.value.length === 0) {
+            mensaje.textContent = "";
+            return;
+        }
+
+        if (pass1.value === pass2.value) {
+            mensaje.textContent = "💕 Las contraseñas coinciden";
+            mensaje.style.color = "green";
+        } else {
+            mensaje.textContent = "💔 Las contraseñas no coinciden";
+            mensaje.style.color = "red";
+        }
+    }
+
+    pass1.addEventListener("input", verificarContraseñas);
+    pass2.addEventListener("input", verificarContraseñas);
 });

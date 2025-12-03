@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse - Mepo</title>
     
-    <!-- Google Fonts: Poppins -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,12 +13,8 @@
     <!-- Nuestros CSS -->
     <link rel="stylesheet" href="pagina.css">
     <link rel="stylesheet" href="registro.css">
-
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="firebase-config.js"></script>
 </head>
+
 <body>
 
     <header class="main-header">
@@ -35,31 +31,44 @@
 
     <!-- Contenedor principal para centrar el formulario -->
     <div class="login-page-wrapper">
-            <div class="form-container">
-                <div class="form-background">
-                    <h1>Crear Cuenta</h1>
-                    <p id="errorMsg" class="error-message"></p>
-                
-                    <form id="registerForm">
-                        <div class="input-group">
-                            <input type="text" id="nombre" placeholder="Nombre completo" required>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" id="email" placeholder="Correo electrónico" required>
-                        </div>
-                        <div class="input-group">
-                            <input type="password" id="password" placeholder="Contraseña" required>
-                        </div>
-                        <div class="input-group">
-                            <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required>
-                        </div>
-                        <button type="submit" class="btn-login-form">Registrarse</button>
-                    </form>
-                    
-                    <p class="sign-up-prompt">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a></p>
-                </div>
+        <div class="form-container">
+            <div class="form-background">
+                <h1>Crear Cuenta</h1>
+
+                <!-- Mensajes -->
+                <p id="errorMsg" class="error-message"></p>
+                <p id="successMsg" class="success-message"></p>
+
+                <form id="miFormulario">
+
+                    <div class="input-group">
+                        <input type="text" id="nombre" placeholder="Nombre completo" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Correo electrónico" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="pass1" placeholder="Contraseña" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="pass2" placeholder="Confirmar contraseña" required>
+                    </div>
+
+                    <button type="submit" class="btn-login-form">Registrarse</button>
+                </form>
+
+                <p class="sign-up-prompt">¿Ya tienes una cuenta? 
+                    <a href="login.html">Inicia sesión</a>
+                </p>
             </div>
+        </div>
     </div>
+
+    <!-- Script del registro -->
     <script type="module" src="registro.js"></script>
+
 </body>
 </html>
