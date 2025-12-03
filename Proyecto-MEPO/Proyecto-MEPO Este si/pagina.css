@@ -42,11 +42,23 @@ body {
     text-decoration: none;
 }
 
+.logo:hover {
+    color: var(--secondary-color);
+    box-shadow: black 1px 1px 10px 1px;
+    border-radius: 11px;
+}
+
 .main-nav a {
     margin: 0 1rem;
     text-decoration: none;
     color: var(--dark-color);
     font-weight: 600;
+}
+.main-nav a:hover {
+    color: var(--secondary-color);
+    box-shadow: #2E7D32 1px 1px 10px 1px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .btn-login {
