@@ -1,9 +1,13 @@
 // Importar Firebase
-import { app, auth, db } from "./firebase-config.js";
-import { createUserWithEmailAndPassword } 
-  from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-import { setDoc, doc } 
-  from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+import { auth, db } from "./firebase-config.js";
+
+import { 
+    createUserWithEmailAndPassword 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+import { 
+    setDoc, doc 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 // Elementos del formulario
 const form = document.getElementById("miFormulario");

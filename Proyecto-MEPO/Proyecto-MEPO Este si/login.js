@@ -1,58 +1,65 @@
+// login.js
+
 import { auth, db } from "./firebase-config.js";
-import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-import { setDoc, doc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-window.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("loginForm");
-  const errorMsg = document.getElementById("errorMsg");
+import { 
+    signInWithEmailAndPassword 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
-  // Mensaje de éxito
-  let successMsg = document.createElement("div");
-  successMsg.style.background = "#c8ffc8";
-  successMsg.style.border = "1px solid #00a000";
-  successMsg.style.padding = "10px";
-  successMsg.style.marginTop = "15px";
-  successMsg.style.textAlign = "center";
-  successMsg.style.borderRadius = "6px";
-  successMsg.style.display = "none";
-  successMsg.textContent = "✔ Inicio de sesión exitoso";
-  form.appendChild(successMsg);
+import { 
+    setDoc, doc 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    errorMsg.textContent = "";
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("loginForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    let successMsg = document.createElement("p");
+    successMsg.style.color = "green";
+    successMsg.style.textAlign = "center";
+    successMsg.style.marginTop = "15px";
+    successMsg.style.fontWeight = "bold";
     successMsg.style.display = "none";
+    successMsg.textContent = "✔ Inicio de sesión exitoso";
+    form.appendChild(successMsg);
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        errorMsg.textContent = "";
+        successMsg.style.display = "none";
 
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
 
-      // Guardar registro de login
-      await setDoc(doc(db, "usuariosLogin", user.uid), {
-        email: user.email,
-        fechaLogin: new Date().toISOString()
-      });
+        try {
+            // INICIAR SESIÓN
+            const userCred = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCred.user;
 
-      // Mostrar éxito
-      successMsg.style.display = "block";
+            // GUARDAR LOGIN EN FIRESTORE
+            await setDoc(doc(db, "usuariosLogin", user.uid), {
+                email: user.email,
+                fechaLogin: new Date().toISOString()
+            });
 
-      setTimeout(() => {
-        window.location.href = "pagina.html";
-      }, 1200);
+            successMsg.style.display = "block";
 
-    } catch (err) {
-      console.error(err);
+            setTimeout(() => {
+                window.location.href = "pagina.html";
+            }, 1200);
 
-      if (err.code === "auth/user-not-found") {
-        errorMsg.textContent = "❌ Usuario no registrado.";
-      } else if (err.code === "auth/wrong-password") {
-        errorMsg.textContent = "❌ Contraseña incorrecta.";
-      } else {
-        errorMsg.textContent = "❌ Error al iniciar sesión.";
-      }
-    }
-  });
+        } catch (err) {
+            console.error("Error login:", err);
+
+            if (err.code === "auth/user-not-found") {
+                errorMsg.textContent = "❌ Usuario no existe.";
+            } else if (err.code === "auth/wrong-password") {
+                errorMsg.textContent = "❌ Contraseña incorrecta.";
+            } else if (err.code === "auth/invalid-email") {
+                errorMsg.textContent = "❌ Correo inválido.";
+            } else {
+                errorMsg.textContent = "❌ Error al iniciar sesión.";
+            }
+        }
+    });
 });
