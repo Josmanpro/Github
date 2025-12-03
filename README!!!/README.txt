@@ -26,6 +26,7 @@ cd ..
 cd ..
 cd 'C:\Users\JosephA\Desktop\SENA\Ins Jhon Freddy Gerente de ficha\Github\Proyecto-Registro'
 
+firebase login
 firebase deploy 
 
 
