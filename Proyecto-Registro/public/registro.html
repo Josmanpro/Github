@@ -199,7 +199,7 @@
 
         <div class="input-group">
             <label for="ficha">Ficha</label>
-            <input type="text" id="ficha" pattern="[0-9]+" placeholder="Ej: 3141010" oninput="soloNumeros(this)">
+            <input type="text" id="ficha" pattern="[01]{8}" placeholder="Ej: 3141010" oninput="soloNumeros(this)">
         </div>
 
         <div class="jornada">
@@ -298,7 +298,7 @@
         function soloLetras(input) {
             input.value = input.value.replace(/[^a-zA-Z\s]/g, ''); 
         }
-        
+
     </script>
 
 </body>
