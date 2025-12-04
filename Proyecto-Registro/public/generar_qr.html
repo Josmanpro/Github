@@ -6,11 +6,100 @@
     <title>Generar QR - Registro Portátiles SENA</title>
 
     <style>
+        /* --------- COLORES INSTITUCIONALES SENA --------- */
+        :root {
+            --verde-sena: #358e08;
+            --verde-oscuro: #2D7A00;
+            --verde-muyoscuro: #1F5300;
+            --gris-fondo: #f2f2f2;
+            --texto: #333;
+        }
+
+        /* -------- CARRUSEL DE FONDO -------- */
+        .carousel-fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            z-index: -1; /* PARA QUE QUEDE DETRÁS */
+        }
+
+        .carousel-fondo .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+
+            opacity: 0;
+            animation: cambioSlide 18s infinite;
+        }
+
+        /* TIEMPOS DE CADA IMAGEN */
+        .carousel-fondo .slide:nth-child(1) { animation-delay: 0s; }
+        .carousel-fondo .slide:nth-child(2) { animation-delay: 6s; }
+        .carousel-fondo .slide:nth-child(3) { animation-delay: 12s; }
+
+        /* ANIMACIÓN DEL CARRUSEL */
+        @keyframes cambioSlide {
+            0%   { opacity: 0; }
+            10%  { opacity: 1; }
+            30%  { opacity: 1; }
+            40%  { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+
         body {
             font-family: Arial, sans-serif;
             background: #f0f2f5;
             margin: 0;
-            padding: 20px;
+            padding: 0px;
+        }
+
+        /* ---------------- MENÚ SUPERIOR ---------------- */
+        .menu {
+            background: var(--verde-sena);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .menu a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 17px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .menu a:hover {
+            background: var(--verde-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .btn-menu:hover {
+            text-decoration: underline;
+            border-radius: 5px;
+            box-shadow: black 1px 1px 5px;
+        }
+
+        /* -------- LOGO -------- */
+        .logo-sena {
+            width: 140px;
+            display: block;
+            margin: 40px auto 10px auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
         }
 
         h1 {
@@ -71,11 +160,28 @@
 
 <body>
 
-    <h1>Generar QR del Aprendiz</h1>
-    
-    <div class="boton-inicio"> 
-        <a href="index.html" class="boton">Inicio</a>
+    <div class="carousel-fondo">
+        <div class="slide" style="background-image: url('img1.jpg');"></div>
+        <div class="slide" style="background-image: url('img2.jpg');"></div>
+        <div class="slide" style="background-image: url('img3.png');"></div>
     </div>
+
+    <!-- MENÚ SUPERIOR -->
+    <div class="menu">
+        <a href="registro.html" class="btn-menu">Registro Manual</a>
+        <a href="generar_qr.html" class="btn-menu">Generar QR</a>
+        <a href="scanner.html" class="btn-menu">Escáner QR</a>
+        <a href="panel_admin.html" class="btn-menu">Panel</a>
+        <a href="index.html" class="btn-menu">Inicio</a>
+    </div>
+
+    <!-- LOGO SENA -->
+    <img src="sena_logo.png" alt="Logo SENA" class="logo-sena">
+
+
+    <h1>Generar QR del Aprendiz</h1>
+
+    
     <div class="container">
 
         <div class="input-group">
@@ -208,23 +314,27 @@
 
             const imagenQR = qr.toDataURL();
 
-document.getElementById("qr-result").innerHTML = `
-    <h3>QR Generado:</h3>
-    <img id="qrImagen" src="${imagenQR}" style="max-width: 280px; margin-bottom: 15px;" />
+            document.getElementById("qr-result").innerHTML = `
+                <h3>QR Generado:</h3>
+                <img id="qrImagen" src="${imagenQR}" style="max-width: 280px; margin-bottom: 15px;" />
 
-    <button onclick="descargarQR()" 
-        style="
-            background:#0055aa;
-            padding:12px;
-            border:none;
-            border-radius:8px;
-            color:white;
-            cursor:pointer;
-            width:100%;
-        ">
-        Descargar QR
-    </button>
-`;
+                <button onclick="descargarQR()" class="btn-descargar
+                    style="
+                        
+                        background: #008000;
+                        padding:12px;
+                        border:none;
+                        border-radius:8px;
+                        color:white;
+                        cursor:pointer;
+                        width:100%;
+                        transition: 0.3s;
+                    }
+
+                    ">
+                    Descargar QR
+                </button>
+            `;
 
 
             // Guardar en Firebase
@@ -238,14 +348,14 @@ document.getElementById("qr-result").innerHTML = `
                 horaEntrada
             });
         }
-    function descargarQR() {
-    const qrImagen = document.getElementById("qrImagen").src;
+            function descargarQR() {
+                const qrImagen = document.getElementById("qrImagen").src;
 
-    const enlace = document.createElement("a");
-    enlace.href = qrImagen;
-    enlace.download = "qr_aprendiz.png";
-    enlace.click();
-}
+                const enlace = document.createElement("a");
+                enlace.href = qrImagen;
+                enlace.download = "qr_aprendiz.png";
+                enlace.click();
+            }
 
     </script>
 

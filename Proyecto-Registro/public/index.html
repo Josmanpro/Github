@@ -6,31 +6,95 @@
     <title>Ingreso Portátiles - SENA</title>
 
     <style>
+
+        /* --------- COLORES INSTITUCIONALES SENA --------- */
+        :root {
+            --verde-sena: #358e08;
+            --verde-oscuro: #2D7A00;
+            --verde-muyoscuro: #1F5300;
+            --gris-fondo: #f2f2f2;
+            --texto: #333;
+        }
+
+        /* -------- CARRUSEL DE FONDO -------- */
+        .carousel-fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            z-index: -1; /* PARA QUE QUEDE DETRÁS */
+        }
+
+        .carousel-fondo .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+
+            opacity: 0;
+            animation: cambioSlide 18s infinite;
+        }
+
+        /* TIEMPOS DE CADA IMAGEN */
+        .carousel-fondo .slide:nth-child(1) { animation-delay: 0s; }
+        .carousel-fondo .slide:nth-child(2) { animation-delay: 6s; }
+        .carousel-fondo .slide:nth-child(3) { animation-delay: 12s; }
+
+        /* ANIMACIÓN DEL CARRUSEL */
+        @keyframes cambioSlide {
+            0%   { opacity: 0; }
+            10%  { opacity: 1; }
+            30%  { opacity: 1; }
+            40%  { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            padding: 20px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--gris-fondo);
             margin: 0;
+            padding: 0;
         }
 
         /* ---------------- MENÚ SUPERIOR ---------------- */
         .menu {
-            background: #008000;
-            padding: 12px;
+            background: var(--verde-sena);
+            padding: 15px 0;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 40px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .menu a {
             color: white;
             font-weight: bold;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 17px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
 
         .menu a:hover {
-            text-decoration: underline;
+            background: var(--verde-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* -------- LOGO -------- */
+        .logo-sena {
+            width: 140px;
+            display: block;
+            margin: 40px auto 10px auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
         }
 
         .btn-menu:hover {
@@ -46,12 +110,18 @@
         }
 
         .contenedor {
-            max-width: 500px;
-            margin: 30px auto;
+            max-width: 520px;
+            margin: 40px auto;
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px #bbb;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+            animation: aparecer 0.4s ease;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .input-group {
@@ -65,7 +135,7 @@
             margin: 12px 0;
             font-size: 16px;
             color: white;
-            background: #008000;
+            background: var(--verde-sena);
             text-align: center;
             border-radius: 8px;
             text-decoration: none;
@@ -82,18 +152,26 @@
         }
 
         h3 {
-            color: #004d00;
+            color: var(--verde-muyoscuro);
+            border-left: 6px solid var(--verde-sena);
+            padding-left: 10px;
             margin-bottom: 10px;
         }
 
         p {
-            margin-top: -5px;
-            color: #444;
+            color: var(--texto);
             margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
+    
+    <div class="carousel-fondo">
+        <div class="slide" style="background-image: url('img1.jpg');"></div>
+        <div class="slide" style="background-image: url('img2.jpg');"></div>
+        <div class="slide" style="background-image: url('img3.png');"></div>
+    </div>
+
 
         <!-- MENÚ SUPERIOR -->
     <div class="menu">
@@ -102,6 +180,9 @@
         <a href="scanner.html" class="btn-menu">Escáner QR</a>
         <a href="panel_admin.html" class="btn-menu">Panel</a>
     </div>
+
+    <!-- LOGO SENA -->
+    <img src="sena_logo.png" alt="Logo SENA" class="logo-sena">
     
     <h1>Sistema de Ingreso de Portátiles - SENA</h1>
 

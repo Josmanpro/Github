@@ -6,11 +6,101 @@
     <title>Escáner QR - SENA</title>
 
     <style>
+        /* --------- COLORES INSTITUCIONALES SENA --------- */
+        :root {
+            --verde-sena: #358e08;
+            --verde-oscuro: #2D7A00;
+            --verde-muyoscuro: #1F5300;
+            --gris-fondo: #f2f2f2;
+            --texto: #333;
+        }
+
+        /* -------- CARRUSEL DE FONDO -------- */
+        .carousel-fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            z-index: -1; /* PARA QUE QUEDE DETRÁS */
+        }
+
+        .carousel-fondo .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+
+            opacity: 0;
+            animation: cambioSlide 18s infinite;
+        }
+
+        /* TIEMPOS DE CADA IMAGEN */
+        .carousel-fondo .slide:nth-child(1) { animation-delay: 0s; }
+        .carousel-fondo .slide:nth-child(2) { animation-delay: 6s; }
+        .carousel-fondo .slide:nth-child(3) { animation-delay: 12s; }
+
+        /* ANIMACIÓN DEL CARRUSEL */
+        @keyframes cambioSlide {
+            0%   { opacity: 0; }
+            10%  { opacity: 1; }
+            30%  { opacity: 1; }
+            40%  { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+
         body {
             background: #f4f4f4;
             font-family: Arial, sans-serif;
             padding: 20px;
         }
+
+        /* ---------------- MENÚ SUPERIOR ---------------- */
+        .menu {
+            background: var(--verde-sena);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .menu a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 17px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .menu a:hover {
+            background: var(--verde-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .btn-menu:hover {
+            text-decoration: underline;
+            border-radius: 5px;
+            box-shadow: black 1px 1px 5px;
+        }
+
+        /* -------- LOGO -------- */
+        .logo-sena {
+            width: 140px;
+            display: block;
+            margin: 40px auto 10px auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+        }
+
         h2 {
             text-align: center;
             color: #008000;
@@ -35,108 +125,122 @@
 </head>
 <body>
 
-<h2>Escáner QR - Registro de Portátiles</h2>
-
-<div class="boton-inicio"> 
-        <a href="index.html" class="boton">Inicio</a>
+    <div class="carousel-fondo">
+        <div class="slide" style="background-image: url('img1.jpg');"></div>
+        <div class="slide" style="background-image: url('img2.jpg');"></div>
+        <div class="slide" style="background-image: url('img3.png');"></div>
     </div>
 
-<div id="reader"></div>
+    <!-- MENÚ SUPERIOR -->
+    <div class="menu">
+        <a href="registro.html" class="btn-menu">Registro Manual</a>
+        <a href="generar_qr.html" class="btn-menu">Generar QR</a>
+        <a href="panel_admin.html" class="btn-menu">Panel</a>
+        <a href="index.html" class="btn-menu">Inicio</a>
+    </div>
 
-<div id="mensaje"></div>
+    <!-- LOGO SENA -->
+    <img src="sena_logo.png" alt="Logo SENA" class="logo-sena">
 
-<!-- Firebase y Firestore -->
-<script type="module">
 
-    import { initializeApp } 
-        from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    <h2>Escáner QR - Registro de Portátiles</h2>
 
-    import { 
-        getFirestore, 
-        collection, 
-        addDoc, 
-        query, 
-        where, 
-        getDocs, 
-        updateDoc 
-    } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+    <div id="reader"></div>
 
-    // 📌 TU CONFIG DE FIREBASE
-    const firebaseConfig = { 
-        apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
-        authDomain: "registro-portatiles-sena.firebaseapp.com",
-        projectId: "registro-portatiles-sena",
-        storageBucket: "registro-portatiles-sena.firebasestorage.app",
-        messagingSenderId: "140602261232",
-        appId: "1:140602261232:web:e0360347eb1e56273c8c35"
-    };
+    <div id="mensaje"></div>
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    <!-- Firebase y Firestore -->
+    <script type="module">
 
-    const mensaje = document.getElementById("mensaje");
+        import { initializeApp } 
+            from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
-    function mostrarMensaje(texto) {
-        mensaje.innerText = texto;
-        mensaje.style.display = "block";
-        setTimeout(() => mensaje.style.display = "none", 3000);
-    }
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            query, 
+            where, 
+            getDocs, 
+            updateDoc 
+        } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
-    async function procesarQR(textoQR) {
-        let datos;
+        // 📌 TU CONFIG DE FIREBASE
+        const firebaseConfig = { 
+            apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
+            authDomain: "registro-portatiles-sena.firebaseapp.com",
+            projectId: "registro-portatiles-sena",
+            storageBucket: "registro-portatiles-sena.firebasestorage.app",
+            messagingSenderId: "140602261232",
+            appId: "1:140602261232:web:e0360347eb1e56273c8c35"
+        };
 
-        try {
-            datos = JSON.parse(textoQR);
-        } catch (e) {
-            mostrarMensaje("QR inválido.");
-            return;
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const mensaje = document.getElementById("mensaje");
+
+        function mostrarMensaje(texto) {
+            mensaje.innerText = texto;
+            mensaje.style.display = "block";
+            setTimeout(() => mensaje.style.display = "none", 3000);
         }
 
-        const { nombre, procedencia, serial } = datos;
+        async function procesarQR(textoQR) {
+            let datos;
 
-        // Buscar si ya existe un registro sin salida
-        const q = query(
-            collection(db, "registros"),
-            where("nombre", "==", nombre),
-            where("serial", "==", serial),
-            where("salida", "==", "")
-        );
+            try {
+                datos = JSON.parse(textoQR);
+            } catch (e) {
+                mostrarMensaje("QR inválido.");
+                return;
+            }
 
-        const result = await getDocs(q);
+            const { nombre, procedencia, serial } = datos;
 
-        // SI NO HAY REGISTRO → Crear entrada
-        if (result.empty) {
-            await addDoc(collection(db, "registros"), {
-                nombre,
-                procedencia,
-                serial,
-                fecha: new Date().toLocaleDateString(),
-                entrada: new Date().toLocaleTimeString(),
-                salida: "",
-                tipo: "qr"
-            });
+            // Buscar si ya existe un registro sin salida
+            const q = query(
+                collection(db, "registros"),
+                where("nombre", "==", nombre),
+                where("serial", "==", serial),
+                where("salida", "==", "")
+            );
 
-            mostrarMensaje("Entrada registrada ✔");
-        } 
-        else {
-            // SI YA EXISTE → Registrar salida
-            const docID = result.docs[0].id;
+            const result = await getDocs(q);
 
-            await updateDoc(result.docs[0].ref, {
-                salida: new Date().toLocaleTimeString()
-            });
+            // SI NO HAY REGISTRO → Crear entrada
+            if (result.empty) {
+                await addDoc(collection(db, "registros"), {
+                    nombre,
+                    procedencia,
+                    serial,
+                    fecha: new Date().toLocaleDateString(),
+                    entrada: new Date().toLocaleTimeString(),
+                    salida: "",
+                    tipo: "qr"
+                });
 
-            mostrarMensaje("Salida registrada ✔");
+                mostrarMensaje("Entrada registrada ✔");
+            } 
+            else {
+                // SI YA EXISTE → Registrar salida
+                const docID = result.docs[0].id;
+
+                await updateDoc(result.docs[0].ref, {
+                    salida: new Date().toLocaleTimeString()
+                });
+
+                mostrarMensaje("Salida registrada ✔");
+            }
         }
-    }
 
-    // INICIALIZAR LECTOR
-    const lector = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });
+        // INICIALIZAR LECTOR
+        const lector = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });
 
-    lector.render((decodedText) => {
-        procesarQR(decodedText);
-    });
-</script>
+        lector.render((decodedText) => {
+            procesarQR(decodedText);
+        });
+    </script>
 
 </body>
 </html>
