@@ -9,12 +9,40 @@
         body {
             font-family: Arial, sans-serif;
             background: #f4f4f4;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ---------------- MENÚ SUPERIOR ---------------- */
+        .menu {
+            background: #008000;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-menu:hover {
+            text-decoration: underline;
+            border-radius: 5px;
+            box-shadow: black 1px 1px 5px;
         }
 
         h2 {
             text-align: center;
             color: #008000;
+            margin-top: 25px;
         }
 
         form {
@@ -31,6 +59,7 @@
             margin-top: 10px;
             display: block;
         }
+
         .input-group {
             margin-right: 22px;
         }
@@ -68,11 +97,16 @@
 </head>
 <body>
 
-    <h2>Registro de Portátiles - SENA</h2>
-
-    <div class="boton-inicio"> 
-        <a href="index.html" class="boton">Inicio</a>
+    <!-- MENÚ SUPERIOR -->
+    <div class="menu">
+        <a href="registro.html" class="btn-menu">Registro Manual</a>
+        <a href="generar_qr.html" class="btn-menu">Generar QR</a>
+        <a href="scanner.html" class="btn-menu">Escáner QR</a>
+        <a href="panel_admin.html" class="btn-menu">Panel</a>
+        <a href="index.html" class="btn-menu">Inicio</a>
     </div>
+
+    <h2>Registro de Portátiles - SENA</h2>
 
     <form id="registroForm">
         <div class="input-group">
@@ -115,7 +149,6 @@
             <input type="text" id="horaEntrada" readonly>
         </div>
 
-
         <button type="submit">Registrar Entrada</button>
     </form>
 
@@ -125,12 +158,10 @@
 
     <!-- Firebase -->
     <script type="module">
-        // Import de Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } 
                from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
-        // CONFIG FIREBASE (TUS LLAVES)
         const firebaseConfig = { 
             apiKey: "AIzaSyDqSIFW_5x65yZNGyphr1Ld860DoHZQpxg",
             authDomain: "registro-portatiles-sena.firebaseapp.com",
@@ -140,11 +171,9 @@
             appId: "1:140602261232:web:e0360347eb1e56273c8c35"
         };
 
-        // Inicializar Firebase y DB
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Evento del formulario
         const form = document.getElementById("registroForm");
         const mensajeExito = document.getElementById("mensajeExito");
 
@@ -154,37 +183,25 @@
             let minutos = fecha.getMinutes();
             const ampm = horas >= 12 ? "PM" : "AM";
 
-            horas = horas % 12;
-            horas = horas ? horas : 12; // 0 → 12
-
+            horas = horas % 12 || 12;
             minutos = minutos < 10 ? "0" + minutos : minutos;
 
             return `${horas}:${minutos} ${ampm}`;
         }
-        
 
-        // Mostrar la hora al cargar la página
         document.getElementById("horaEntrada").value = obtenerHoraFormato12();
-
 
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const nombre = document.getElementById("nombre").value;
-            const documento = document.getElementById("documento").value;
-            const formacion = document.getElementById("formacion").value;
-            const ficha = document.getElementById("ficha").value;
-            const jornada = document.getElementById("jornada").value;
-            const serial = document.getElementById("serial").value;
-
             try {
                 await addDoc(collection(db, "registros"), {
-                    nombre,
-                    documento,
-                    formacion,
-                    ficha,
-                    jornada,
-                    serial,
+                    nombre: nombre.value,
+                    documento: documento.value,
+                    formacion: formacion.value,
+                    ficha: ficha.value,
+                    jornada: jornada.value,
+                    serial: serial.value,
                     horaEntrada: obtenerHoraFormato12(),
                     fecha: serverTimestamp(),
                     tipo: "manual"
@@ -204,4 +221,4 @@
     </script>
 
 </body>
-</html>>
+</html>

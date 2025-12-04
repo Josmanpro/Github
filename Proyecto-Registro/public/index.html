@@ -7,10 +7,36 @@
 
     <style>
         body {
-            background: #f4f4f4;
             font-family: Arial, sans-serif;
+            background: #f4f4f4;
             padding: 20px;
             margin: 0;
+        }
+
+        /* ---------------- MENÚ SUPERIOR ---------------- */
+        .menu {
+            background: #008000;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-menu:hover {
+            text-decoration: underline;
+            border-radius: 5px;
+            box-shadow: black 1px 1px 5px;
         }
 
         h1 {
@@ -69,6 +95,14 @@
 </head>
 <body>
 
+        <!-- MENÚ SUPERIOR -->
+    <div class="menu">
+        <a href="registro.html" class="btn-menu">Registro Manual</a>
+        <a href="generar_qr.html" class="btn-menu">Generar QR</a>
+        <a href="scanner.html" class="btn-menu">Escáner QR</a>
+        <a href="panel_admin.html" class="btn-menu">Panel</a>
+    </div>
+    
     <h1>Sistema de Ingreso de Portátiles - SENA</h1>
 
     <div class="contenedor">
