@@ -89,6 +89,15 @@
             transform: translateY(-2px);
         }
 
+        .texto-sombra {
+            color: var(--verde-sena); /* Color de texto principal */
+            text-shadow:
+            -1px -1px 0 #ffffff,
+            1px -1px 0 #ffffff,
+            -1px 1px 0 #ffffff,
+            1px 1px 0 #ffffff;
+        }
+
         /* -------- LOGO -------- */
         .logo-sena {
             width: 140px;
@@ -165,11 +174,11 @@
     </style>
 </head>
 <body>
-    
+
     <div class="carousel-fondo">
         <div class="slide" style="background-image: url('img1.jpg');"></div>
         <div class="slide" style="background-image: url('img2.jpg');"></div>
-        <div class="slide" style="background-image: url('img3.png');"></div>
+        <div class="slide" style="background-image: url('img3.jpg');"></div>
     </div>
 
 
@@ -184,7 +193,7 @@
     <!-- LOGO SENA -->
     <img src="sena_logo.png" alt="Logo SENA" class="logo-sena">
     
-    <h1>Sistema de Ingreso de Portátiles - SENA</h1>
+    <h1 class="texto-sombra">Sistema de Ingreso de Portátiles - SENA</h1>
 
     <div class="contenedor">
 
