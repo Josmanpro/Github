@@ -88,6 +88,15 @@
             transform: translateY(-2px);
         }
 
+        .texto-sombra {
+            color: var(--verde-sena); /* Color de texto principal */
+            text-shadow:
+            -1px -1px 0 #ffffff,
+            1px -1px 0 #ffffff,
+            -1px 1px 0 #ffffff,
+            1px 1px 0 #ffffff;
+        }
+
         .btn-menu:hover {
             text-decoration: underline;
             border-radius: 5px;
@@ -144,7 +153,7 @@
     <img src="sena_logo.png" alt="Logo SENA" class="logo-sena">
 
 
-    <h2>Escáner QR - Registro de Portátiles</h2>
+    <h2 class="texto-sombra">Escáner QR - Registro de Portátiles</h2>
 
     <div id="reader"></div>
 
