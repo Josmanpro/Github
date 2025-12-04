@@ -184,22 +184,22 @@
         <div class="input-group">
             <h1>Generar QR del Aprendiz</h1>
             <label for="nombre">Nombre Completo del Aprendiz</label>
-            <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
+            <input type="text" id="nombre" maxlength="30" placeholder="Ej: Juan Pérez" oninput="soloLetras(this)">
         </div>
 
         <div class="input-group">
             <label for="documento">Documento del Aprendiz</label>
-            <input type="text" id="documento" placeholder="Ej: 123456789">
+            <input type="text" id="documento" pattern="[0-9]+" placeholder="Ej: 123456789" oninput="soloNumeros(this)">
         </div>
 
         <div class="input-group">
             <label for="formacion">Formación</label>
-            <input type="text" id="formacion" placeholder="Ej: Técnico en Sistemas">
+            <input type="text" id="formacion" maxlength="30" placeholder="Ej: Técnico en Sistemas" oninput="soloLetras(this)">
         </div>
 
         <div class="input-group">
             <label for="ficha">Ficha</label>
-            <input type="text" id="ficha" placeholder="Ej: 3141010">
+            <input type="text" id="ficha" pattern="[0-9]+" placeholder="Ej: 3141010" oninput="soloNumeros(this)">
         </div>
 
         <div class="jornada">
@@ -353,6 +353,13 @@
                 enlace.href = qrImagen;
                 enlace.download = "qr_aprendiz.png";
                 enlace.click();
+            }
+
+            function soloNumeros(input) {
+                input.value = input.value.replace(/[^0-9]/g, ''); 
+            }
+            function soloLetras(input) {
+                input.value = input.value.replace(/[^a-zA-Z\s]/g, ''); 
             }
 
     </script>
