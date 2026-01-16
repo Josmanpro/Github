@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error login:", err);
 
             if (err.code === "auth/user-not-found") {
-                errorMsg.textContent = "❌ Usuario no existe.";
+                errorMsg.textContent = "❌ Usuario no registrado.";
             } else if (err.code === "auth/wrong-password") {
                 errorMsg.textContent = "❌ Contraseña incorrecta.";
             } else if (err.code === "auth/invalid-email") {
