@@ -1,4 +1,5 @@
-/* --- Estilos para la página de Login --- */
+/* --- Estilos para la página de Registro --- */
+/* Nota: Este archivo es muy similar a login.css para mantener la consistencia visual. */
 
 /* Contenedor para centrar vertical y horizontalmente el formulario */
 .login-page-wrapper {
@@ -7,7 +8,7 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 80px); /* 80px es la altura aproximada del header */
-    background-image: url(imagenes/fondo.png);
+    background-image: url("../imagenes/fondo.png");
     background-color: var(--light-color);
     padding: 2rem 1rem;
 }
@@ -49,7 +50,7 @@
 }
 
 /* Estilos del formulario */
-#loginForm {
+#registerForm {
     display: flex;
     flex-direction: column;
 }
@@ -67,6 +68,7 @@
     font-size: 1rem;
     font-family: var(--font-family);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .input-group input:focus {
@@ -93,76 +95,7 @@
     background-color: var(--secondary-color);
 }
 
-.forgot-password {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
-
-.forgot-password:hover {
-    color: var(--secondary-color);
-}
-
-/* Divisor social */
-.social-divider {
-    position: relative;
-    text-align: center;
-    margin: 2rem 0 1.5rem 0;
-    color: #999;
-    font-size: 0.9rem;
-}
-
-.social-divider::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: #eee;
-}
-
-.social-divider span {
-    background-color: var(--white-color);
-    padding: 0 1rem;
-    position: relative;
-    z-index: 1;
-}
-
-/* Iconos de redes sociales */
-.social-media {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: var(--white-color);
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.social-icon:hover {
-    transform: translateY(-3px);
-    opacity: 0.9;
-}
-
-.social-icon.google { background-color: #DB4437; }
-.social-icon.facebook { background-color: #4267B2; }
-.social-icon.twitter { background-color: #1DA1F2; }
-
-/* Prompt para registrarse */
+/* Prompt para iniciar sesión */
 .sign-up-prompt {
     text-align: center;
     margin-top: 2rem;
