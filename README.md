@@ -35,7 +35,7 @@ objeto binario independiente: Descarga la versión nueva
 "https://firebase.tools/bin/win/instant/latest" y reemplázala en tu sistema.
 npm: 
 Ejecuta 
-npm install -g firebase-tools.
+npm install -g firebase-tools
 
 Desinstalar firebase CLI
 
