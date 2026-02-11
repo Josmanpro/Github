@@ -18,9 +18,9 @@
 <body>
      <header class="main-header">
         <div class="container">
-            <a href="pagina.html" class="logo">Mepo</a>
+            <a href="index.html" class="logo">Mepo</a>
             <nav class="main-nav">
-                <a href="pagina.html">Inicio</a>
+                <a href="index.html">Inicio</a>
                 <a href="comparar.html">Comparar</a>
                 <a href="supermercados.html">Supermercados</a>
                 <a href="ofertas.html">Ofertas</a>
