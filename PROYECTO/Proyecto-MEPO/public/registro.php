@@ -54,7 +54,7 @@
 
                 </form>
                 <p class="sign-up-prompt">¿Ya tienes una cuenta? 
-                    <a href="login.html">Inicia sesión</a>
+                    <a href="login.php">Inicia sesión</a>
                 </p>
             </div> 
         </div>
