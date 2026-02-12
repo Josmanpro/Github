@@ -15,17 +15,18 @@ $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $correo_tel = $_POST["user"];
 $contrasena = sha1($_POST["contrasena"]);
-$estado = "activo";
+$rol_id = 2;
 
 
-$insertardatos= "INSERT INTO usuario (ndocumento, nombre, apellido, correo_tel, contrasena, estado)  VALUES ('$ndocumento','$nombre','$apellido','$correo_tel','$contrasena','$estado')";
+
+$insertardatos= "INSERT INTO usuario (ndocumento, nombre, apellido, correo_tel, contrasena, rol_id)   VALUES ('$ndocumento','$nombre','$apellido','$correo_tel','$contrasena','$rol_id')";
 
 $ejecutarInsertar = mysqli_query($enlace,$insertardatos);
 
 if($ejecutarInsertar){
     echo"Datos almacenados correctamente";
 }else{
-    echo "error";
+    echo "error".mysqli_error($enlace);;
 }
 
 
