@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="js/dom.js"></script>
 </head>
 <body>
 
@@ -21,6 +22,12 @@
                 <a href="usuarios.html" class="button">Tabla-Usuarios</a>
             </nav>
             <a href="login.php" class="btn-login">Iniciar Sesión</a>
+        
+            <div class="perfil oculto" id="perfilUsuario">
+            <img src="imagenes/perfil/Perfil.jpg" width="35">
+            <span id="nombreUsuario"></span>
+            <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+        </div>
         </div>
     </header>
     <main>
