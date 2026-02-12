@@ -35,6 +35,10 @@
                 <p id="successMsg" class="success-message"></p>
                 <form id="miFormulario" action="regis2.php" method="POST">
                     <div class="input-group">
+                        <label for="docu">numero de identificacion</label>
+                        <input type="text" name="docu" id="docu" required> 
+                    </div>
+                    <div class="input-group">
                         <label for="nombre">nombre</label>
                         <input type="text" name="nombre" id="nombre" required> 
                     </div>
@@ -50,7 +54,7 @@
                         <label for="contrasena">crea tu contraseña </label>
                         <input type="password" name="contrasena" id="contrasena" required>
                         </div>
-                        <button type="submit" class="btn-login-form">Registrarse</button>
+                        <button type="submit" name="boton" id="boton" class="btn-login-form">Registrarse</button>
 
                 </form>
                 <p class="sign-up-prompt">¿Ya tienes una cuenta? 
@@ -59,6 +63,10 @@
             </div> 
         </div>
     </div>
+modificacion
+
+
+
 
 </body>
 </html>
