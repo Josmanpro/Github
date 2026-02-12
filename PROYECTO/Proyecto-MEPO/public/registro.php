@@ -43,7 +43,7 @@
                         <input type="text" name="nombre" id="nombre" required> 
                     </div>
                     <div class="input-group">
-                        <label for="apellidos">apellido</label>
+                        <label for="apellido">apellido</label>
                         <input type="text" name="apellido" id="apellido" required>
                     </div>
                     <div class="input-group">
@@ -63,7 +63,7 @@
             </div> 
         </div>
     </div>
-modificacion
+
 
 
 
