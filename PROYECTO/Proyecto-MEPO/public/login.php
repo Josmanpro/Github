@@ -36,7 +36,7 @@
                 <p id="errorMsg" class="error-messsage" style="color: red;"></p>
               <form id="loginForm">
                 <div class="input-group">
-                    <label for="user">User</label>
+                    <label for="user">Usuario</label>
                     <input required type="text" name="user" id="user" placeholder="ejemplo123@gmail.com">
 
                 </div>
