@@ -22,7 +22,12 @@ $insertardatos= "INSERT INTO usuario VALUES ('$ndocumento','$nombre','$apellido'
 
 $ejecutarInsertar = mysqli_query($enlace,$insertardatos);
 
-echo"Datos almacenados correctamente";
+if($ejecutarInsertar){
+    echo"Datos almacenados correctamente";
+}else{
+    echo "error";
+}
+
 
 }
 ?>
