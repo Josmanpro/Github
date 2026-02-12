@@ -18,7 +18,7 @@ $contrasena = sha1($_POST["contrasena"]);
 $estado = "activo";
 
 
-$insertardatos= "INSERT INTO usuario VALUES ('$ndocumento','$nombre','$apellido','$correo_tel','$contrasena','$estado')";
+$insertardatos= "INSERT INTO usuario (ndocumento, nombre, apellido, correo_tel, contrasena, estado)  VALUES ('$ndocumento','$nombre','$apellido','$correo_tel','$contrasena','$estado')";
 
 $ejecutarInsertar = mysqli_query($enlace,$insertardatos);
 
