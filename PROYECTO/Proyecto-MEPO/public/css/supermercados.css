@@ -83,12 +83,15 @@ main p {
 
 .supermarkets-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 2fr); /* 3 columnas */
+    gap: 25px;
+    margin-top: 30px;
+
 }
 
 /* --- Tarjeta de Supermercado --- */
 .supermarket-card {
+    padding: 20px;
     background-color: var(--white-color);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
@@ -189,3 +192,5 @@ main p {
         flex-direction: column;
     }
 }
+
+
