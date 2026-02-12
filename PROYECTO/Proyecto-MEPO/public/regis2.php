@@ -14,5 +14,15 @@ $ndocumento = $_POST["docu"];
 $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $correo_tel = $_POST["user"];
-$contrasena = $_POST["contrasena"];
+$contrasena = sha1($_POST["contrasena"]);
+$estado = "activo";
+
+
+$insertardatos= "INSERT INTO usuario VALUES ('$ndocumento','$nombre','$apellido','$correo_tel','$contrasena','$estado')";
+
+$ejecutarInsertar = mysqli_query($enlace,$insertardatos);
+
+echo"Datos almacenados correctamente";
+
 }
+?>
