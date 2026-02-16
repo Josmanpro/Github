@@ -10,7 +10,7 @@ $enlace = mysqli_connect($servidor,$usuario,$clave,$basededatos);
 if(isset($_POST["btn-login-form"])){
 
     $correo_tel = $_POST["user"];
-    $contrasena = sha1($_POST);
+    $contrasena = sha1($_POST["contrasena"]);
 
     $sql = "SELECT * FROM usuario
             WHERE correo_tel = '$correo_tel'
