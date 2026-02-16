@@ -1,36 +1,4 @@
 <?php
-$servidor = "localhost";
-$usuario = "root";
-$clave = "";
-$basededatos = "mepo";
-
-
-$enlace = mysqli_connect($servidor,$usuario,$clave,$basededatos);
-
-if(isset($_POST["btn-login-form"])){
-
-    $correo_tel = $_POST["user"];
-    $contrasena = sha1($_POST);
-
-    $sql = "SELECT * FROM usuario
-            WHERE correo_tel = '$correo_tel'
-            AND contrasena = '$contrasena'
-            AND estado = 'activo'"; 
-    $resultado = mysqli_query($enlace, $sql);
-
-    if(mysqli_num_rows($resultado) > 0){
-        $fila = mysqli_fetch_assoc($resultado);
-
-        $_SESSION ["ndocumento"] = $fila["ndocumento"];
-        $_SESSION ["nombre"] = $fila["nombre"];
-
-        header("Location: panel.php");
-        exit();
-    }else {
-        echo "Datos incorrectos o usuario no activo";
-    }
-}
-
 
 ?>
 
