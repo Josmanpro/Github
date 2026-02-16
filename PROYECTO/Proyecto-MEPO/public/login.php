@@ -1,6 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
+
 session_start();
 $servidor = "localhost";
 $usuario = "root";
