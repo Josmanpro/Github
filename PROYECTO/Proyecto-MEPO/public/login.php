@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servidor = "localhost";
 $usuario = "root";
 $clave = "";
@@ -69,7 +70,7 @@ if(isset($_POST["btn-login-form"])){
             <div class="form-background">
                 <h1>Iniciar sesion</h1>
                 <p id="errorMsg" class="error-messsage" style="color: red;"></p>
-              <form id="loginForm">
+              <form id="loginForm" method="POST">
                 <div class="input-group">
                     <label for="user">Usuario</label>
                     <input required type="text" name="user" id="user" placeholder="ejemplo123@gmail.com">
@@ -77,12 +78,12 @@ if(isset($_POST["btn-login-form"])){
                 </div>
                 <div class="input-group">
                     <label for="contrasena">Contraseña</label>
-                    <input required type="password" name="password" id="password">
+                    <input required type="password" name="contrasena" id="contrasena">
 
                 </div>
                  <a href="recuperar.php" class="forgot-password">¿Olvidaste tu contraseña?</a>
 
-                 <button type="submit" class="btn-login-form">Ingresar</button>
+                 <button type="submit" name="btn-login-form" class="btn-login-form">Ingresar</button>
               </form>
             <div class="social-divider"><span>o inicia con</span></div>
 
