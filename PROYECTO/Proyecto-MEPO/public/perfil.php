@@ -16,6 +16,8 @@ if(!isset($_SESSION["ndocumento"])){
     <title>Panel</title>
 </head>
 <body>
+
+    
     
     <h1>Bienvenido <?php echo $_SESSION["nombre"]; ?></h1>
 
