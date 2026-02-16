@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+
+
 if(!isset($_SESSION["ndocumento"])){
     header("Location: login.php");
     exit();

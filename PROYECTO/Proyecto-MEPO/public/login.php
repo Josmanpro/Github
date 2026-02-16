@@ -1,4 +1,39 @@
 <?php
+<<<<<<< HEAD
+=======
+session_start();
+$servidor = "localhost";
+$usuario = "root";
+$clave = "";
+$basededatos = "mepo";
+
+
+$enlace = mysqli_connect($servidor,$usuario,$clave,$basededatos);
+
+if(isset($_POST["btn-login-form"])){
+
+    $correo_tel = $_POST["user"];
+    $contrasena = sha1($_POST["contrasena"]);
+
+    $sql = "SELECT * FROM usuario
+            WHERE correo_tel = '$correo_tel'
+            AND contrasena = '$contrasena'"; 
+    $resultado = mysqli_query($enlace, $sql);
+
+    if(mysqli_num_rows($resultado) > 0){
+        $fila = mysqli_fetch_assoc($resultado);
+
+        $_SESSION ["ndocumento"] = $fila["ndocumento"];
+        $_SESSION ["nombre"] = $fila["nombre"];
+
+        header("Location: perfil.php");
+        exit();
+    }else {
+        echo "Datos incorrectos o usuario no activo";
+    }
+}
+
+>>>>>>> f7a343a9c2be20b5f5460c398f9666697c830287
 
 ?>
 
@@ -37,7 +72,7 @@
             <div class="form-background">
                 <h1>Iniciar sesion</h1>
                 <p id="errorMsg" class="error-messsage" style="color: red;"></p>
-              <form id="loginForm">
+              <form id="loginForm" method="POST">
                 <div class="input-group">
                     <label for="user">Usuario</label>
                     <input required type="text" name="user" id="user" placeholder="ejemplo123@gmail.com">
@@ -45,12 +80,12 @@
                 </div>
                 <div class="input-group">
                     <label for="contrasena">Contraseña</label>
-                    <input required type="password" name="password" id="password">
+                    <input required type="password" name="contrasena" id="contrasena">
 
                 </div>
                  <a href="recuperar.php" class="forgot-password">¿Olvidaste tu contraseña?</a>
 
-                 <button type="submit" class="btn-login-form">Ingresar</button>
+                 <button type="submit" name="btn-login-form" class="btn-login-form">Ingresar</button>
               </form>
             <div class="social-divider"><span>o inicia con</span></div>
 
