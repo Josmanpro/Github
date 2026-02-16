@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 session_start();
+=======
+
+>>>>>>> 92b443dd85837b6d2e26411e252b51986d036533
 if(!isset($_SESSION["ndocumento"])){
     header("Location: login.php");
     exit();
