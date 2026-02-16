@@ -32,8 +32,6 @@ if(isset($_POST["btn-login-form"])){
     }
 }
 
->>>>>>> f7a343a9c2be20b5f5460c398f9666697c830287
-
 ?>
 
 <!DOCTYPE html>
