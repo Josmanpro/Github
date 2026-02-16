@@ -15,8 +15,7 @@ if(isset($_POST["btn-login-form"])){
 
     $sql = "SELECT * FROM usuario
             WHERE correo_tel = '$correo_tel'
-            AND contrasena = '$contrasena'
-            AND estado = 'activo'"; 
+            AND contrasena = '$contrasena'"; 
     $resultado = mysqli_query($enlace, $sql);
 
     if(mysqli_num_rows($resultado) > 0){
