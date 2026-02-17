@@ -1,3 +1,22 @@
+<?php
+session_start();
+require("conexion.php"); // conexión a la base de datos
+
+$usuario = null;
+
+if(isset($_SESSION["ndocumento"])) {
+    $ndocumento = $_SESSION["ndocumento"];
+
+    // Consulta segura
+    $stmt = mysqli_prepare($conexion, "SELECT * FROM usuarios WHERE ndocumento = ?");
+    mysqli_stmt_bind_param($stmt, "s", $ndocumento);
+    mysqli_stmt_execute($stmt);
+    $resultado = mysqli_stmt_get_result($stmt);
+
+    $usuario = mysqli_fetch_assoc($resultado);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,19 +44,26 @@
             </nav>
             <a href="login.php" class="btn-login">Iniciar Sesión</a>
 
-            <div class="perfil oculto" id="perfilUsuario">
+           <div class="perfil oculto" id="perfilUsuario">
 
+    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
-                <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
+    <div id="panelPerfil" class="panel-perfil">
+        <p id="nombreUsuario"></p>
+        <hr>
 
-                <div id="panelPerfil" class="panel-perfil">
-                    <p id="nombreUsuario"></p>
-                    <hr>
-                    <button id="oli" class="oli">Ver Perfil</button>
-                    <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
-                </div>
+        <?php if($usuario): ?>
+            <p><strong>Nombre:</strong> <?php echo $usuario["nombre"]; ?></p>
+            <p><strong>Documento:</strong> <?php echo $usuario["ndocumento"]; ?></p>
+            <p><strong>Correo:</strong> <?php echo $usuario["correo"]; ?></p>
+        <?php else: ?>
+            <p>No hay sesión activa</p>
+        <?php endif; ?>
 
-            </div>
+        <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+    </div>
+
+</div>
         </div>
     </header>
     <main>
