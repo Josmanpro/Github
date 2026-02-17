@@ -80,7 +80,7 @@
                         <p>Elige la mejor opción y optimiza tu dinero.</p>
                     </div>
                 </div>
-                <div class="boton-ahorra">
+                <div onclick() class="boton-ahorra">
                     <button>
                         Empieza tu ahorro ahora!
                     </button>
