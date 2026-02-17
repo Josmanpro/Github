@@ -1,32 +1,15 @@
 <?php
-
 session_start();
-
-
-
-if(!isset($_SESSION["ndocumento"])){
-    header("Location: login.php");
-    exit();
-}
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Panel</title>
-</head>
-<body>
-
+<div id="panelPerfil" class="panel-perfil">
     
-<div id="panelPerfil" class="panel">
-    <h1>Bienvenido <?php echo $_SESSION["nombre"]; ?></h1>
+    <p><strong><?php echo $_SESSION["nombre"] ?? "Usuario"; ?></strong></p>
+    <p><?php echo $_SESSION["ndocumento"] ?? ""; ?></p>
+    
+    <hr>
 
-    <p>Identificacion: <?php echo $_SESSION["ndocumento"]; ?></p>
+    <a href="perfil.php">Ver Perfil Completo</a>
+    <a href="logout.php">Cerrar sesión</a>
 
-    <br>
-
-    <a href="logout.php">Cerrar sesion</a>
 </div>
-<script src="js/perfil.js"></script>
-</body>
-</html>
