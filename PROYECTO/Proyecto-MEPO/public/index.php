@@ -34,7 +34,7 @@
                 <div id="panelPerfil" class="panel-perfil">
                     <p id="nombreUsuario"></p>
                     <hr>
-                    <a href="perfil.php">Ver Perfil</a>
+                    <button onclick="Abrirmodal()">Ver Perfil</button>
                     <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
                 </div>
 

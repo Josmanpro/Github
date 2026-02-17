@@ -1,4 +1,6 @@
+/* styles.css */
 
+/* Contenedor principal */
 .perfil {
     position: relative;
     display: inline-block;
@@ -18,59 +20,62 @@
 
 .foto-perfil:hover {
     transform: scale(1.1);
-    border-color: #2ecc71;
+    border-color: #3498db; /* Borde azul al pasar el mouse */
 }
 
 /* Panel desplegable */
 .panel-perfil {
     position: absolute;
-    top: 50px; /* Espacio respecto a la imagen */
+    top: 50px;
     right: 0;
     background: #ffffff;
-    width: 240px;
+    width: 280px; /* Un poco más ancho para el correo */
     border-radius: 12px;
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
     border: 1px solid #eee;
     z-index: 1000;
-    overflow: hidden; /* Para que el header respete los bordes */
+    overflow: hidden;
 
     /* Estado oculto */
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px) scale(0.95);
-    transition: all 0.25s cubic-bezier(0.5, 0, 0, 1.25);
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
-/* Estado visible (Clase activa) */
+/* Estado visible */
 .panel-perfil.activo {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
 }
 
-/* Cabecera del panel (Verde) */
+/* Cabecera del panel (Info del usuario) */
 .panel-header {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-    padding: 15px;
+    background: linear-gradient(135deg, #3498db, #2980b9); /* Degradado Azul */
+    padding: 20px 15px;
     color: white;
     text-align: center;
 }
 
 .panel-header .nombre {
-    font-weight: 600;
-    font-size: 1.1em;
-    margin: 0;
+    font-weight: 700;
+    font-size: 1.15em;
+    margin-bottom: 5px;
+    word-wrap: break-word;
 }
 
-.panel-header .documento {
-    font-size: 0.85em;
+.panel-header .correo {
+    font-size: 0.9em;
     opacity: 0.9;
-    margin: 5px 0 0 0;
+    font-weight: 300;
+    word-wrap: break-word;
 }
 
 /* Cuerpo de enlaces */
 .panel-body {
     padding: 10px 0;
+    background: #fff;
 }
 
 .panel-perfil a {
@@ -78,21 +83,30 @@
     color: #333;
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-weight: 500;
     font-size: 0.95em;
     transition: background 0.2s;
 }
 
 .panel-perfil a:hover {
-    background: #f4f6f7;
-    color: #2ecc71;
+    background: #f8f9fa;
+    color: #3498db;
 }
 
-/* Iconos en los enlaces */
 .panel-perfil a span {
     margin-right: 10px;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+
+/* Separador */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    margin: 0;
 }
 
 /* Botón de cerrar sesión */
@@ -102,7 +116,7 @@
     padding: 10px;
     border: none;
     border-radius: 8px;
-    background: #ff4d4d;
+    background: #e74c3c;
     color: white;
     cursor: pointer;
     font-weight: 600;
@@ -110,9 +124,3 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-}
-
-.btn-logout:hover {
-    background: #e60000;
-}

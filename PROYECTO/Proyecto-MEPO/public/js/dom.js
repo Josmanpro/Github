@@ -51,3 +51,7 @@ function activarPanelPerfil() {
         panel.classList.remove("activo");
     });
 }
+
+function Abrirmodal(){
+    document.getElementById("miModal").style.display = "block"
+}
