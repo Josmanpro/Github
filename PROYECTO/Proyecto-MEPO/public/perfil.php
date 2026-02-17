@@ -16,7 +16,9 @@ if(!isset($_SESSION["ndocumento"])){
     <title>Panel</title>
 </head>
 <body>
+
     
+<div id="panelPerfil" class="panel">
     <h1>Bienvenido <?php echo $_SESSION["nombre"]; ?></h1>
 
     <p>Identificacion: <?php echo $_SESSION["ndocumento"]; ?></p>
@@ -24,6 +26,7 @@ if(!isset($_SESSION["ndocumento"])){
     <br>
 
     <a href="logout.php">Cerrar sesion</a>
-
+</div>
+<script src="js/perfil.js"></script>
 </body>
 </html>
