@@ -5,7 +5,7 @@ session_start();
 // Verificar si el usuario está logueados
 if(!isset($_SESSION["ndocumento"])){
     // Si no está logueado, redirigir al login o página principal
-    header("Location: perfil.php"); 
+    header("Location: login.php"); 
     exit();
 }
 ?>
