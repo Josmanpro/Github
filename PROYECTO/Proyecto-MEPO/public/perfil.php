@@ -64,7 +64,7 @@ if(!isset($_SESSION["ndocumento"])){
 </body>
 </html>
 
-?>
+
 
 <div id="panelPerfil" class="panel-perfil">
     
