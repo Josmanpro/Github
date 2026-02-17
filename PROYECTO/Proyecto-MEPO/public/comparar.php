@@ -10,11 +10,11 @@
 
 <header class="main-header">
     <div class="container">
-        <a href="index.html" class="logo">Mepo</a>
+        <a href="index.php" class="logo">Mepo</a>
         <nav class="main-nav">
-            <a href="index.html">Inicio</a>
-            <a href="supermercados.html">Supermercados</a>
-            <a href="ofertas.html">Ofertas</a>
+            <a href="index.php">Inicio</a>
+            <a href="supermercados.php">Supermercados</a>
+            <a href="ofertas.php">Ofertas</a>
         </nav>
         <a href="login.php" class="btn-login">Iniciar Sesión</a>
     </div>
