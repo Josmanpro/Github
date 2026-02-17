@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -46,7 +44,11 @@
                 </a>
                 <span id="nombreUsuario"></span>
                 <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> a021af9c9752719505fa1d2bf7b2a5d53462e936
             </div>
         </div>
     </header>
@@ -81,6 +83,12 @@
                         <h3>3. Ahorra</h3>
                         <p>Elige la mejor opción y optimiza tu dinero.</p>
                     </div>
+                </div>
+                <div onclick() class="boton-ahorra">
+                    <button>
+                        Empieza tu ahorro ahora!
+                    </button>
+                 
                 </div>
             </div>
         </section>
