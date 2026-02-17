@@ -1,7 +1,6 @@
 <?php
 session_start();
-<<<<<<< HEAD
-=======
+
 
 
 
@@ -9,7 +8,7 @@ if(!isset($_SESSION["ndocumento"])){
     header("Location: perfil.php");
     exit();
 }
->>>>>>> 7b64a0b88792f15037d3f217e34b2eb414cbdb09
+
 ?>
 
 <div id="panelPerfil" class="panel-perfil">
