@@ -38,6 +38,7 @@
                     <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
                 </div>
 
+<<<<<<< HEAD
 
                 <a href="perfil.php">
                     <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" width="35">
@@ -49,6 +50,8 @@
 =======
 
 >>>>>>> a021af9c9752719505fa1d2bf7b2a5d53462e936
+=======
+>>>>>>> c88760c29745a4a6aa3001feb46d239fff491b79
             </div>
         </div>
     </header>

@@ -1,17 +1,26 @@
 <?php
 include("../bdd/conexion.php");
 
-$correo = $_POST['correo'];
+$correo = $_POST['user'];
 
-$token = bin2hex(random_bytes(32));
-$expira = date("Y-m-d H:i:s", strtotime("+1 hour"));
+$sql = "SELECT * FROM usuario WHERE correo='$correo'";
+$resultado = mysqli_query($conexion, $sql);
 
-$sql = "UPDATE usuario 
-        SET token='$token', token_expira='$expira' 
-        WHERE correo='$correo'";
+if(mysqli_num_rows($resultado) == 1){
 
-mysqli_query($conexion, $sql);
+    $token = bin2hex(random_bytes(32));
+    $expira = date("Y-m-d H:i:s", strtotime("+1 hour"));
 
-echo "Enlace generado:<br>";
-echo "<a href='cambiar_contrasena.php?token=$token'>Cambiar contraseña</a>";
+    $update = "UPDATE usuario 
+               SET token='$token', token_expira='$expira' 
+               WHERE correo='$correo'";
+
+    mysqli_query($conexion, $update);
+
+    echo "Enlace generado:<br>";
+    echo "<a href='cambiar_contrasena.php?token=$token'>Cambiar contraseña</a>";
+
+}else{
+    echo "Correo no registrado";
+}
 ?>
