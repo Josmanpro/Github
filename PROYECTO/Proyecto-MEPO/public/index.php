@@ -38,6 +38,14 @@
                     <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
                 </div>
 
+
+
+                <a href="perfil.php">
+                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" width="35">
+                </a>
+                <span id="nombreUsuario"></span>
+                <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+
             </div>
         </div>
     </header>
