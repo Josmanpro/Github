@@ -1,7 +1,7 @@
 <?php
 include("../bdd/conexion.php");
 
-$correo = $_POST['correo'];
+$correo = $_POST['user'];
 
 $sql = "SELECT * FROM usuario WHERE correo='$correo'";
 $resultado = mysqli_query($conexion, $sql);
