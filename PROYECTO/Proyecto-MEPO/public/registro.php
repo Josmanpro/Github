@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+$_SESSION['mensaje_exito'] = "Usuario registrado correctamente";
+header("Location: login.php");
+exit();
 
 
 ?>

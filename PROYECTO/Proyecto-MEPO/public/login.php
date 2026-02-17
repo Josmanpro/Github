@@ -9,23 +9,25 @@ $basededatos = "mepo";
 
 $enlace = mysqli_connect($servidor,$usuario,$clave,$basededatos);
 
-if(isset($_GET['registro']) && $_GET['registro'] == "ok"){
+if(isset($_SESSION['mensaje_exito'])){
     echo "<div id='mensajeExito' style='
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color:#28a745;
-    color:white;
-    padding:15px 20px;
-    border-radius:8px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    transition: opacity 0.5s ease;
-    z-index:1000;
-'>
-    Usuario registrado correctamente
-</div>";
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color:#28a745;
+        color:white;
+        padding:15px 20px;
+        border-radius:8px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        transition: opacity 0.5s ease;
+        z-index:1000;
+    '>
+        ".$_SESSION['mensaje_exito']."
+    </div>";
 
+    unset($_SESSION['mensaje_exito']); // 🔥 Esto hace que solo se muestre una vez
 }
+
 
 if(isset($_POST["btn-login-form"])){
 
