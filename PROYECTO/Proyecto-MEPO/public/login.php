@@ -9,6 +9,20 @@ $basededatos = "mepo";
 
 $enlace = mysqli_connect($servidor,$usuario,$clave,$basededatos);
 
+if(isset($_GET['registro']) && $_GET['registro'] == "ok"){
+    echo "<div style='
+        background-color:#d4edda;
+        color:#155724;
+        padding:10px;
+        border-radius:5px;
+        width:300px;
+        margin:10px auto;
+        text-align:center;
+    '>
+        Usuario registrado correctamente
+    </div>";
+}
+
 if(isset($_POST["btn-login-form"])){
 
     $correo_tel = $_POST["user"];

@@ -24,10 +24,11 @@ $insertardatos= "INSERT INTO usuario (ndocumento, nombre, apellido, correo_tel, 
 $ejecutarInsertar = mysqli_query($enlace,$insertardatos);
 
 if($ejecutarInsertar){
-    echo"Datos almacenados correctamente";
+    header("Location: login.php?registro=ok");
 }else{
     echo "error".mysqli_error($enlace);;
 }
+exit();
 
 
 }
