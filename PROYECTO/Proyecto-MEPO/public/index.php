@@ -1,8 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["id"])) {
+    header("Location:perfil.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="visewport" content="width=device-width, initial-scale=1.0">
     <title>MEPO - Mercando con Propósito</title>
     <link rel="stylesheet" href="css/pagina.css">
     <link rel="stylesheet" href="css/perfil.css">
@@ -11,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="js/dom.js"></script>
 </head>
+
 <body>
 
     <header class="main-header">
@@ -23,14 +33,14 @@
                 <a href="usuarios.html" class="button">Tabla-Usuarios</a>
             </nav>
             <a href="login.php" class="btn-login">Iniciar Sesión</a>
-        
+
             <div class="perfil oculto" id="perfilUsuario">
-            <a href="perfil.php">
-                <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" width="35">
-            </a>
-            <span id="nombreUsuario"></span>
-            <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
-        </div>
+                <a href="perfil.php">
+                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" width="35">
+                </a>
+                <span id="nombreUsuario"></span>
+                <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+            </div>
         </div>
     </header>
     <main>
@@ -84,7 +94,7 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 -   MEPO - Mercando con Propósito.</p>
+            <p>&copy; 2025 - MEPO - Mercando con Propósito.</p>
             <div class="social-links">
                 <a href="https://www.facebook.com/?locale=es_LA">Facebook</a>
                 <a href="https://www.instagram.com/">Instagram</a>
@@ -93,4 +103,5 @@
     </footer>
 
 </body>
+
 </html>
