@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="visewport" content="width=device-width, initial-scale=1.0">
     <title>MEPO - Mercando con Propósito</title>
     <link rel="stylesheet" href="css/pagina.css">
     <link rel="stylesheet" href="css/perfil.css">
@@ -27,6 +29,7 @@
             <a href="login.php" class="btn-login">Iniciar Sesión</a>
 
             <div class="perfil oculto" id="perfilUsuario">
+<<<<<<< HEAD:PROYECTO/Proyecto-MEPO/public/index.html
 
                 <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
@@ -37,6 +40,13 @@
                     <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
                 </div>
 
+=======
+                <a href="perfil.php">
+                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" width="35">
+                </a>
+                <span id="nombreUsuario"></span>
+                <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+>>>>>>> 7b64a0b88792f15037d3f217e34b2eb414cbdb09:PROYECTO/Proyecto-MEPO/public/index.php
             </div>
         </div>
     </header>
