@@ -10,17 +10,21 @@ $basededatos = "mepo";
 $enlace = mysqli_connect($servidor,$usuario,$clave,$basededatos);
 
 if(isset($_GET['registro']) && $_GET['registro'] == "ok"){
-    echo "<div style='
-        background-color:#d4edda;
-        color:#155724;
-        padding:10px;
-        border-radius:5px;
-        width:300px;
-        margin:10px auto;
-        text-align:center;
-    '>
-        Usuario registrado correctamente
-    </div>";
+    echo "<div id='mensajeExito' style='
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color:#28a745;
+    color:white;
+    padding:15px 20px;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.5s ease;
+    z-index:1000;
+'>
+    Usuario registrado correctamente
+</div>";
+
 }
 
 if(isset($_POST["btn-login-form"])){
@@ -110,5 +114,17 @@ if(isset($_POST["btn-login-form"])){
             </div>
         </div>
     </div>
+
+<script>
+setTimeout(function() {
+    var mensaje = document.getElementById("mensajeExito");
+    if(mensaje){
+        mensaje.style.opacity = "0";
+        setTimeout(function(){
+            mensaje.style.display = "none";
+        }, 500);
+    }
+}, 3000); // 3000 = 3 segundos
+</script>
 
 </body>

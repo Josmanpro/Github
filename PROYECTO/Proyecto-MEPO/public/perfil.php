@@ -1,9 +1,18 @@
 <?php
+<<<<<<< HEAD
 // perfil.php
 session_start();
+=======
+session_start();
+
+>>>>>>> a71be3979ee8d9f3dfee739f92c3f18adbcc25f5
 
 // 1. Verificar si el usuario está logueado
 if(!isset($_SESSION["ndocumento"])){
+<<<<<<< HEAD
+=======
+    // Si no está logueado, redirigir al login o página principal
+>>>>>>> a71be3979ee8d9f3dfee739f92c3f18adbcc25f5
     header("Location: login.php"); 
     exit();
 }
