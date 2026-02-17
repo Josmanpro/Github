@@ -17,12 +17,11 @@
 
     <header class="main-header">
         <div class="container">
-            <a href="index.html" class="logo">Mepo</a>
+            <a href="index.php" class="logo">Mepo</a>
             <nav class="main-nav">
-                <a href="comparar.html" class="button">Comparar</a>
-                <a href="supermercados.html" class="button">Supermercados</a>
-                <a href="ofertas.html" class="button">Ofertas</a>
-                <a href="usuarios.html" class="button">Tabla-Usuarios</a>
+                <a href="comparar.php" class="button">Comparar</a>
+                <a href="supermercados.php" class="button">Supermercados</a>
+                <a href="ofertas.php" class="button">Ofertas</a>
             </nav>
             <a href="login.php" class="btn-login">Iniciar Sesión</a>
 
@@ -34,7 +33,7 @@
                 <div id="panelPerfil" class="panel-perfil">
                     <p id="nombreUsuario"></p>
                     <hr>
-                    <button onclick="miModal()">Ver Perfil</button>
+                    <button id="oli" class="oli">Ver Perfil</button>
                     <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
                 </div>
 

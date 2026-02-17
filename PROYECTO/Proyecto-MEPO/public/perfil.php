@@ -1,18 +1,22 @@
 <?php
-<<<<<<< HEAD
 // perfil.php
 session_start();
-=======
-session_start();
 
->>>>>>> a71be3979ee8d9f3dfee739f92c3f18adbcc25f5
 
 // 1. Verificar si el usuario está logueado
 if(!isset($_SESSION["ndocumento"])){
-<<<<<<< HEAD
-=======
+
+
+session_start();
+
+
+
+// 1. Verificar si el usuario está logueado
+if(!isset($_SESSION["ndocumento"])){
+
+
     // Si no está logueado, redirigir al login o página principal
->>>>>>> a71be3979ee8d9f3dfee739f92c3f18adbcc25f5
+
     header("Location: login.php"); 
     exit();
 }
@@ -214,12 +218,12 @@ if(!isset($_SESSION["ndocumento"])){
 
     <!-- JavaScript para abrir y cerrar -->
     <script>
-        const btnPerfil = document.getElementById('btnPerfil');
+        const oli = document.getElementById('oli');
         const modal = document.getElementById('miModal');
         const cerrarModal = document.getElementById('cerrarModal');
 
         // Abrir modal al hacer clic en la foto
-        btnPerfil.addEventListener('click', () => {
+        oli.addEventListener('click', () => {
             modal.style.display = 'flex';
         });
 
@@ -237,4 +241,21 @@ if(!isset($_SESSION["ndocumento"])){
     </script>
     
 </body>
+
+</html>
+
+
+
+<div id="panelPerfil" class="panel-perfil">
+    
+    <p><strong><?php echo $_SESSION["nombre"] ?? "Usuario"; ?></strong></p>
+    <p><?php echo $_SESSION["ndocumento"] ?? ""; ?></p>
+    
+    <hr>
+
+    <a href="perfil.php">Ver Perfil Completo</a>
+    <a href="logout.php">Cerrar sesión</a>
+
+</div>
+=======
 </html>

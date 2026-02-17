@@ -75,12 +75,12 @@ if(isset($_POST["btn-login-form"])){
 <body>
     <header class="main-header">
         <div class="container">
-            <a href="index.html" class="logo">Mepo</a>
+            <a href="index.php" class="logo">Mepo</a>
             <nav class="main-nav">
-                <a href="index.html">Inicio</a>
-                <a href="comparar.html">Comparar</a>
-                <a href="supermercados.html">Supermercados</a>
-                <a href="ofertas.html">Ofertas</a>
+                <a href="index.php">Inicio</a>
+                <a href="comparar.php">Comparar</a>
+                <a href="supermercados.php">Supermercados</a>
+                <a href="ofertas.php">Ofertas</a>
             </nav>
         </div>
     </header>
