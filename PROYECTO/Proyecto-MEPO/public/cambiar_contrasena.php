@@ -11,13 +11,15 @@ $resultado = mysqli_query($conexion, $sql);
 
 if(mysqli_num_rows($resultado) == 1){
 ?>
-    <form action="guardar_nueva.php" method="POST">
-        <input type="hidden" name="token" value="<?php echo $token; ?>">
-        <input type="password" name="nueva_contrasena" required>
-        <button type="submit">Guardar</button>
-    </form>
+
+<form action="guardar_nueva.php" method="POST">
+    <input type="hidden" name="token" value="<?php echo $token; ?>">
+    <input type="password" name="nueva_contrasena" placeholder="Nueva contraseña" required>
+    <button type="submit">Guardar</button>
+</form>
+
 <?php
-} else {
+}else{
     echo "Token inválido o expirado";
 }
 ?>
