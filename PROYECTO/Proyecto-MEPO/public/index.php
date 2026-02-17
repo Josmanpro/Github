@@ -33,7 +33,7 @@
                 <div id="panelPerfil" class="panel-perfil">
                     <p id="nombreUsuario"></p>
                     <hr>
-                    <button class="oli">Ver Perfil</button>
+                    <button id="oli" class="oli">Ver Perfil</button>
                     <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
                 </div>
 
