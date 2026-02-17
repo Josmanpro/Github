@@ -5,7 +5,7 @@ session_start();
 
 
 if(!isset($_SESSION["ndocumento"])){
-    header("Location: login.php");
+    header("Location: perfil.php");
     exit();
 }
 ?>
