@@ -27,5 +27,6 @@ if(!isset($_SESSION["ndocumento"])){
 
     <a href="logout.php">Cerrar sesion</a>
 </div>
+<script src="js/perfil.js"></script>
 </body>
 </html>
