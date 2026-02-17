@@ -34,7 +34,7 @@
                 <div id="panelPerfil" class="panel-perfil">
                     <p id="nombreUsuario"></p>
                     <hr>
-                    <button onclick="miModal()">Ver Perfil</button>
+                    <button onclick="Abrirmodal()">Ver Perfil</button>
                     <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
                 </div>
 

@@ -1,9 +1,23 @@
 <?php
 // perfil.php
 session_start();
+<<<<<<< HEAD
 
 // 1. Verificar si el usuario está logueado
 if(!isset($_SESSION["ndocumento"])){
+=======
+
+session_start();
+
+
+
+// 1. Verificar si el usuario está logueado
+if(!isset($_SESSION["ndocumento"])){
+
+
+    // Si no está logueado, redirigir al login o página principal
+
+>>>>>>> d4901917ce2dc723179054883adeeaeefc3c9c63
     header("Location: login.php"); 
     exit();
 }
@@ -228,4 +242,22 @@ if(!isset($_SESSION["ndocumento"])){
     </script>
     
 </body>
+<<<<<<< HEAD
 </html>
+
+
+
+<div id="panelPerfil" class="panel-perfil">
+    
+    <p><strong><?php echo $_SESSION["nombre"] ?? "Usuario"; ?></strong></p>
+    <p><?php echo $_SESSION["ndocumento"] ?? ""; ?></p>
+    
+    <hr>
+
+    <a href="perfil.php">Ver Perfil Completo</a>
+    <a href="logout.php">Cerrar sesión</a>
+
+</div>
+=======
+</html>
+>>>>>>> f719c429efd323bfb0b00d70ad587b1851006c13
