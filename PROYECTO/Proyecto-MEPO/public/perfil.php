@@ -213,12 +213,12 @@ if(!isset($_SESSION["ndocumento"])){
 
     <!-- JavaScript para abrir y cerrar -->
     <script>
-        const btnPerfil = document.getElementById('btnPerfil');
+        const oli = document.getElementById('oli');
         const modal = document.getElementById('miModal');
         const cerrarModal = document.getElementById('cerrarModal');
 
         // Abrir modal al hacer clic en la foto
-        btnPerfil.addEventListener('click', () => {
+        oli.addEventListener('click', () => {
             modal.style.display = 'flex';
         });
 
