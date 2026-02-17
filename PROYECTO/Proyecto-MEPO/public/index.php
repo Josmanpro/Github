@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="js/dom.js"></script>
+
 </head>
 
 <body>
@@ -28,11 +28,24 @@
             <a href="login.php" class="btn-login">Iniciar Sesión</a>
 
             <div class="perfil oculto" id="perfilUsuario">
+<<<<<<< HEAD:PROYECTO/Proyecto-MEPO/public/index.html
+
+                <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
+
+                <div id="panelPerfil" class="panel-perfil">
+                    <p id="nombreUsuario"></p>
+                    <hr>
+                    <a href="perfil.php">Ver Perfil</a>
+                    <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+                </div>
+
+=======
                 <a href="perfil.php">
                     <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" width="35">
                 </a>
                 <span id="nombreUsuario"></span>
                 <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+>>>>>>> 7b64a0b88792f15037d3f217e34b2eb414cbdb09:PROYECTO/Proyecto-MEPO/public/index.php
             </div>
         </div>
     </header>
@@ -94,8 +107,8 @@
             </div>
         </div>
     </footer>
-    
 
+    <script src="js/dom.js"></script>
 </body>
 
 </html>

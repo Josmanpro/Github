@@ -1,11 +1,71 @@
-.panel {
-    display: none;
+/* Contenedor del perfil */
+.perfil {
+    position: relative;
+    display: inline-block;
+}
+
+/* Imagen de perfil */
+.foto-perfil {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+/* Panel desplegable */
+.panel-perfil {
     position: absolute;
-    right: 20px;
-    top: 60px;
+    top: 45px;
+    right: 0;
+
     background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     width: 200px;
+    padding: 15px;
+
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Cuando está activo */
+.panel-perfil.activo {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Enlaces del panel */
+.panel-perfil a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.panel-perfil a:hover {
+    color: #2ecc71;
+}
+
+/* Botón salir */
+.btn-logout {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #ff4d4d;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background: #e60000;
 }

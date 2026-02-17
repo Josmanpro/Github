@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     actualizarVista();
+    activarPanelPerfil();
 });
+
+/* ============================= */
+/*         LOGIN / VISTA         */
+/* ============================= */
 
 function actualizarVista() {
     const usuario = localStorage.getItem("usuario");
@@ -24,4 +29,25 @@ function iniciarSesion(nombre) {
 function cerrarSesion() {
     localStorage.removeItem("usuario");
     location.reload();
+}
+
+/* ============================= */
+/*      PANEL DESPLEGABLE       */
+/* ============================= */
+
+function activarPanelPerfil() {
+
+    const foto = document.getElementById("imgPerfil");
+    const panel = document.getElementById("panelPerfil");
+
+    if (!foto || !panel) return;
+
+    foto.addEventListener("click", function (e) {
+        e.stopPropagation();
+        panel.classList.toggle("activo");
+    });
+
+    document.addEventListener("click", function () {
+        panel.classList.remove("activo");
+    });
 }
