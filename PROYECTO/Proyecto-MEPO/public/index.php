@@ -73,11 +73,15 @@
                         <p>Elige la mejor opción y optimiza tu dinero.</p>
                     </div>
                 </div>
-                <div onclick() class="boton-ahorra">
-                    <button>
-                        Empieza tu ahorro ahora!
-                    </button>
-                 
+                <div class="boton-ahorra">
+                    <?php
+                        if (isset($_SESSION["id"]));
+                    ?>
+                    <a href="ahorro.php">
+                        <button>
+                            Empieza tu ahorro ahora!
+                        </button>
+                    </a>
                 </div>
             </div>
         </section>
