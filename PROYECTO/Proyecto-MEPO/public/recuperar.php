@@ -16,24 +16,16 @@ require 'funcs/conexion.php';
 
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Recuperar contraseña</title>
 </head>
 <body>
 
-<h2>Recuperar contraseña</h2>
-
-<p id="msg"></p>
-
-<form id="recoverForm" method="POST">
-    <label>Correo:</label>
-    <input type="email" id="recoverEmail" required>
-
-    <button type="submit">Enviar enlace</button>
+<form action="enviar_token.php" method="POST">
+    <input type="email" name="correo" placeholder="Ingresa tu correo" required>
+    <button type="submit">Recuperar contraseña</button>
 </form>
 
-<script type="module" src="js/recuperar.js"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@ if(isset($_POST["btn-login-form"])){
         $_SESSION ["ndocumento"] = $fila["ndocumento"];
         $_SESSION ["nombre"] = $fila["nombre"];
 
-        header("Location: login.php");
+        header("Location: perfil.php");
         exit();
     }else {
         echo "Datos incorrectos o usuario no activo";
