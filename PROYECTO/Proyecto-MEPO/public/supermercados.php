@@ -6,7 +6,11 @@
     
     <title>Supermercados Aliados - Mepo</title>
     <!-- Enlazamos al archivo CSS -->
+     <link rel="stylesheet" href="css/pagina.css">
     <link rel="stylesheet" href="css/supermercados.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
