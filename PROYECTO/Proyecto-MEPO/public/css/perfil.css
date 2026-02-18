@@ -78,9 +78,9 @@
 
 /* Botón */
 .btn-logout {
-    display: inline-block;   /* importante */
+    display: inline-block; 
     margin-top: 20px;
-    padding: 10px 22px;      /* controla tamaño */
+    padding: 10px 22px;      
     border: none;
     border-radius: 12px;
     background: #e74c3c;
