@@ -51,7 +51,6 @@ if (isset($_SESSION["ndocumento"])) {
 
                     <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
-<<<<<<< HEAD
 <div id="panelPerfil" class="panel-perfil">
 
     <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
@@ -75,18 +74,6 @@ if (isset($_SESSION["ndocumento"])) {
 </div>
 </div>
 <?php endif; ?>
-=======
-                    <div id="panelPerfil" class="panel-perfil">
-                        <p class="tpanel"><strong>Nombre:</strong> <?php echo $usuario["nombre"]; ?></p>
-                        <p class="tpanel"><strong>Documento:</strong> <?php echo $usuario["ndocumento"]; ?></p>
-                        <p class="tpanel"><strong>Correo:</strong> <?php echo $usuario["correo_tel"]; ?></p>
-
-                        <a href="logout.php" class="btn-logout">Salir</a>
-                    </div>
-
-                </div>
-            <?php endif; ?>
->>>>>>> 3a991fd351fd74297f6cfae873bf66effd7b8fc4
 
         </div>
         </div>
