@@ -43,10 +43,10 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Escribe el monto de tu ahorro.</h1>
-                <p>Encuentra los mejores precios de Éxito, D1, SurtiPlaza y más, ¡en un solo lugar!</p>
+                <h1>¡Escribe el monto de tu ahorro!</h1>
+                <p>Te ayudamos a completar tus metas y ideas en mente!</p>
                 <div class="search-box">
-                    <input type="text" placeholder="¿Qué estás buscando? Ej: Arroz, Leche, Jabón...">
+                    <input type="text" placeholder="$0.000">
                     <button class="btn-search">Buscar</button>
                 </div>
             </div>
