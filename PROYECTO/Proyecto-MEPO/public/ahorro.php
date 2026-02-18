@@ -23,21 +23,27 @@
                 <a href="supermercados.php" class="button">Supermercados</a>
                 <a href="ofertas.php" class="button">Ofertas</a>
             </nav>
-            <a href="login.php" class="btn-login">Iniciar Sesión</a>
+            <?php if (!$usuario): ?>
+                <a href="login.php" class="btn-login">Iniciar Sesión</a>
+            <?php endif; ?>
 
-            <div class="perfil oculto" id="perfilUsuario">
+            <?php if ($usuario): ?>
+                <div class="perfil" id="perfilUsuario">
 
+                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
-                <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
+                    <div id="panelPerfil" class="panel-perfil">
+                        <p class="tpanel"><strong>Nombre:</strong> <?php echo $usuario["nombre"]; ?></p>
+                        <p class="tpanel"><strong>Documento:</strong> <?php echo $usuario["ndocumento"]; ?></p>
+                        <p class="tpanel"><strong>Correo:</strong> <?php echo $usuario["correo_tel"]; ?></p>
 
-                <div id="panelPerfil" class="panel-perfil">
-                    <p id="nombreUsuario"></p>
-                    <hr>
-                    <button id="oli" class="oli">Ver Perfil</button>
-                    <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+                        <a href="logout.php" class="btn-logout">Salir</a>
+                    </div>
+
                 </div>
+            <?php endif; ?>
 
-            </div>
+        </div>
         </div>
     </header>
     <main>

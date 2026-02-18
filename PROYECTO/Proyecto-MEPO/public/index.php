@@ -4,7 +4,7 @@ require("regis2.php"); // conexión a la base de datos
 
 $usuario = null;
 
-if(isset($_SESSION["ndocumento"])) {
+if (isset($_SESSION["ndocumento"])) {
     $ndocumento = $_SESSION["ndocumento"];
 
     // Consulta segura
@@ -42,15 +42,16 @@ if(isset($_SESSION["ndocumento"])) {
                 <a href="supermercados.php" class="button">Supermercados</a>
                 <a href="ofertas.php" class="button">Ofertas</a>
             </nav>
-            <?php if(!$usuario): ?>
-    <a href="login.php" class="btn-login">Iniciar Sesión</a>
-<?php endif; ?>
+            <?php if (!$usuario): ?>
+                <a href="login.php" class="btn-login">Iniciar Sesión</a>
+            <?php endif; ?>
 
-<?php if($usuario): ?>
-<div class="perfil" id="perfilUsuario">
+            <?php if ($usuario): ?>
+                <div class="perfil" id="perfilUsuario">
 
-    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
+                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
+<<<<<<< HEAD
 <div id="panelPerfil" class="panel-perfil">
 
     <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
@@ -74,8 +75,20 @@ if(isset($_SESSION["ndocumento"])) {
 </div>
 </div>
 <?php endif; ?>
+=======
+                    <div id="panelPerfil" class="panel-perfil">
+                        <p class="tpanel"><strong>Nombre:</strong> <?php echo $usuario["nombre"]; ?></p>
+                        <p class="tpanel"><strong>Documento:</strong> <?php echo $usuario["ndocumento"]; ?></p>
+                        <p class="tpanel"><strong>Correo:</strong> <?php echo $usuario["correo_tel"]; ?></p>
 
-</div>
+                        <a href="logout.php" class="btn-logout">Salir</a>
+                    </div>
+
+                </div>
+            <?php endif; ?>
+>>>>>>> 3a991fd351fd74297f6cfae873bf66effd7b8fc4
+
+        </div>
         </div>
     </header>
     <main>
@@ -112,7 +125,8 @@ if(isset($_SESSION["ndocumento"])) {
                 </div>
                 <div class="boton-ahorra">
                     <?php
-                        if (isset($_SESSION["id"]));
+                    if (isset($_SESSION["id"]))
+                        ;
                     ?>
                     <a href="ahorro.php">
                         <button>
