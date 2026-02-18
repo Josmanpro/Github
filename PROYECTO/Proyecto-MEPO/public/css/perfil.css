@@ -1,127 +1,95 @@
-/* styles.css */
-
-/* Contenedor principal */
+/* CONTENEDOR PERFIL */
 .perfil {
     position: relative;
     display: inline-block;
 }
 
-/* Imagen de perfil */
+/* FOTO PEQUEÑA (NAVBAR) */
 .foto-perfil {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     cursor: pointer;
     object-fit: cover;
     border: 2px solid #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
 }
 
 .foto-perfil:hover {
-    transform: scale(1.1);
-    border-color: #3498db; /* Borde azul al pasar el mouse */
+    transform: scale(1.08);
+    border-color: #1a73e8;
 }
 
-/* Panel desplegable */
 .panel-perfil {
     position: absolute;
-    top: 50px;
+    top: 65px;
     right: 0;
+    width: 320px;
     background: #ffffff;
-    width: 280px; /* Un poco más ancho para el correo */
-    border-radius: 12px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
-    border: 1px solid #eee;
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+    padding: 30px 25px;
     z-index: 1000;
-    overflow: hidden;
 
-    /* Estado oculto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* CENTRA TODO */
+    justify-content: center;
+
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
 }
 
-/* Estado visible */
 .panel-perfil.activo {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-/* Cabecera del panel (Info del usuario) */
-.panel-header {
-    background: linear-gradient(135deg, #3498db, #2980b9); /* Degradado Azul */
-    padding: 20px 15px;
-    color: white;
-    text-align: center;
+/* Avatar grande */
+.avatar-panel {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.panel-header .nombre {
-    font-weight: 700;
-    font-size: 1.15em;
+/* Nombre */
+.panel-perfil .nombre {
+    font-size: 18px;
+    font-weight: 600;
     margin-bottom: 5px;
-    word-wrap: break-word;
-}
-
-.panel-header .correo {
-    font-size: 0.9em;
-    opacity: 0.9;
-    font-weight: 300;
-    word-wrap: break-word;
-}
-
-/* Cuerpo de enlaces */
-.panel-body {
-    padding: 10px 0;
-    background: #fff;
-}
-
-.panel-perfil a {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center;
-    padding: 12px 20px;
-    font-weight: 500;
-    font-size: 0.95em;
-    transition: background 0.2s;
-}
-
-.panel-perfil a:hover {
-    background: #f8f9fa;
-    color: #3498db;
-}
-
-.panel-perfil a span {
-    margin-right: 10px;
-    font-size: 1.2em;
-    width: 20px;
+    color: #202124;
     text-align: center;
 }
 
-/* Separador */
-hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-    margin: 0;
+/* Correo y documento */
+.panel-perfil .info {
+    font-size: 14px;
+    color: #5f6368;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
-/* Botón de cerrar sesión */
+/* Botón */
 .btn-logout {
-    width: calc(100% - 20px);
-    margin: 10px;
-    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     background: #e74c3c;
     color: white;
-    cursor: pointer;
     font-weight: 600;
-    transition: background 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: #c0392b;
 }
