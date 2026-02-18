@@ -1,16 +1,36 @@
 <?php
-include("../bdd/conexion.php");
 
-$token = $_POST['token'];
-$nueva = sha1($_POST['nueva_contrasena']);
+$servidor = "localhost";
+$usuario = "root";
+$clave = "";
+$basededatos = "mepo";
 
-$sql = "UPDATE usuario 
-        SET contrasena='$nueva',
-            token=NULL,
-            token_expira=NULL
-        WHERE token='$token'";
+$enlace = mysqli_connect($servidor,$usuario,$clave,$basededatos);
 
-mysqli_query($conexion, $sql);
+if(isset($_GET['token'])){
+    $token = $_GET['token'];
+} else {
+    die("Token inválido");
+}
 
-echo "Contraseña actualizada correctamente.";
+if(isset($_POST['nueva_pass'])){
+
+    $nueva = sha1($_POST['nueva_pass']);
+
+    $sql = "UPDATE usuario 
+            SET contrasena='$nueva',
+                token=NULL,
+                token_expira=NULL
+            WHERE token='$token'";
+
+    mysqli_query($enlace, $sql);
+
+    echo "Contraseña actualizada correctamente";
+    exit();
+}
 ?>
+
+<form method="POST">
+    <input type="password" name="nueva_pass" placeholder="Nueva contraseña" required>
+    <button type="submit">Cambiar contraseña</button>
+</form>
