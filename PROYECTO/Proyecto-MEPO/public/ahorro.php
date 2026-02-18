@@ -43,7 +43,7 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Ahorra en cada compra. Compara precios de supermercados en Ibagué.</h1>
+                <h1>Escribe el monto de tu ahorro.</h1>
                 <p>Encuentra los mejores precios de Éxito, D1, SurtiPlaza y más, ¡en un solo lugar!</p>
                 <div class="search-box">
                     <input type="text" placeholder="¿Qué estás buscando? Ej: Arroz, Leche, Jabón...">
