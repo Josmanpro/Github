@@ -78,9 +78,9 @@
 
 /* Botón */
 .btn-logout {
-    width: 100%;
+    display: inline-block;   /* importante */
     margin-top: 20px;
-    padding: 12px;
+    padding: 10px 22px;      /* controla tamaño */
     border: none;
     border-radius: 12px;
     background: #e74c3c;
@@ -88,6 +88,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
+    text-align: center;
 }
 
 .btn-logout:hover {
