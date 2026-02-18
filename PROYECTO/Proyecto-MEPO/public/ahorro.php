@@ -43,11 +43,11 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>¡Escribe el monto de tu ahorro!</h1>
-                <p>Te ayudamos a completar tus metas y ideas en mente!</p>
+                <h1>Escribe el monto de tu ahorro</h1>
+                <p>¡Te ayudamos a completar tus metas y ideas en mente!</p>
                 <div class="search-box">
                     <input type="text" placeholder="$0.000">
-                    <button class="btn-search">Buscar</button>
+                    <button class="btn-search">Guardar ahorro</button>
                 </div>
             </div>
         </section>
