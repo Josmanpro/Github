@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("conexion.php"); // conexión a la base de datos
+require("regis2.php"); // conexión a la base de datos
 
 $usuario = null;
 
