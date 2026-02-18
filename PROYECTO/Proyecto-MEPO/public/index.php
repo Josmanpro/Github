@@ -54,7 +54,7 @@ if(isset($_SESSION["ndocumento"])) {
             <p class="tpanel"><strong>Documento:</strong> <?php echo $usuario["ndocumento"]; ?></p>
             <p class="tpanel"><strong>Correo:</strong> <?php echo $usuario["correo_tel"]; ?></p>
         <?php else: ?>
-            <p>No hay sesión activa</p>
+            <p class="tpanel">No hay sesión activa</p>
         <?php endif; ?>
 
         <a href="logout.php" class="btn-logout">Salir</a>
