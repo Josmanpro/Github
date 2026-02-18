@@ -8,7 +8,7 @@ if(isset($_SESSION["ndocumento"])) {
     $ndocumento = $_SESSION["ndocumento"];
 
     // Consulta segura
-    $stmt = mysqli_prepare($conexion, "SELECT * FROM usuario WHERE ndocumento = ?");
+    $stmt = mysqli_prepare($enlace, "SELECT * FROM usuario WHERE ndocumento = ?");
     mysqli_stmt_bind_param($stmt, "s", $ndocumento);
     mysqli_stmt_execute($stmt);
     $resultado = mysqli_stmt_get_result($stmt);
@@ -22,7 +22,7 @@ if(isset($_SESSION["ndocumento"])) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="visewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEPO - Mercando con Propósito</title>
     <link rel="stylesheet" href="css/pagina.css">
     <link rel="stylesheet" href="css/perfil.css">
