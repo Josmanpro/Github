@@ -60,7 +60,7 @@ if(isset($_SESSION["ndocumento"])) {
             <p>No hay sesión activa</p>
         <?php endif; ?>
 
-        <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+        <a href="logout.php" class="btn-logout">Salir</a>
     </div>
 
 </div>
