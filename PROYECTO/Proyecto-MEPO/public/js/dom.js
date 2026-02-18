@@ -26,11 +26,6 @@ function iniciarSesion(nombre) {
     actualizarVista();
 }
 
-function cerrarSesion() {
-    localStorage.removeItem("usuario");
-    location.reload();
-}
-
 /* ============================= */
 /*      PANEL DESPLEGABLE       */
 /* ============================= */
