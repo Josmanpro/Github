@@ -55,7 +55,7 @@ if(isset($_SESSION["ndocumento"])) {
         <?php if($usuario): ?>
             <p><strong>Nombre:</strong> <?php echo $usuario["nombre"]; ?></p>
             <p><strong>Documento:</strong> <?php echo $usuario["ndocumento"]; ?></p>
-            <p><strong>Correo:</strong> <?php echo $usuario["correo"]; ?></p>
+            <p><strong>Correo:</strong> <?php echo $usuario["user"]; ?></p>
         <?php else: ?>
             <p>No hay sesión activa</p>
         <?php endif; ?>
