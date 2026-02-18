@@ -1,10 +1,4 @@
 <?php
-// perfil.php
-session_start();
-
-
-// 1. Verificar si el usuario está logueado
-if(!isset($_SESSION["ndocumento"])){
 
 
 session_start();
