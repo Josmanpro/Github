@@ -75,3 +75,6 @@ if (isset($_SESSION["ndocumento"])) {
                 </div>
             </div>
         </section>
+            </main>
+            <script src="dom.js"></script>
+            </body></html>
