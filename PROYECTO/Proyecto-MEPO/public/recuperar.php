@@ -1,6 +1,6 @@
 <?php
-require 'funcs/login.php';
-require 'funcs/regis2.php';
+require 'login.php';
+require 'regis2.php';
 
     $errors = array();
 
