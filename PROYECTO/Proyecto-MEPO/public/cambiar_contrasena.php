@@ -1,5 +1,5 @@
 <?php
-include("../bdd/conexion.php");
+include("../bdd/regis2.php");
 
 $token = $_GET['token'];
 
