@@ -6,7 +6,7 @@ require 'regis2.php';
 
     if(!empty($_POST))
         {
-            $correo_tel = $mysqli->real_escape_string($_POST['recoverEmail']);
+            $correo_tel = mysqli_real_escape_string($enlace, $_POST['recoverEmail']);
 
             if(!isEmail($correo_tel))
                 {
@@ -23,7 +23,7 @@ require 'regis2.php';
 <body>
 
 <form action="enviar_token.php" method="POST">
-    <input type="email" name="correo" placeholder="Ingresa tu correo" required>
+    <input type="email" name="recoverEmail" placeholder="Ingresa tu correo" required>
     <button type="submit">Recuperar contraseña</button>
 </form>
 
