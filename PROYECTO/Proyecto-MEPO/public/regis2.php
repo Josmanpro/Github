@@ -1,6 +1,6 @@
 <?php
 
-session_start(); // 🔥 Necesario para usar sesiones
+
 
 $servidor = "localhost";
 $usuario = "root";
