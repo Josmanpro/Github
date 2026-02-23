@@ -8,6 +8,7 @@ if (isset($_SESSION["ndocumento"])) {
     $ndocumento = $_SESSION["ndocumento"];
 
     // Consulta segura
+    Ñ
     $stmt = mysqli_prepare($enlace, "SELECT * FROM usuario WHERE ndocumento = ?");
     mysqli_stmt_bind_param($stmt, "s", $ndocumento);
     mysqli_stmt_execute($stmt);
