@@ -1,3 +1,21 @@
+<?php
+session_start();
+require("regis2.php"); // conexión a la base de datos
+
+$usuario = null;
+
+if (isset($_SESSION["ndocumento"])) {
+    $ndocumento = $_SESSION["ndocumento"];
+
+    // Consulta segura
+    $stmt = mysqli_prepare($enlace, "SELECT * FROM usuario WHERE ndocumento = ?");
+    mysqli_stmt_bind_param($stmt, "s", $ndocumento);
+    mysqli_stmt_execute($stmt);
+    $resultado = mysqli_stmt_get_result($stmt);
+
+    $usuario = mysqli_fetch_assoc($resultado);
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,6 +24,7 @@
     <title>Comparar precios - Mepo</title>
     <link rel="stylesheet" href="css/pagina.css">
     <link rel="stylesheet" href="css/comparar.css">
+    <link rel="stylesheet" href="css/perfil.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -20,7 +39,40 @@
             <a href="supermercados.php">Supermercados</a>
             <a href="ofertas.php">Ofertas</a>
         </nav>
-        <a href="login.php" class="btn-login">Iniciar Sesión</a>
+        
+        <?php if (!$usuario): ?>
+                <a href="login.php" class="btn-login">Iniciar Sesión</a>
+            <?php endif; ?>
+
+            <?php if ($usuario): ?>
+                <div class="perfil" id="perfilUsuario">
+
+                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
+
+<div id="panelPerfil" class="panel-perfil">
+
+    <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
+
+    <div class="nombre">
+        <?php echo $usuario["nombre"]; ?>
+    </div>
+
+    <div class="info">
+        <?php echo $usuario["correo_tel"]; ?>
+    </div>
+
+    <div class="info">
+        Documento: <?php echo $usuario["ndocumento"]; ?>
+    </div>
+
+    <a href="logout.php" class="btn-logout">
+        Cerrar sesión
+    </a>
+
+</div>
+</div>
+<?php endif;
+ ?>
     </div>
 </header>
 
@@ -42,6 +94,7 @@
     </div>
 </main>
 <script src="js/ajax.js"></script>
+<script src="js/dom.js"></script>
 
 </body>
 </html>
