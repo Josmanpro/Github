@@ -16,6 +16,7 @@ if (isset($_SESSION["ndocumento"])) {
     $usuario = mysqli_fetch_assoc($resultado);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
