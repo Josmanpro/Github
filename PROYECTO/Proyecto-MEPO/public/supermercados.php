@@ -37,11 +37,20 @@ if (isset($_SESSION["ndocumento"])) {
                 $("#mapexito").click(function(){
                     $("#exito").slideToggle(600);
                 });
-                $("[name='mapd']").click(function(){
-                    $(".done").slideToggle(600);
+                $("#mapd").click(function(){
+                    $("#done").slideToggle(600);
                 });
                 $("#mapsurti").click(function(){
                     $("#surtiplaza").slideToggle(600);
+                });
+                $("#mapara").click(function(){
+                    $("#ara").slideToggle(600);
+                });
+                $("#mapmerca").click(function(){
+                    $("#mercacentro").slideToggle(600);
+                });
+                $("#mapolim").click(function(){
+                    $("#olimpica").slideToggle(600);
                 });
             });
         </script>
@@ -218,9 +227,9 @@ if (isset($_SESSION["ndocumento"])) {
         </div> 
         <div class="card-actions"> 
             <a href="https://aratiendas.com/" class="btn btn-primary" target="_blank">Página Web</a>
-            <button name="mapd" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
+            <button id="mapara" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
         </div>
-        <div id="done" class="done" style="display: none;">
+        <div id="ara" style="display: none;">
             <iframe src="https://www.google.com/maps/d/embed?mid=1yBAaI1scyIsjUEqRSXGL7hXZQbKQJF4&ehbc=2E312F" 
                 width="640"
                 height="480">
@@ -249,9 +258,9 @@ if (isset($_SESSION["ndocumento"])) {
         </div> 
         <div class="card-actions"> 
             <a href="https://www.mercacentro.com/?utm_source=google&utm_medium=cpa&utm_campaign=mercacentro__marca__google_conversion_aon_search&utm_term=conversion&utm_source=google&utm_medium=cpa&utm_campaign=mercacentro__marca__google_conversion_aon_search&utm_term=conversion&gad_source=1&gad_campaignid=16523441195&gbraid=0AAAAAodr9nl_LSazWtY5Ltehba1zJWyyh&gclid=Cj0KCQiAubrJBhCbARIsAHIdxD_j4XZ9eFhz38Dkm0XhdTDO6ZgqauulmMGXlmssOiLrWCoHWkG-f20aAmvqEALw_wcB" class="btn btn-primary" target="_blank">Página Web</a>
-            <button name="mapd" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
+            <button id="mapmerca" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
         </div>
-        <div id="done" class="done"  style="display: none;">
+        <div id="mercacentro"  style="display: none;">
             <iframe src="https://www.google.com/maps/d/embed?mid=1yBAaI1scyIsjUEqRSXGL7hXZQbKQJF4&ehbc=2E312F" 
                 width="640"
                 height="480">
@@ -280,9 +289,9 @@ if (isset($_SESSION["ndocumento"])) {
         </div> 
         <div class="card-actions"> 
             <a href="https://www.olimpica.com/" class="btn btn-primary" target="_blank">Página Web</a>
-            <button name="mapd" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
+            <button id="mapolim" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
         </div>
-        <div id="done" class="done" style="display: none;">
+        <div id="olimpica" style="display: none;">
             <iframe src="https://www.google.com/maps/d/embed?mid=1yBAaI1scyIsjUEqRSXGL7hXZQbKQJF4&ehbc=2E312F" 
                 width="640"
                 height="480">
