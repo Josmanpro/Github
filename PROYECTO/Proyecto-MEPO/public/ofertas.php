@@ -83,5 +83,6 @@ if (isset($_SESSION["ndocumento"])) {
     </div>
 </main>
 <script src="js/ofertas.js"></script>
+<script src="js/dom.js"></script>
 </body>
 </html>
