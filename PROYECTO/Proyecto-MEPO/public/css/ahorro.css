@@ -1,0 +1,95 @@
+/* ===== SECCIÓN META ===== */
+.meta-section {
+    background: linear-gradient(135deg, #f4f4f4, #e8f5e9);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.meta-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.meta-card h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.subtexto {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.campo {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.campo input,
+.campo textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-family: var(--font-family);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+.campo textarea {
+    resize: none;
+    min-height: 80px;
+}
+
+.iconos {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.iconos label {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.iconos label:hover {
+    transform: scale(1.2);
+}
+
+.btn-guardar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-guardar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}

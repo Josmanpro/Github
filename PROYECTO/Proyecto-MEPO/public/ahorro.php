@@ -25,6 +25,7 @@ if (isset($_SESSION["ndocumento"])) {
     <title>MEPO - Mercando con Propósito</title>
     <link rel="stylesheet" href="css/pagina.css">
     <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/ahorro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -79,17 +80,48 @@ if (isset($_SESSION["ndocumento"])) {
         </div>
     </header>
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Escribe el monto de tu ahorro</h1>
-                <p>¡Te ayudamos a completar tus metas y ideas en mente!</p>
-                <div class="search-box">
-                    <input type="text" placeholder="$0.000">
-                    <button class="btn-search">Guardar ahorro</button>
+    <section class="meta-section">
+        <div class="meta-card">
+            <h1>Crea tu meta de ahorro</h1>
+            <p class="subtexto">Define tu objetivo y comienza a construirlo paso a paso.</p>
+
+            <form method="POST" action="">
+                
+                <div class="campo">
+                    <label>Nombre de la meta</label>
+                    <input type="text" name="nombre_meta" placeholder="Ej: Viaje a Cartagena" required>
                 </div>
-            </div>
-        </section>
-    </main>
+
+                <div class="campo">
+                    <label>Monto objetivo</label>
+                    <input type="number" name="monto_meta" placeholder="Ej: 1500000" required>
+                </div>
+
+                <div class="campo">
+                    <label>¿Para qué es esta meta?</label>
+                    <textarea name="descripcion" placeholder="Describe tu objetivo..."></textarea>
+                </div>
+
+                <div class="campo">
+                    <label>Elige un ícono para tu meta</label>
+                    <div class="iconos">
+                        <label><input type="radio" name="icono" value="✈️" required> ✈️</label>
+                        <label><input type="radio" name="icono" value="🏠"> 🏠</label>
+                        <label><input type="radio" name="icono" value="🎓"> 🎓</label>
+                        <label><input type="radio" name="icono" value="🚗"> 🚗</label>
+                        <label><input type="radio" name="icono" value="💍"> 💍</label>
+                        <label><input type="radio" name="icono" value="💻"> 💻</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-guardar">
+                    Guardar Meta
+                </button>
+
+            </form>
+        </div>
+    </section>
+</main>
     <script src="js/dom.js"></script>
 </body>
 
