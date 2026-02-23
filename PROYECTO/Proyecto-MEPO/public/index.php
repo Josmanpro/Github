@@ -117,13 +117,15 @@ if (isset($_SESSION["ndocumento"])) {
                 </div>
                 <div class="boton-ahorra">
                     <?php
-                    if (isset($_SESSION["id"]))
-                        ;
+                    if (isset($_SESSION["ndocumento"])) {
+                        $destino = "ahorro.php";
+                    } else {
+                        $destino = "login.php";
+                    }
                     ?>
-                    <a href="ahorro.php">
-                        <button>
-                            Empieza tu ahorro ahora!
-                        </button>
+
+                    <a href="<?php echo $destino; ?>" class="btn-ahorro">
+                        Empieza tu ahorro ahora
                     </a>
                 </div>
             </div>
