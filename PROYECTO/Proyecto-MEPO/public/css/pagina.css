@@ -258,3 +258,32 @@ body {
 #imgPerfil {
     border-radius: 50%;
 }
+.boton-ahorra {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-ahorro {
+    display: inline-block;
+    background: linear-gradient(135deg, #2E8B57, #1E6F43);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    letter-spacing: 0.5px;
+}
+
+.btn-ahorro:hover {
+    background: linear-gradient(135deg, #1E6F43, #14532d);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.btn-ahorro:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
