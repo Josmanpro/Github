@@ -8,11 +8,6 @@ if (isset($_SESSION["ndocumento"])) {
     $ndocumento = $_SESSION["ndocumento"];
 
     // Consulta segura
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 8e5aaea2405058369c8a20d779b7a5f81393f129
     $stmt = mysqli_prepare($enlace, "SELECT * FROM usuario WHERE ndocumento = ?");
     mysqli_stmt_bind_param($stmt, "s", $ndocumento);
     mysqli_stmt_execute($stmt);
