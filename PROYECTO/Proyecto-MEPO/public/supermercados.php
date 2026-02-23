@@ -230,8 +230,7 @@ if (isset($_SESSION["ndocumento"])) {
             <button id="mapara" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
         </div>
         <div id="ara" style="display: none;">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1yBAaI1scyIsjUEqRSXGL7hXZQbKQJF4&ehbc=2E312F" 
-                width="640"
+<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1NdOCnSqzLTtY2n5VTt-xJBtt0iIbe9M&ehbc=2E312F" width="640" height="480"></iframe>                width="640"
                 height="480">
             </iframe>
         </div> 
@@ -261,8 +260,7 @@ if (isset($_SESSION["ndocumento"])) {
             <button id="mapmerca" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
         </div>
         <div id="mercacentro"  style="display: none;">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1yBAaI1scyIsjUEqRSXGL7hXZQbKQJF4&ehbc=2E312F" 
-                width="640"
+<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1D2zLCfMJw1MCLCZ4POG8A-f5uOtiLN0&ehbc=2E312F" width="640" height="480"></iframe>                width="640"
                 height="480">
             </iframe>
         </div> 
