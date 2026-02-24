@@ -56,15 +56,9 @@ if ($usuario) {
 
                     <div id="panelPerfil" class="panel-perfil">
 
-<<<<<<< HEAD
                         <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
-=======
-<<<<<<< HEAD:PROYECTO/Proyecto-MEPO/public/ahorro.php
                         <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
-=======
     <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
->>>>>>> 98dcf9431b31a2735990323ad17d7cd3a58b328f:PROYECTO/Proyecto-MEPO/public/php/ahorro.php
->>>>>>> ad440dc57ddef571b163d7d8f1859c8131981993
 
                         <div class="nombre">
                             <?php echo $usuario["nombre"]; ?>
@@ -91,7 +85,6 @@ if ($usuario) {
         </div>
     </header>
     <main>
-<<<<<<< HEAD
         <section class="meta-section">
             <div class="meta-card">
                 <h1>Crea tu meta de ahorro</h1>
@@ -103,7 +96,6 @@ if ($usuario) {
                         <label for="nombre_meta">Nombre de la meta</label>
                         <input type="text" name="nombre_meta" placeholder="Ej: Viaje a Cartagena" required>
                     </div>
-=======
         <section class="meta-layout">
 
             <!-- Lado izquierdo (informativo) -->
@@ -140,7 +132,6 @@ if ($usuario) {
                             <option value="Emergencia">Fondo de emergencia</option>
                         </select>
                     </div>
-<<<<<<< HEAD:PROYECTO/Proyecto-MEPO/public/ahorro.php
                     <div class="campo">
                         <span class="titulo-campo">Monto objetivo</span>
                         <input type="number" name="monto_meta" placeholder="Ej: 1500000">
@@ -153,9 +144,7 @@ if ($usuario) {
         </section>
     </main>
     <script src="js/dom.js"></script>
-=======
                 </div>
->>>>>>> ad440dc57ddef571b163d7d8f1859c8131981993
 
                     <div class="campo">
                         <label for="monto_meta">Monto objetivo</label>
@@ -188,7 +177,6 @@ if ($usuario) {
         </section>
     </main>
     <script src="../js/dom.js"></script>
->>>>>>> 98dcf9431b31a2735990323ad17d7cd3a58b328f:PROYECTO/Proyecto-MEPO/public/php/ahorro.php
 </body>
 
 </html>
