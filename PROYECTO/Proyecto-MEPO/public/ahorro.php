@@ -38,25 +38,25 @@ require_once("php/valini.php");
 
                     <div id="panelPerfil" class="panel-perfil">
 
-    <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
+                        <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
-    <div class="nombre">
-        <?php echo $usuario["nombre"]; ?>
-    </div>
+                        <div class="nombre">
+                            <?php echo $usuario["nombre"]; ?>
+                        </div>
 
-    <div class="info">
-        <?php echo $usuario["correo_tel"]; ?>
-    </div>
+                        <div class="info">
+                            <?php echo $usuario["correo_tel"]; ?>
+                        </div>
 
-    <div class="info">
-        Documento: <?php echo $usuario["ndocumento"]; ?>
-    </div>
+                        <div class="info">
+                            Documento: <?php echo $usuario["ndocumento"]; ?>
+                        </div>
 
-    <a href="logout.php" class="btn-logout">
-        Cerrar sesión
-    </a>
+                        <a href="logout.php" class="btn-logout">
+                            Cerrar sesión
+                        </a>
 
-</div>
+                    </div>
 
                 </div>
             <?php endif; ?>
@@ -65,48 +65,53 @@ require_once("php/valini.php");
         </div>
     </header>
     <main>
-    <section class="meta-section">
-        <div class="meta-card">
-            <h1>Crea tu meta de ahorro</h1>
-            <p class="subtexto">Define tu objetivo y comienza a construirlo paso a paso.</p>
+        <section class="meta-layout">
 
-            <form method="POST" action="">
-                
-                <div class="campo">
-                    <label>Nombre de la meta</label>
-                    <input type="text" name="nombre_meta" placeholder="Ej: Viaje a Cartagena" required>
+            <!-- Lado izquierdo (informativo) -->
+            <div class="meta-info">
+                <h1>Define tu próxima meta</h1>
+                <p>
+                    Cada meta comienza con una decisión.
+                    Establece tu objetivo, asígnale un propósito
+                    y empieza a construirlo paso a paso.
+                </p>
+
+                <div class="beneficios">
+                    <p>✔ Organización financiera</p>
+                    <p>✔ Seguimiento de progreso</p>
+                    <p>✔ Motivación visual</p>
                 </div>
+            </div>
 
-                <div class="campo">
-                    <label>Monto objetivo</label>
-                    <input type="number" name="monto_meta" placeholder="Ej: 1500000" required>
-                </div>
+            <!-- Lado derecho (formulario elegante) -->
+            <div class="meta-formulario">
 
-                <div class="campo">
-                    <label>¿Para qué es esta meta?</label>
-                    <textarea name="descripcion" placeholder="Describe tu objetivo..."></textarea>
-                </div>
+                <form method="POST">
 
-                <div class="campo">
-                    <label>Elige un ícono para tu meta</label>
-                    <div class="iconos">
-                        <label><input type="radio" name="icono" value="✈️" required> ✈️</label>
-                        <label><input type="radio" name="icono" value="🏠"> 🏠</label>
-                        <label><input type="radio" name="icono" value="🎓"> 🎓</label>
-                        <label><input type="radio" name="icono" value="🚗"> 🚗</label>
-                        <label><input type="radio" name="icono" value="💍"> 💍</label>
-                        <label><input type="radio" name="icono" value="💻"> 💻</label>
+                    <div class="campo">
+                        <span class="titulo-campo">Tipo de meta</span>
+                        <select name="nombre_meta">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Viaje">Viaje</option>
+                            <option value="Casa">Comprar casa</option>
+                            <option value="Estudio">Estudios</option>
+                            <option value="Vehiculo">Vehículo</option>
+                            <option value="Boda">Boda</option>
+                            <option value="Tecnologia">Tecnología</option>
+                            <option value="Emergencia">Fondo de emergencia</option>
+                        </select>
                     </div>
-                </div>
-
-                <button type="submit" class="btn-guardar">
-                    Guardar Meta
-                </button>
-
-            </form>
-        </div>
-    </section>
-</main>
+                    <div class="campo">
+                        <span class="titulo-campo">Monto objetivo</span>
+                        <input type="number" name="monto_meta" placeholder="Ej: 1500000">
+                    </div>
+                    <button type="submit" class="btn-continuar">
+                        Continuar →
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
     <script src="js/dom.js"></script>
 </body>
 
