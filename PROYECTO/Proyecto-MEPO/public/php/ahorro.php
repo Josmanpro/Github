@@ -1,5 +1,23 @@
 <?php
 require_once("valini.php");
+
+$meta = 0;
+$monto_disp = 0;
+$objetivo = "";
+
+if ($usuario) {
+    $ndocumento = $usuario["ndocumento"];
+    $consulta = mysqli_query($enlace, "SELECT * FROM ahorro WHERE ndocumento = '$ndocumento'");
+    if (mysqli_num_rows($consulta) > 0) {
+        $fila = mysqli_fetch_assoc($consulta);
+        $meta = $fila["nombre_meta"];
+        $monto_disp = $fila["monto_meta"];
+        $objetivo = $fila["descripcion"];
+    } else {
+        mysqli_query($enlace, "INSERT INTO ahorro (ndocumento , objetivo, monto_disp, meta) VALUES ('$ndocumento', 'Mi meta', 0, 0)");
+
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,25 +56,25 @@ require_once("valini.php");
 
                     <div id="panelPerfil" class="panel-perfil">
 
-    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
+                        <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
-    <div class="nombre">
-        <?php echo $usuario["nombre"]; ?>
-    </div>
+                        <div class="nombre">
+                            <?php echo $usuario["nombre"]; ?>
+                        </div>
 
-    <div class="info">
-        <?php echo $usuario["correo_tel"]; ?>
-    </div>
+                        <div class="info">
+                            <?php echo $usuario["correo_tel"]; ?>
+                        </div>
 
-    <div class="info">
-        Documento: <?php echo $usuario["ndocumento"]; ?>
-    </div>
+                        <div class="info">
+                            Documento: <?php echo $usuario["ndocumento"]; ?>
+                        </div>
 
-    <a href="logout.php" class="btn-logout">
-        Cerrar sesión
-    </a>
+                        <a href="logout.php" class="btn-logout">
+                            Cerrar sesión
+                        </a>
 
-</div>
+                    </div>
 
                 </div>
             <?php endif; ?>
@@ -65,48 +83,48 @@ require_once("valini.php");
         </div>
     </header>
     <main>
-    <section class="meta-section">
-        <div class="meta-card">
-            <h1>Crea tu meta de ahorro</h1>
-            <p class="subtexto">Define tu objetivo y comienza a construirlo paso a paso.</p>
+        <section class="meta-section">
+            <div class="meta-card">
+                <h1>Crea tu meta de ahorro</h1>
+                <p class="subtexto">Define tu objetivo y comienza a construirlo paso a paso.</p>
 
-            <form method="POST" action="">
-                
-                <div class="campo">
-                    <label>Nombre de la meta</label>
-                    <input type="text" name="nombre_meta" placeholder="Ej: Viaje a Cartagena" required>
-                </div>
+                <form method="POST" action="">
 
-                <div class="campo">
-                    <label>Monto objetivo</label>
-                    <input type="number" name="monto_meta" placeholder="Ej: 1500000" required>
-                </div>
-
-                <div class="campo">
-                    <label>¿Para qué es esta meta?</label>
-                    <textarea name="descripcion" placeholder="Describe tu objetivo..."></textarea>
-                </div>
-
-                <div class="campo">
-                    <label>Elige un ícono para tu meta</label>
-                    <div class="iconos">
-                        <label><input type="radio" name="icono" value="✈️" required> ✈️</label>
-                        <label><input type="radio" name="icono" value="🏠"> 🏠</label>
-                        <label><input type="radio" name="icono" value="🎓"> 🎓</label>
-                        <label><input type="radio" name="icono" value="🚗"> 🚗</label>
-                        <label><input type="radio" name="icono" value="💍"> 💍</label>
-                        <label><input type="radio" name="icono" value="💻"> 💻</label>
+                    <div class="campo">
+                        <label for="nombre_meta">Nombre de la meta</label>
+                        <input type="text" name="nombre_meta" placeholder="Ej: Viaje a Cartagena" required>
                     </div>
-                </div>
 
-                <button type="submit" class="btn-guardar">
-                    Guardar Meta
-                </button>
+                    <div class="campo">
+                        <label for="monto_meta">Monto objetivo</label>
+                        <input type="number" name="monto_meta" placeholder="Ej: 1500000" required>
+                    </div>
 
-            </form>
-        </div>
-    </section>
-</main>
+                    <div class="campo">
+                        <label for="descripcion">¿Para qué es esta meta?</label>
+                        <textarea name="descripcion" placeholder="Describe tu objetivo..."></textarea>
+                    </div>
+
+                    <div class="campo">
+                        <label>Elige un ícono para tu meta</label>
+                        <div class="iconos">
+                            <label><input type="radio" name="icono" value="✈️" required> ✈️</label>
+                            <label><input type="radio" name="icono" value="🏠"> 🏠</label>
+                            <label><input type="radio" name="icono" value="🎓"> 🎓</label>
+                            <label><input type="radio" name="icono" value="🚗"> 🚗</label>
+                            <label><input type="radio" name="icono" value="💍"> 💍</label>
+                            <label><input type="radio" name="icono" value="💻"> 💻</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-guardar">
+                        Guardar Meta
+                    </button>
+
+                </form>
+            </div>
+        </section>
+    </main>
     <script src="../js/dom.js"></script>
 </body>
 
