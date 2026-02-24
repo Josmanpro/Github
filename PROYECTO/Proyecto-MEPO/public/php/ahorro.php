@@ -56,7 +56,15 @@ if ($usuario) {
 
                     <div id="panelPerfil" class="panel-perfil">
 
+<<<<<<< HEAD
                         <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
+=======
+<<<<<<< HEAD:PROYECTO/Proyecto-MEPO/public/ahorro.php
+                        <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
+=======
+    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
+>>>>>>> 98dcf9431b31a2735990323ad17d7cd3a58b328f:PROYECTO/Proyecto-MEPO/public/php/ahorro.php
+>>>>>>> ad440dc57ddef571b163d7d8f1859c8131981993
 
                         <div class="nombre">
                             <?php echo $usuario["nombre"]; ?>
@@ -83,6 +91,7 @@ if ($usuario) {
         </div>
     </header>
     <main>
+<<<<<<< HEAD
         <section class="meta-section">
             <div class="meta-card">
                 <h1>Crea tu meta de ahorro</h1>
@@ -94,6 +103,59 @@ if ($usuario) {
                         <label for="nombre_meta">Nombre de la meta</label>
                         <input type="text" name="nombre_meta" placeholder="Ej: Viaje a Cartagena" required>
                     </div>
+=======
+        <section class="meta-layout">
+
+            <!-- Lado izquierdo (informativo) -->
+            <div class="meta-info">
+                <h1>Define tu próxima meta</h1>
+                <p>
+                    Cada meta comienza con una decisión.
+                    Establece tu objetivo, asígnale un propósito
+                    y empieza a construirlo paso a paso.
+                </p>
+
+                <div class="beneficios">
+                    <p>✔ Organización financiera</p>
+                    <p>✔ Seguimiento de progreso</p>
+                    <p>✔ Motivación visual</p>
+                </div>
+            </div>
+
+            <!-- Lado derecho (formulario elegante) -->
+            <div class="meta-formulario">
+
+                <form method="POST">
+
+                    <div class="campo">
+                        <span class="titulo-campo">Tipo de meta</span>
+                        <select name="nombre_meta">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Viaje">Viaje</option>
+                            <option value="Casa">Comprar casa</option>
+                            <option value="Estudio">Estudios</option>
+                            <option value="Vehiculo">Vehículo</option>
+                            <option value="Boda">Boda</option>
+                            <option value="Tecnologia">Tecnología</option>
+                            <option value="Emergencia">Fondo de emergencia</option>
+                        </select>
+                    </div>
+<<<<<<< HEAD:PROYECTO/Proyecto-MEPO/public/ahorro.php
+                    <div class="campo">
+                        <span class="titulo-campo">Monto objetivo</span>
+                        <input type="number" name="monto_meta" placeholder="Ej: 1500000">
+                    </div>
+                    <button type="submit" class="btn-continuar">
+                        Continuar →
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="js/dom.js"></script>
+=======
+                </div>
+>>>>>>> ad440dc57ddef571b163d7d8f1859c8131981993
 
                     <div class="campo">
                         <label for="monto_meta">Monto objetivo</label>
@@ -126,6 +188,7 @@ if ($usuario) {
         </section>
     </main>
     <script src="../js/dom.js"></script>
+>>>>>>> 98dcf9431b31a2735990323ad17d7cd3a58b328f:PROYECTO/Proyecto-MEPO/public/php/ahorro.php
 </body>
 
 </html>
