@@ -109,5 +109,4 @@ require_once("valini.php");
 </main>
     <script src="../js/dom.js"></script>
 </body>
-
 </html>
