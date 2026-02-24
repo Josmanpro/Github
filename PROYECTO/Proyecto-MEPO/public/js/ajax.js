@@ -3,7 +3,7 @@ const productos = {
     lacteos: [
         {
             nombre: "Leche Entera 1L",
-            imagen: "imagenes/comparar/leche.webp",
+            imagen: "../imagenes/comparar/leche.webp",
             precios: {
                 "Éxito": 3200,
                 "D1": 2950,
@@ -13,7 +13,7 @@ const productos = {
         },
         {
             nombre: "Queso Campesino 500g",
-            imagen: "imagenes/comparar/Quesocampesino.jpg",
+            imagen: "../imagenes/comparar/Quesocampesino.jpg",
             precios: {
                 "Éxito": 12500,
                 "D1": 11900,
@@ -23,7 +23,7 @@ const productos = {
         },
         {
             nombre: "Yogurt Natural 1L",
-            imagen: "imagenes/comparar/yogurt.png",
+            imagen: "../imagenes/comparar/yogurt.png",
             precios: {
                 "Éxito": 5500,
                 "D1": 5200,
@@ -35,7 +35,7 @@ const productos = {
     granos: [
         {
             nombre: "Arroz Diana 500g",
-            imagen: "imagenes/comparar/Arrozdiana.webp",
+            imagen: "../imagenes/comparar/Arrozdiana.webp",
             precios: {
                 "Éxito": 2200,
                 "D1": 1990,
@@ -45,7 +45,7 @@ const productos = {
         },
         {
             nombre: "Lentejas Rojas 500g",
-            imagen: "imagenes/comparar/lentejas.avif",
+            imagen: "../imagenes/comparar/lentejas.avif",
             precios: {
                 "Éxito": 3500,
                 "D1": 3200,
@@ -57,7 +57,7 @@ const productos = {
     aseo: [
         {
             nombre: "Jabón en Polvo Fab 500g",
-            imagen: "imagenes/comparar/jabonfab.jpg",
+            imagen: "../imagenes/comparar/jabonfab.jpg",
             precios: {
                 "Éxito": 4800,
                 "D1": 4500,
@@ -67,7 +67,7 @@ const productos = {
         },
         {
             nombre: "Limpiavidrios 750ml",
-            imagen: "imagenes/comparar/limpiavidrios.jpg",
+            imagen: "../imagenes/comparar/limpiavidrios.jpg",
             precios: {
                 "Éxito": 6500,
                 "D1": 6200,

@@ -1,5 +1,5 @@
 <?php
-require_once("php/valini.php");
+require_once("valini.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,9 +9,9 @@ require_once("php/valini.php");
     
     <title>Supermercados Aliados - Mepo</title>
     <!-- Enlazamos al archivo CSS -->
-     <link rel="stylesheet" href="css/pagina.css">
-     <link rel="stylesheet" href="css/perfil.css">
-    <link rel="stylesheet" href="css/supermercados.css">
+     <link rel="stylesheet" href="../css/pagina.css">
+     <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="stylesheet" href="../css/supermercados.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -57,11 +57,11 @@ require_once("php/valini.php");
             <?php if ($usuario): ?>
                 <div class="perfil" id="perfilUsuario">
 
-                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
+                    <img id="imgPerfil" src="../imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
 <div id="panelPerfil" class="panel-perfil">
 
-    <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
+    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
     <div class="nombre">
         <?php echo $usuario["nombre"]; ?>
@@ -95,7 +95,7 @@ require_once("php/valini.php");
 <!-- SUPERMERCADO 1 --> 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-        <img src="imagenes/exito.png" alt="Éxito" class="card-logo">
+        <img src="../imagenes/exito.png" alt="Éxito" class="card-logo">
         </div> 
         <div class="card-info"> 
             <h3>Éxito</h3> 
@@ -130,7 +130,7 @@ require_once("php/valini.php");
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="imagenes/d1.png" alt="D1" class="card-logo"> 
+            <img src="../imagenes/d1.png" alt="D1" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>D1</h3> 
@@ -161,7 +161,7 @@ require_once("php/valini.php");
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="imagenes/surti.png" alt="Surtiplaza" class="card-logo"> 
+            <img src="../imagenes/surti.png" alt="Surtiplaza" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>Surtiplaza</h3> 
@@ -193,7 +193,7 @@ require_once("php/valini.php");
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="imagenes/ara.png" alt="Ara" class="card-logo"> 
+            <img src="../imagenes/ara.png" alt="Ara" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>Ara</h3> 
@@ -215,15 +215,13 @@ require_once("php/valini.php");
             <button id="mapara" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
         </div>
         <div id="ara" style="display: none;">
-<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1NdOCnSqzLTtY2n5VTt-xJBtt0iIbe9M&ehbc=2E312F" width="640" height="480"></iframe>                width="640"
-                height="480">
-            </iframe>
+            <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1NdOCnSqzLTtY2n5VTt-xJBtt0iIbe9M&ehbc=2E312F" width="100%" height="300"></iframe>
         </div> 
     </div>
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="imagenes/merca.png" alt="Mercacentro" class="card-logo"> 
+            <img src="../imagenes/merca.png" alt="Mercacentro" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>Mercacentro</h3> 
@@ -245,15 +243,13 @@ require_once("php/valini.php");
             <button id="mapmerca" class="btn btn-secondary" target="_blank">Ver Mapa</button> 
         </div>
         <div id="mercacentro"  style="display: none;">
-<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1D2zLCfMJw1MCLCZ4POG8A-f5uOtiLN0&ehbc=2E312F" width="640" height="480"></iframe>                width="640"
-                height="480">
-            </iframe>
+            <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1D2zLCfMJw1MCLCZ4POG8A-f5uOtiLN0&ehbc=2E312F" width="100%" height="300"></iframe>
         </div> 
     </div>
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="imagenes/olimpica.png" alt="Olimpica" class="card-logo"> 
+            <img src="../imagenes/olimpica.png" alt="Olimpica" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>Olimpica</h3> 
@@ -276,14 +272,14 @@ require_once("php/valini.php");
         </div>
         <div id="olimpica" style="display: none;">
             <iframe src="https://www.google.com/maps/d/embed?mid=1yBAaI1scyIsjUEqRSXGL7hXZQbKQJF4&ehbc=2E312F" 
-                width="640"
-                height="480">
+                width="100%"
+                height="300">
             </iframe>
         </div> 
     </div>
 </div>
-<script src="js/supermer.js"></script>
-<script src="js/dom.js"></script>
+<script src="../js/supermer.js"></script>
+<script src="../js/dom.js"></script>
 
 </body>
 </html>
