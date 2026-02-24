@@ -23,9 +23,9 @@ if (isset($_SESSION["ndocumento"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparar precios - Mepo</title>
-    <link rel="stylesheet" href="css/pagina.css">
-    <link rel="stylesheet" href="css/comparar.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="../css/pagina.css">
+    <link rel="stylesheet" href="../css/comparar.css">
+    <link rel="stylesheet" href="../css/perfil.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -48,11 +48,11 @@ if (isset($_SESSION["ndocumento"])) {
             <?php if ($usuario): ?>
                 <div class="perfil" id="perfilUsuario">
 
-                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
+                    <img id="imgPerfil" src="../imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
 <div id="panelPerfil" class="panel-perfil">
 
-    <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
+    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
     <div class="nombre">
         <?php echo $usuario["nombre"]; ?>
@@ -94,8 +94,8 @@ if (isset($_SESSION["ndocumento"])) {
     <div id="resultado" class="results-grid">
     </div>
 </main>
-<script src="js/ajax.js"></script>
-<script src="js/dom.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../js/dom.js"></script>
 
 </body>
 </html>

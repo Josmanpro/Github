@@ -1,5 +1,5 @@
 <?php
-require_once("php/valini.php");
+require_once("valini.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -8,8 +8,8 @@ require_once("php/valini.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEPO - Mercando con Propósito</title>
-    <link rel="stylesheet" href="css/pagina.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="../css/pagina.css">
+    <link rel="stylesheet" href="../css/perfil.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -33,11 +33,11 @@ require_once("php/valini.php");
             <?php if ($usuario): ?>
                 <div class="perfil" id="perfilUsuario">
 
-                    <img id="imgPerfil" src="imagenes/perfil/Perfil.jpg" class="foto-perfil">
+                    <img id="imgPerfil" src="../imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
 <div id="panelPerfil" class="panel-perfil">
 
-    <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
+    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
     <div class="nombre">
         <?php echo $usuario["nombre"]; ?>
@@ -114,12 +114,12 @@ require_once("php/valini.php");
             <div class="container">
                 <h2>Comparamos en los mejores supermercados de Ibagué</h2>
                 <div class="logos-grid">
-                    <img src="imagenes/exito.png" alt="Logo Éxito">
-                    <img src="imagenes/d1.png" alt="Logo D1">
-                    <img src="imagenes/surti.png" alt="Logo Surtiplaza">
-                    <img src="imagenes/merca.png" alt="Logo Mercacentro">
-                    <img src="imagenes/olimpica.png" alt="Logo Olimpica">
-                    <img src="imagenes/ara.png" alt="Logo Ara">
+                    <img src="../imagenes/exito.png" alt="Logo Éxito">
+                    <img src="../imagenes/d1.png" alt="Logo D1">
+                    <img src="../imagenes/surti.png" alt="Logo Surtiplaza">
+                    <img src="../imagenes/merca.png" alt="Logo Mercacentro">
+                    <img src="../imagenes/olimpica.png" alt="Logo Olimpica">
+                    <img src="../imagenes/ara.png" alt="Logo Ara">
                 </div>
             </div>
         </section>
@@ -135,7 +135,7 @@ require_once("php/valini.php");
         </div>
     </footer>
 
-    <script src="js/dom.js"></script>
+    <script src="../js/dom.js"></script>
 </body>
 
 </html>
