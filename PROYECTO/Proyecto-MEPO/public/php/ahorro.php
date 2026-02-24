@@ -82,7 +82,6 @@ require_once("valini.php");
                     <p>✔ Motivación visual</p>
                 </div>
             </div>
-
             <!-- Lado derecho (formulario elegante) -->
             <div class="meta-formulario">
 
@@ -96,7 +95,7 @@ require_once("valini.php");
                             <option value="Casa">Comprar casa</option>
                             <option value="Estudio">Estudios</option>
                             <option value="Vehiculo">Vehículo</option>
-                            <option value="Boda">Boda</option>
+                            <option value="Boda">Pareja</option>
                             <option value="Tecnologia">Tecnología</option>
                             <option value="Emergencia">Fondo de emergencia</option>
                         </select>
