@@ -14,7 +14,7 @@ if ($usuario) {
         $monto_disp = $fila["monto_meta"];
         $objetivo = $fila["descripcion"];
     } else {
-        mysqli_query($enlace, "INSERT INTO ahorro (ndocumento , objetivo, monto_disp, meta) VALUES ('$ndocumento', 'Mi meta', 0, 0)");
+        mysqli_query($enlace, "INSERT INTO ahorro (ndocumento , objetivo, monto_disp, meta) VALUES ('$ndocumento', '', 0, 0)");
 
     }
 }
