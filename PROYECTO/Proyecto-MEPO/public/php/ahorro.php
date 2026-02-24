@@ -10,9 +10,9 @@ if ($usuario) {
     $consulta = mysqli_query($enlace, "SELECT * FROM ahorro WHERE ndocumento = '$ndocumento'");
     if (mysqli_num_rows($consulta) > 0) {
         $fila = mysqli_fetch_assoc($consulta);
-        $meta = $fila["nombre_meta"];
-        $monto_disp = $fila["monto_meta"];
-        $objetivo = $fila["descripcion"];
+        $meta = $fila["meta"];
+        $monto_disp = $fila["monto_disp"];
+        $objetivo = $fila["objetivo"];
     } else {
         mysqli_query($enlace, "INSERT INTO ahorro (ndocumento , objetivo, monto_disp, meta) VALUES ('$ndocumento', '', 0, 0)");
 
