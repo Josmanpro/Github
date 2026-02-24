@@ -6,7 +6,7 @@ require_once("valini.php");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="visewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEPO - Mercando con Propósito</title>
     <link rel="stylesheet" href="../css/pagina.css">
     <link rel="stylesheet" href="../css/perfil.css">
@@ -38,11 +38,7 @@ require_once("valini.php");
 
                     <div id="panelPerfil" class="panel-perfil">
 
-<<<<<<< HEAD:PROYECTO/Proyecto-MEPO/public/ahorro.php
                         <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
-=======
-    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
->>>>>>> 98dcf9431b31a2735990323ad17d7cd3a58b328f:PROYECTO/Proyecto-MEPO/public/php/ahorro.php
 
                         <div class="nombre">
                             <?php echo $usuario["nombre"]; ?>
@@ -105,7 +101,6 @@ require_once("valini.php");
                             <option value="Emergencia">Fondo de emergencia</option>
                         </select>
                     </div>
-<<<<<<< HEAD:PROYECTO/Proyecto-MEPO/public/ahorro.php
                     <div class="campo">
                         <span class="titulo-campo">Monto objetivo</span>
                         <input type="number" name="monto_meta" placeholder="Ej: 1500000">
@@ -118,19 +113,6 @@ require_once("valini.php");
         </section>
     </main>
     <script src="js/dom.js"></script>
-=======
-                </div>
-
-                <button type="submit" class="btn-guardar">
-                    Guardar Meta
-                </button>
-
-            </form>
-        </div>
-    </section>
-</main>
-    <script src="../js/dom.js"></script>
->>>>>>> 98dcf9431b31a2735990323ad17d7cd3a58b328f:PROYECTO/Proyecto-MEPO/public/php/ahorro.php
 </body>
 
 </html>

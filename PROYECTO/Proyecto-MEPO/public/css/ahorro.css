@@ -1,95 +1,111 @@
-/* ===== SECCIÓN META ===== */
-.meta-section {
-    background: linear-gradient(135deg, #f4f4f4, #e8f5e9);
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center;
+/* ===== SECCIÓN META MODERNA ===== */
+.meta-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 8%;
+    background: linear-gradient(120deg, #f5f7fa, #e8f5e9);
+    gap: 60px;
 }
 
-.meta-card {
-    background: #ffffff;
-    width: 100%;
-    max-width: 600px;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+/* ----- LADO INFORMATIVO ----- */
+.meta-info h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1b5e20;
 }
 
-.meta-card h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-.subtexto {
-    text-align: center;
-    color: #666;
+.meta-info p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
     margin-bottom: 30px;
 }
 
-.campo {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.campo label {
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.campo input,
-.campo textarea {
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-family: var(--font-family);
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.campo input:focus,
-.campo textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-    outline: none;
-}
-
-.campo textarea {
-    resize: none;
-    min-height: 80px;
-}
-
-.iconos {
-    display: flex;
-    justify-content: space-between;
-    font-size: 24px;
-}
-
-.iconos label {
-    cursor: pointer;
+.beneficios p {
+    background: #ffffff;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-weight: 500;
     transition: transform 0.2s ease;
 }
 
-.iconos label:hover {
-    transform: scale(1.2);
+.beneficios p:hover {
+    transform: translateX(5px);
 }
 
-.btn-guardar {
-    width: 100%;
+/* ----- FORMULARIO ----- */
+.meta-formulario {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+    backdrop-filter: blur(10px);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.titulo-campo {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2e7d32;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.campo select,
+.campo input {
     padding: 14px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.campo select:focus,
+.campo input:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.15);
+    outline: none;
+}
+
+/* ----- BOTÓN ----- */
+.btn-continuar {
+    width: 100%;
+    padding: 15px;
     border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 14px;
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
     color: white;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
     margin-top: 10px;
 }
 
-.btn-guardar:hover {
+.btn-continuar:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 900px) {
+    .meta-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .meta-info h1 {
+        font-size: 32px;
+    }
 }
