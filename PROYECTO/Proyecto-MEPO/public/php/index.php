@@ -114,12 +114,12 @@ require_once("valini.php");
             <div class="container">
                 <h2>Comparamos en los mejores supermercados de Ibagué</h2>
                 <div class="logos-grid">
-                    <img src="../imagenes/exito.png" alt="Logo Éxito">
-                    <img src="../imagenes/d1.png" alt="Logo D1">
-                    <img src="../imagenes/surti.png" alt="Logo Surtiplaza">
-                    <img src="../imagenes/merca.png" alt="Logo Mercacentro">
-                    <img src="../imagenes/olimpica.png" alt="Logo Olimpica">
-                    <img src="../imagenes/ara.png" alt="Logo Ara">
+                    <img src="../imagenes/tiendas/exito.png" alt="Logo Éxito">
+                    <img src="../imagenes/tiendas/d1.png" alt="Logo D1">
+                    <img src="../imagenes/tiendas/surti.png" alt="Logo Surtiplaza">
+                    <img src="../imagenes/tiendas/merca.png" alt="Logo Mercacentro">
+                    <img src="../imagenes/tiendas/olimpica.png" alt="Logo Olimpica">
+                    <img src="../imagenes/tiendas/ara.png" alt="Logo Ara">
                 </div>
             </div>
         </section>
@@ -127,7 +127,7 @@ require_once("valini.php");
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 - MEPO - Mercando con Propósito.</p>
+            <p>&copy; 2026 - MEPO - Mercando con Propósito.</p>
             <div class="social-links">
                 <a href="https://www.facebook.com/?locale=es_LA">Facebook</a>
                 <a href="https://www.instagram.com/">Instagram</a>

@@ -178,5 +178,4 @@ if ($usuario) {
     </main>
     <script src="../js/dom.js"></script>
 </body>
-
 </html>

@@ -95,7 +95,7 @@ require_once("valini.php");
 <!-- SUPERMERCADO 1 --> 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-        <img src="../imagenes/exito.png" alt="Éxito" class="card-logo">
+        <img src="../imagenes/tiendas/exito.png" alt="Éxito" class="card-logo">
         </div> 
         <div class="card-info"> 
             <h3>Éxito</h3> 
@@ -130,7 +130,7 @@ require_once("valini.php");
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="../imagenes/d1.png" alt="D1" class="card-logo"> 
+            <img src="../imagenes/tiendas/d1.png" alt="D1" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>D1</h3> 
@@ -161,7 +161,7 @@ require_once("valini.php");
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="../imagenes/surti.png" alt="Surtiplaza" class="card-logo"> 
+            <img src="../imagenes/tiendas/surti.png" alt="Surtiplaza" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>Surtiplaza</h3> 
@@ -193,7 +193,7 @@ require_once("valini.php");
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="../imagenes/ara.png" alt="Ara" class="card-logo"> 
+            <img src="../imagenes/tiendas/ara.png" alt="Ara" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>Ara</h3> 
@@ -221,7 +221,7 @@ require_once("valini.php");
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="../imagenes/merca.png" alt="Mercacentro" class="card-logo"> 
+            <img src="../imagenes/tiendas/merca.png" alt="Mercacentro" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>Mercacentro</h3> 
@@ -249,7 +249,7 @@ require_once("valini.php");
 
     <div class="supermarket-card"> 
         <div class="card-logo-container"> 
-            <img src="../imagenes/olimpica.png" alt="Olimpica" class="card-logo"> 
+            <img src="../imagenes/tiendas/olimpica.png" alt="Olimpica" class="card-logo"> 
         </div> 
         <div class="card-info">
             <h3>Olimpica</h3> 
