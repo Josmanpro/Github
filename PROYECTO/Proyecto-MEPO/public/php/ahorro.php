@@ -24,7 +24,7 @@ if ($usuario) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="visewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEPO - Mercando con Propósito</title>
     <link rel="stylesheet" href="../css/pagina.css">
     <link rel="stylesheet" href="../css/perfil.css">
@@ -113,7 +113,6 @@ if ($usuario) {
                     <p>✔ Motivación visual</p>
                 </div>
             </div>
-
             <!-- Lado derecho (formulario elegante) -->
             <div class="meta-formulario">
 
@@ -127,7 +126,7 @@ if ($usuario) {
                             <option value="Casa">Comprar casa</option>
                             <option value="Estudio">Estudios</option>
                             <option value="Vehiculo">Vehículo</option>
-                            <option value="Boda">Boda</option>
+                            <option value="Boda">Pareja</option>
                             <option value="Tecnologia">Tecnología</option>
                             <option value="Emergencia">Fondo de emergencia</option>
                         </select>
