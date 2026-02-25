@@ -98,8 +98,8 @@ function cargarCategoria() {
     productosDeCategoria.forEach(producto => {
         // Encontrar el precio más bajo para destacarlo
         let preciosArray = Object.entries(producto.precios);
-        let peorPrecio = Math.max(...preciosArray.map(p => p [1]));
         let mejorPrecio = Math.min(...preciosArray.map(p => p[1]));
+        let peorPrecio = Math.max(...preciosArray.map(p => p [1]));
         let supermercadoMejorPrecio = preciosArray.find(p => p[1] === mejorPrecio)[0];
 
         // Crear la tarjeta del producto
@@ -140,3 +140,27 @@ function cargarCategoria() {
 window.onload = () => {
     cargarCategoria();
 };
+function seleccionarPrecio(precioElegido, precioMasCaro) {
+
+    let ahorro = precioMasCaro - precioElegido;
+
+    if (ahorro <= 0) {
+        alert("Elegiste el más caro. No hubo ahorro.");
+        return;
+    }
+
+    alert("Ahorraste $" + ahorro.toLocaleString('es-CO'));
+
+    // Enviar al servidor para sumar a la meta
+    fetch("sumar_ahorro.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "monto=" + ahorro
+    })
+    .then(res => res.text())
+    .then(data => {
+        console.log("Ahorro guardado");
+    });
+}
