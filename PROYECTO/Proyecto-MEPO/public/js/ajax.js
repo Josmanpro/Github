@@ -151,7 +151,6 @@ function seleccionarPrecio(precioElegido, precioMasCaro) {
 
     alert("Ahorraste $" + ahorro.toLocaleString('es-CO'));
 
-    // Enviar al servidor para sumar a la meta
     fetch("sumar_ahorro.php", {
         method: "POST",
         headers: {
