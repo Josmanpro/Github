@@ -1,4 +1,5 @@
 <?php
+require("regis2.php");
 require_once("valini.php");
 
 if ($usuario) {
