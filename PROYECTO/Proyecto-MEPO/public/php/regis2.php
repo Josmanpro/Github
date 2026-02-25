@@ -11,7 +11,7 @@ $basededatos = "mepo";
 
 $enlace = mysqli_connect($servidor,$usuario,$clave,$basededatos);
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["docu"])){
 
     $ndocumento = $_POST["docu"];
     $nombre = $_POST["nombre"];
