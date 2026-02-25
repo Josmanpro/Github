@@ -6,8 +6,12 @@ if ($usuario) {
     $ndocumento = $usuario["ndocumento"];
 
     // Crear registro si no existe
-    mysqli_query($enlace, "INSERT IGNORE INTO ahorro (ndocumento, objetivo, monto_disp, meta) 
-                           VALUES ('$ndocumento', '', 0, 0)");
+    mysqli_query(
+        $enlace,
+        "UPDATE ahorro 
+ SET objetivo='', monto_disp=0, meta=0
+ WHERE ndocumento='$ndocumento'"
+    );
 
     // Si envía formulario
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
