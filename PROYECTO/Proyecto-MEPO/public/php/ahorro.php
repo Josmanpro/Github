@@ -137,10 +137,14 @@ if (isset($_SESSION["ndocumento"])) {
                     </div>
                     <div class="campo">
                         <label class="titulo-campo">Monto objetivo</label>
+
                         <div class="input-money">
                             <span class="simbolo">$</span>
-                            <input type="text" id="monto" placeholder="0" inputmode="numeric">
+                            <input type="text" id="montoVisible" placeholder="0" inputmode="numeric">
                         </div>
+
+                        <!-- Este es el que se envía al backend -->
+                        <input type="hidden" name="monto_meta" id="montoReal">
                     </div>
                     <button type="submit" class="btn-continuar">
                         Continuar →
