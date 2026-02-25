@@ -1,21 +1,26 @@
 <?php
 require_once("valini.php");
 
-$meta = 0;
-$monto_disp = 0;
-$objetivo = "";
-
 if ($usuario) {
-    $ndocumento = $usuario["ndocumento"];
-    $consulta = mysqli_query($enlace, "SELECT * FROM ahorro WHERE ndocumento = '$ndocumento'");
-    if (mysqli_num_rows($consulta) > 0) {
-        $fila = mysqli_fetch_assoc($consulta);
-        $meta = $fila["meta"];
-        $monto_disp = $fila["monto_disp"];
-        $objetivo = $fila["objetivo"];
-    } else {
-        mysqli_query($enlace, "INSERT INTO ahorro (ndocumento , objetivo, monto_disp, meta) VALUES ('$ndocumento', '', 0, 0)");
 
+    $ndocumento = $usuario["ndocumento"];
+
+    // Crear registro si no existe
+    mysqli_query($enlace, "INSERT IGNORE INTO ahorro (ndocumento, objetivo, monto_disp, meta) 
+                           VALUES ('$ndocumento', '', 0, 0)");
+
+    // Si envía formulario
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $objetivo = $_POST["nombre_meta"];
+        $meta = $_POST["monto_meta"];
+
+        mysqli_query($enlace, "UPDATE ahorro 
+                               SET objetivo='$objetivo', meta='$meta'
+                               WHERE ndocumento='$ndocumento'");
+
+        header("Location: ahorro.php");
+        exit();
     }
 }
 ?>
