@@ -1,7 +1,8 @@
 <?php
+require("regis2.php");
 require_once("valini.php");
 
-if ($usuario) {
+if (isset($_SESSION["ndocumento"])) {
 
     $ndocumento = $usuario["ndocumento"];
 
