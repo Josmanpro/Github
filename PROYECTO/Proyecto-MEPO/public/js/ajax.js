@@ -1,4 +1,5 @@
 
+console.log("JS cargado correctamente");
 const productos = {
     lacteos: [
         {
