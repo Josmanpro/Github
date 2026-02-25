@@ -111,8 +111,8 @@
 }
 .meta-layout {
     max-width: 1200px;
-    margin: 40px auto;   /* centra y da espacio arriba */
-    padding: 0 60px;     /* espacio lateral */
+    margin: 40px auto;   
+    padding: 0 60px;    
 }
 body {
     background: #f8f9fa;
@@ -143,4 +143,20 @@ body {
     background-image: url("data:image/svg+xml;utf8,<svg fill='%234CAF50' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;
     background-position: right 15px center;
+}
+.input-money {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.simbolo {
+    position: absolute;
+    left: 18px;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+.input-money input {
+    padding-left: 35px; /* espacio para el $ */
 }
