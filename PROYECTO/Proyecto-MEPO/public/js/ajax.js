@@ -98,6 +98,7 @@ function cargarCategoria() {
     productosDeCategoria.forEach(producto => {
         // Encontrar el precio más bajo para destacarlo
         let preciosArray = Object.entries(producto.precios);
+        let peorPrecio = Math.max(...preciosArray.map(p => p [1]));
         let mejorPrecio = Math.min(...preciosArray.map(p => p[1]));
         let supermercadoMejorPrecio = preciosArray.find(p => p[1] === mejorPrecio)[0];
 
@@ -111,7 +112,8 @@ function cargarCategoria() {
             const precio = producto.precios[supermercado];
             const esMejorPrecio = supermercado === supermercadoMejorPrecio;
             listaDePreciosHTML += `
-                <li class="price-item ${esMejorPrecio ? 'best-price' : ''}">
+                <li class="price-item ${esMejorPrecio ? 'best-price' : ''}"
+                    onclick="seleccionarPrecio(${precio}, ${peorPrecio})">
                     <span class="supermarket-name">${supermercado}</span>
                     <span class="price-value">$${precio.toLocaleString('es-CO')}</span>
                 </li>
