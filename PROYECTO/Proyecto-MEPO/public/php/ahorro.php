@@ -24,7 +24,7 @@ if ($usuario) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="visewport" content="width=device-width, initial-scale=1.0">
     <title>MEPO - Mercando con Propósito</title>
     <link rel="stylesheet" href="../css/pagina.css">
     <link rel="stylesheet" href="../css/perfil.css">
@@ -56,9 +56,7 @@ if ($usuario) {
 
                     <div id="panelPerfil" class="panel-perfil">
 
-                        <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
                         <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
-    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
                         <div class="nombre">
                             <?php echo $usuario["nombre"]; ?>
@@ -85,17 +83,6 @@ if ($usuario) {
         </div>
     </header>
     <main>
-        <section class="meta-section">
-            <div class="meta-card">
-                <h1>Crea tu meta de ahorro</h1>
-                <p class="subtexto">Define tu objetivo y comienza a construirlo paso a paso.</p>
-
-                <form method="POST" action="">
-
-                    <div class="campo">
-                        <label for="nombre_meta">Nombre de la meta</label>
-                        <input type="text" name="nombre_meta" placeholder="Ej: Viaje a Cartagena" required>
-                    </div>
         <section class="meta-layout">
 
             <!-- Lado izquierdo (informativo) -->
@@ -143,38 +130,6 @@ if ($usuario) {
         </section>
     </main>
     <script src="js/dom.js"></script>
-                </div>
-
-                    <div class="campo">
-                        <label for="monto_meta">Monto objetivo</label>
-                        <input type="number" name="monto_meta" placeholder="Ej: 1500000" required>
-                    </div>
-
-                    <div class="campo">
-                        <label for="descripcion">¿Para qué es esta meta?</label>
-                        <textarea name="descripcion" placeholder="Describe tu objetivo..."></textarea>
-                    </div>
-
-                    <div class="campo">
-                        <label>Elige un ícono para tu meta</label>
-                        <div class="iconos">
-                            <label><input type="radio" name="icono" value="✈️" required> ✈️</label>
-                            <label><input type="radio" name="icono" value="🏠"> 🏠</label>
-                            <label><input type="radio" name="icono" value="🎓"> 🎓</label>
-                            <label><input type="radio" name="icono" value="🚗"> 🚗</label>
-                            <label><input type="radio" name="icono" value="💍"> 💍</label>
-                            <label><input type="radio" name="icono" value="💻"> 💻</label>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-guardar">
-                        Guardar Meta
-                    </button>
-
-                </form>
-            </div>
-        </section>
-    </main>
-    <script src="../js/dom.js"></script>
 </body>
+
 </html>
