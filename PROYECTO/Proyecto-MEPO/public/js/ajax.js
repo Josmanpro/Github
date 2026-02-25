@@ -162,4 +162,4 @@ function seleccionarPrecio(precioElegido, precioMasCaro) {
     .then(data => {
         console.log("Ahorro guardado");
     });
-}
+};
