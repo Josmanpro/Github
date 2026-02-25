@@ -1,19 +1,11 @@
 
 const ofertas = [
-     {
+    {
         nombre: "Aceite de Girasol 900ml",
         imagen: "../imagenes/ofertas/aceite.png",
         precioOriginal: 15500,
         precioDescuento: 11990,
         supermercado: "D1",
-        url: "#"
-    },
-    {
-        nombre: "Aceite de Girasol 900ml",
-        imagen: "../imagenes/ofertas/aceite.png",
-        precioOriginal: 16000,
-        precioDescuento: 12500,
-        supermercado: "Éxito",
         url: "#"
     },
     {
@@ -49,58 +41,27 @@ const ofertas = [
         url: "#"
     }
 ];
-function obtenerMejoresPrecios(ofertas) {
-
-    const agrupados = {};
-
-    ofertas.forEach(oferta => {
-
-        // Si el producto no existe en el grupo lo creamos
-        if (!agrupados[oferta.nombre]) {
-            agrupados[oferta.nombre] = oferta;
-        } 
-        // Si ya existe, comparamos precios
-        else {
-            if (oferta.precioDescuento < agrupados[oferta.nombre].precioDescuento) {
-                agrupados[oferta.nombre] = oferta;
-            }
-        }
-    });
-
-    return Object.values(agrupados);
-}
 
 function mostrarOfertas() {
-
     const gridContainer = document.getElementById('ofertas-grid');
     gridContainer.innerHTML = '';
 
-    const mejoresOfertas = obtenerMejoresPrecios(ofertas);
-
-    mejoresOfertas.forEach(oferta => {
-
-        const porcentajeDescuento =
-            Math.round(((oferta.precioOriginal - oferta.precioDescuento)
-                / oferta.precioOriginal) * 100);
-
+    ofertas.forEach(oferta => {
+        const porcentajeDescuento = Math.round(((oferta.precioOriginal - oferta.precioDescuento) / oferta.precioOriginal) * 100);
         const card = document.createElement('div');
         card.className = 'offer-card';
-
         card.innerHTML = `
             <img src="${oferta.imagen}" alt="${oferta.nombre}">
             <span class="discount-badge">-${porcentajeDescuento}%</span>
             <div class="offer-info">
                 <h3>${oferta.nombre}</h3>
-                <span class="supermarket-tag">
-                    Mejor precio en ${oferta.supermercado}
-                </span>
+                <span class="supermarket-tag">Oferta en ${oferta.supermercado}</span>
                 <div class="price-container">
-                    <span class="original-price">
-                        $${oferta.precioOriginal.toLocaleString('es-CO')}
-                    </span>
-                    <span class="discount-price">
-                        $${oferta.precioDescuento.toLocaleString('es-CO')}
-                    </span>
+                    <span class="original-price">$${oferta.precioOriginal.toLocaleString('es-CO')}</span>
+                    <span class="discount-price">$${oferta.precioDescuento.toLocaleString('es-CO')}</span>
+                </div>
+                <div class="card-actions">
+                    <a href="${oferta.url}" class="btn">Ver Oferta</a>
                 </div>
             </div>
         `;
@@ -108,5 +69,4 @@ function mostrarOfertas() {
         gridContainer.appendChild(card);
     });
 }
-
 document.addEventListener("DOMContentLoaded", mostrarOfertas);
