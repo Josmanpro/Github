@@ -5,14 +5,19 @@ if ($usuario) {
 
     $ndocumento = $usuario["ndocumento"];
 
-    // Crear registro si no existe
-    mysqli_query(
-        $enlace,
-        "UPDATE ahorro 
- SET objetivo='', monto_disp=0, meta=0
- WHERE ndocumento='$ndocumento'"
+    // Verificar si ya existe registro
+    $consulta = mysqli_query($enlace,
+        "SELECT * FROM ahorro WHERE ndocumento='$ndocumento'"
     );
 
+    if (mysqli_num_rows($consulta) == 0) {
+
+        // Si no existe, lo creamos
+        mysqli_query($enlace,
+            "INSERT INTO ahorro (ndocumento, objetivo, monto_disp, meta)
+             VALUES ('$ndocumento', '', 0, 0)"
+        );
+    }
     // Si envía formulario
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
