@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-02-2026 a las 17:15:00
+-- Tiempo de generación: 25-02-2026 a las 13:04:10
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -31,8 +31,17 @@ CREATE TABLE `ahorro` (
   `id_ahorro` int(50) NOT NULL,
   `objetivo` varchar(30) NOT NULL DEFAULT 'Mi meta',
   `monto_disp` int(11) NOT NULL,
-  `meta` int(11) NOT NULL
+  `meta` int(11) NOT NULL,
+  `ndocumento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ahorro`
+--
+
+INSERT INTO `ahorro` (`id_ahorro`, `objetivo`, `monto_disp`, `meta`, `ndocumento`) VALUES
+(1, 'Mi meta', 0, 0, 4444444),
+(2, '', 0, 0, 22222);
 
 -- --------------------------------------------------------
 
@@ -115,19 +124,21 @@ CREATE TABLE `usuario` (
   `contrasena` varchar(100) NOT NULL,
   `estado` enum('pendiente','activo','bloqueado') DEFAULT 'pendiente',
   `rol_id` int(11) DEFAULT 1,
-  `supermercado_nit` int(11) DEFAULT NULL,
-  `id_ahorro` int(50) DEFAULT NULL
+  `supermercado_nit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`, `id_ahorro`) VALUES
-(111111, 'Sebastian', 'Velasquez', 'sebitasgay12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL),
-(4444444, 'Sara', 'Rada', 'rada12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL),
-(1108150857, 'joseph|', 'alvarez', '2147483647', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL),
-(2147483647, 'Andres', 'carbonell', '3116702356', '0caf711312d224809863a2c43fbddfbf8c2de642', 'pendiente', 2, NULL, NULL);
+INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`) VALUES
+(0, '', '', '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'pendiente', 2, NULL),
+(12345, 'Fabio alonso', 'Cadiz', '3112700804', '56079abb59abac1579e3560515d4221aa19f1eea', 'pendiente', 2, NULL),
+(22222, 'biviana', 'saenz', 'oejaj@gmail.com', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL),
+(111111, 'Sebastian', 'Velasquez', 'sebitasgay12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
+(4444444, 'Sara', 'Rada', 'rada12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
+(1108150857, 'joseph|', 'alvarez', '2147483647', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
+(2147483647, 'Andres', 'carbonell', '3116702356', '0caf711312d224809863a2c43fbddfbf8c2de642', 'pendiente', 2, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -137,7 +148,8 @@ INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contra
 -- Indices de la tabla `ahorro`
 --
 ALTER TABLE `ahorro`
-  ADD PRIMARY KEY (`id_ahorro`);
+  ADD PRIMARY KEY (`id_ahorro`),
+  ADD KEY `fk_ahorro_usuario` (`ndocumento`);
 
 --
 -- Indices de la tabla `categoria`
@@ -177,8 +189,7 @@ ALTER TABLE `supermercados`
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ndocumento`),
   ADD KEY `fk_usuario_rol` (`rol_id`),
-  ADD KEY `fk_usuario_supermercado` (`supermercado_nit`),
-  ADD KEY `fk_usuario_ahorro` (`id_ahorro`);
+  ADD KEY `fk_usuario_supermercado` (`supermercado_nit`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -188,7 +199,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `ahorro`
 --
 ALTER TABLE `ahorro`
-  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -213,6 +224,12 @@ ALTER TABLE `roles`
 --
 
 --
+-- Filtros para la tabla `ahorro`
+--
+ALTER TABLE `ahorro`
+  ADD CONSTRAINT `fk_ahorro_usuario` FOREIGN KEY (`ndocumento`) REFERENCES `usuario` (`ndocumento`);
+
+--
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -229,7 +246,6 @@ ALTER TABLE `produ_super`
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `fk_usuario_ahorro` FOREIGN KEY (`id_ahorro`) REFERENCES `ahorro` (`id_ahorro`),
   ADD CONSTRAINT `fk_usuario_rol` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`),
   ADD CONSTRAINT `fk_usuario_supermercado` FOREIGN KEY (`supermercado_nit`) REFERENCES `supermercados` (`NIT`);
 COMMIT;
