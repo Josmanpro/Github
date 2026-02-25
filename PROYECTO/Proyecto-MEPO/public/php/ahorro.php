@@ -7,14 +7,16 @@ if (isset($_SESSION["ndocumento"])) {
     $ndocumento = $usuario["ndocumento"];
 
     // Verificar si ya existe registro
-    $consulta = mysqli_query($enlace,
+    $consulta = mysqli_query(
+        $enlace,
         "SELECT * FROM ahorro WHERE ndocumento='$ndocumento'"
     );
 
     if (mysqli_num_rows($consulta) == 0) {
 
         // Si no existe, lo creamos
-        mysqli_query($enlace,
+        mysqli_query(
+            $enlace,
             "INSERT INTO ahorro (ndocumento, objetivo, monto_disp, meta)
              VALUES ('$ndocumento', '', 0, 0)"
         );
@@ -134,8 +136,11 @@ if (isset($_SESSION["ndocumento"])) {
                         </select>
                     </div>
                     <div class="campo">
-                        <span class="titulo-campo">Monto objetivo</span>
-                        <input type="number" name="monto_meta" placeholder="Ej: 1500000">
+                        <label class="titulo-campo">Monto objetivo</label>
+                        <div class="input-money">
+                            <span class="simbolo">$</span>
+                            <input type="text" id="monto" placeholder="0" inputmode="numeric">
+                        </div>
                     </div>
                     <button type="submit" class="btn-continuar">
                         Continuar →
@@ -145,6 +150,7 @@ if (isset($_SESSION["ndocumento"])) {
         </section>
     </main>
     <script src="../js/dom.js"></script>
+    <script src="../js/ahorro.js"></script>
 </body>
 
 </html>
