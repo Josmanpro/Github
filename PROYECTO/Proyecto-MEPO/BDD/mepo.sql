@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-02-2026 a las 13:04:10
+-- Tiempo de generación: 25-02-2026 a las 13:41:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -40,8 +40,9 @@ CREATE TABLE `ahorro` (
 --
 
 INSERT INTO `ahorro` (`id_ahorro`, `objetivo`, `monto_disp`, `meta`, `ndocumento`) VALUES
-(1, 'Mi meta', 0, 0, 4444444),
-(2, '', 0, 0, 22222);
+(1, 'Viaje', 0, 1400, 4444444),
+(2, '', 0, 0, 22222),
+(7, '', 0, 0, 1110569630);
 
 -- --------------------------------------------------------
 
@@ -138,6 +139,7 @@ INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contra
 (111111, 'Sebastian', 'Velasquez', 'sebitasgay12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
 (4444444, 'Sara', 'Rada', 'rada12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
 (1108150857, 'joseph|', 'alvarez', '2147483647', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
+(1110569630, 'andres ', 'carbonell', '321262898', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL),
 (2147483647, 'Andres', 'carbonell', '3116702356', '0caf711312d224809863a2c43fbddfbf8c2de642', 'pendiente', 2, NULL);
 
 --
@@ -149,7 +151,7 @@ INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contra
 --
 ALTER TABLE `ahorro`
   ADD PRIMARY KEY (`id_ahorro`),
-  ADD KEY `fk_ahorro_usuario` (`ndocumento`);
+  ADD UNIQUE KEY `ndocumento` (`ndocumento`);
 
 --
 -- Indices de la tabla `categoria`
@@ -199,7 +201,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `ahorro`
 --
 ALTER TABLE `ahorro`
-  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
