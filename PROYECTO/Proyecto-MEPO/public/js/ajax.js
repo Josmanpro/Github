@@ -1,5 +1,4 @@
 
-console.log("JS cargado correctamente");
 const productos = {
     lacteos: [
         {
@@ -113,11 +112,12 @@ function cargarCategoria() {
             const precio = producto.precios[supermercado];
             const esMejorPrecio = supermercado === supermercadoMejorPrecio;
             listaDePreciosHTML += `
-                <li class="price-item ${esMejorPrecio ? 'best-price' : ''}"
+                <button
+                class="price-item ${esMejorPrecio ? 'best-price' : ''}"
                     onclick="seleccionarPrecio(${precio}, ${peorPrecio})">
                     <span class="supermarket-name">${supermercado}</span>
                     <span class="price-value">$${precio.toLocaleString('es-CO')}</span>
-                </li>
+                </button>
             `;
         }
 
