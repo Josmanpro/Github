@@ -94,6 +94,15 @@ if (isset($_SESSION["ndocumento"])) {
     <div id="resultado" class="results-grid">
     </div>
 </main>
+<div id="modalConfirmacion" class="modal">
+    <div class="modal-contenido">
+        <p>¿Estás seguro de seleccionar este precio?</p>
+        <div class="modal-botones">
+            <button id="btnConfirmar">Sí, seleccionar</button>
+            <button id="btnCancelar">Cancelar</button>
+        </div>
+    </div>
+</div>
 <script src="../js/ajax.js"></script>
 <script src="../js/dom.js"></script>
 
