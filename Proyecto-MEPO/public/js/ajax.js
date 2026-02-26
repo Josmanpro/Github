@@ -114,7 +114,7 @@ function cargarCategoria() {
             listaDePreciosHTML += `
                 <li 
                 class="price-item ${esMejorPrecio ? 'best-price' : ''}"
-                    onclick="seleccionarPrecio(${precio}, ${peorPrecio})">
+                    onclick="abrirModalConfirmacion(${precio}, ${peorPrecio})">
                     <span class="supermarket-name">${supermercado}</span>
                     <span class="price-value">$${precio.toLocaleString('es-CO')}</span>
                 </li>
@@ -141,7 +141,7 @@ function cargarCategoria() {
 window.onload = () => {
     cargarCategoria();
 };
-function seleccionarPrecio(precioElegido, precioMasCaro) {
+/*function seleccionarPrecio(precioElegido, precioMasCaro) {
 
     let ahorro = precioMasCaro - precioElegido;
 
@@ -162,5 +162,27 @@ function seleccionarPrecio(precioElegido, precioMasCaro) {
     .then(res => res.text())
     .then(data => {
         console.log("Ahorro guardado");
+    });//
+};*/
+let precioSeleccionado = null;
+let precioMasCaroSeleccionado = null;
+
+function abrirModalConfirmacion(precio, precioMasCaro) {
+    precioSeleccionado = precio;
+    precioMasCaroSeleccionado = precioMasCaro;
+
+    document.getElementById("modalConfirmacion").style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("modalConfirmacion").style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnConfirmar").addEventListener("click", function () {
+        seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
+        cerrarModal();
     });
-};
+
+    document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
+});
