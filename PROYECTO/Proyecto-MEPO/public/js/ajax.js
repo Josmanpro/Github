@@ -112,12 +112,12 @@ function cargarCategoria() {
             const precio = producto.precios[supermercado];
             const esMejorPrecio = supermercado === supermercadoMejorPrecio;
             listaDePreciosHTML += `
-                <button
+                <li 
                 class="price-item ${esMejorPrecio ? 'best-price' : ''}"
                     onclick="seleccionarPrecio(${precio}, ${peorPrecio})">
                     <span class="supermarket-name">${supermercado}</span>
                     <span class="price-value">$${precio.toLocaleString('es-CO')}</span>
-                </button>
+                </li>
             `;
         }
 
