@@ -218,3 +218,7 @@ main p {
     width: 300px;
     text-align: center;
 }
+button{
+    border-radius: 6px;
+    background-color: #2E7D32;
+}
