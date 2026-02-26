@@ -221,4 +221,6 @@ main p {
 button{
     border-radius: 6px;
     background-color: #2E7D32;
+    color: white;
+    height: 15%;
 }
