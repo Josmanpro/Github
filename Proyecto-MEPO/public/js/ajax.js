@@ -181,7 +181,7 @@ function cerrarModal() {
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btnConfirmar").addEventListener("click", function () {
         seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
-        cerrarModal();
+        cerrarxModal();
     });
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
