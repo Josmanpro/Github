@@ -224,3 +224,26 @@ button{
     color: white;
     height: 15%;
 }
+.tabla-compras{
+    width:100%;
+    margin-top:30px;
+    border-collapse:collapse;
+}
+
+.tabla-compras th,
+.tabla-compras td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+.tabla-compras th{
+    background:#f5f5f5;
+}
+
+.total-ahorro{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+    color:green;
+}
