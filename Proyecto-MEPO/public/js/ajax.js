@@ -114,7 +114,7 @@ function cargarCategoria() {
             listaDePreciosHTML += `
                 <li 
                 class="price-item ${esMejorPrecio ? 'best-price' : ''}"
-                    onclick="abrirModalConfirmacion(${precio}, ${peorPrecio})">
+                    onclick="abrirModalConfirmacion(${producto.nombre},${precio}, ${peorPrecio})">
                     <span class="supermarket-name">${supermercado}</span>
                     <span class="price-value">$${precio.toLocaleString('es-CO')}</span>
                 </li>
@@ -141,13 +141,15 @@ function cargarCategoria() {
 window.onload = () => {
     cargarCategoria();
 };
-
+let totalAhorro = 0;
+let productoSeleccionadoNombre = "";
 let precioSeleccionado = null;
 let precioMasCaroSeleccionado = null;
 
-function abrirModalConfirmacion(precio, precioMasCaro) {
+function abrirModalConfirmacion(nombre ,precio, peorPrecio) {
+    productoSeleccionadoNombre = nombre;
     precioSeleccionado = precio;
-    precioMasCaroSeleccionado = precioMasCaro;
+    precioMasCaroSeleccionado = peorPrecio;
 
     document.getElementById("modalConfirmacion").style.display = "flex";
 }
@@ -164,3 +166,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
 });
+
+
+function seleccionarPrecio(precio, peorPrecio){
+
+    let ahorro = peorPrecio - precio;
+
+    totalAhorro += ahorro;
+
+    const tabla = document.getElementById("listaCompras");
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+    <td>${productoSeleccionadoNombre}</td>
+    <td>${precio.toLocaleString('es-CO')}</td>
+    <td>${peorPrecio.toLocaleString('es-CO')}</td>
+    <td>${ahorro.toLocaleString('es-CO')}</td>
+    `;
+    tabla.appendChild(fila);
+    document.getElementById("totalAhorro").textContent =
+        totalAhorro.toLocaleString('es-CO');
+}
