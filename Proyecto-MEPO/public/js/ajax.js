@@ -172,6 +172,7 @@ function cerrarModal() {
 
 
 function seleccionarPrecio(precio, peorPrecio){
+    console.log("SE EJECUTA");
 
     let ahorro = peorPrecio - precio;
 
