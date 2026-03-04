@@ -114,7 +114,7 @@ function cargarCategoria() {
             listaDePreciosHTML += `
                 <li 
                 class="price-item ${esMejorPrecio ? 'best-price' : ''}"
-                    onclick="abrirModalConfirmacion(${producto.nombre},${precio}, ${peorPrecio})">
+                    onclick="abrirModalConfirmacion('${producto.nombre}',${precio}, ${peorPrecio})">
                     <span class="supermarket-name">${supermercado}</span>
                     <span class="price-value">$${precio.toLocaleString('es-CO')}</span>
                 </li>
