@@ -36,8 +36,8 @@ require_once("valini.php");
 
     <?php elseif ($usuario['rol_id'] == 1 && $usuario['estado'] == 'pendiente'): ?>
         <!-- Vendedor pendiente: botón visible pero deshabilitado -->
-        <a href="#" class="button" style="opacity:0.5; pointer-events:none; cursor:not-allowed;">
-            Panel Vendedor <br> (Pendiente aprobación)
+        <a href="#" class="button" style="opacity:0.5; pointer-events:none; cursor:not-allowed;" >
+            Panel Vendedor (Pendiente aprobación)
         </a>
 
     <?php endif; ?>
