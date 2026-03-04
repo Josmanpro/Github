@@ -158,11 +158,11 @@ function cerrarModal() {
     document.getElementById("modalConfirmacion").style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {*/
     document.getElementById("btnConfirmar").addEventListener("click", function () {
         seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
         cerrarModal();
-    });
+    /*});*/
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
 });
