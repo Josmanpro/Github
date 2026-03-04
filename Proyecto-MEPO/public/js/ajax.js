@@ -147,6 +147,9 @@ let precioSeleccionado = null;
 let precioMasCaroSeleccionado = null;
 
 function abrirModalConfirmacion(nombre ,precio, peorPrecio) {
+
+    console.log("CLICK FUNCIONA");
+
     productoSeleccionadoNombre = nombre;
     precioSeleccionado = precio;
     precioMasCaroSeleccionado = peorPrecio;
