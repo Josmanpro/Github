@@ -147,9 +147,6 @@ let precioSeleccionado = null;
 let precioMasCaroSeleccionado = null;
 
 function abrirModalConfirmacion(nombre ,precio, peorPrecio) {
-
-    console.log("CLICK FUNCIONA");
-
     productoSeleccionadoNombre = nombre;
     precioSeleccionado = precio;
     precioMasCaroSeleccionado = peorPrecio;
@@ -160,26 +157,18 @@ function abrirModalConfirmacion(nombre ,precio, peorPrecio) {
 function cerrarModal() {
     document.getElementById("modalConfirmacion").style.display = "none";
 }
-function confirmarSeleccion() {
 
-    seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
-
-    cerrarModal();
-
-}
-
-/*document.addEventListener("DOMContentLoaded", function () {/
+/*document.addEventListener("DOMContentLoaded", function () {*/
     document.getElementById("btnConfirmar").addEventListener("click", function () {
         seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
         cerrarModal();
-    });
+    /*});*/
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
-});*/
+});
 
 
 function seleccionarPrecio(precio, peorPrecio){
-    console.log("SE EJECUTA");
 
     let ahorro = peorPrecio - precio;
 

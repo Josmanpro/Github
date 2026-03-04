@@ -119,8 +119,7 @@ if (isset($_SESSION["ndocumento"])) {
         <div class="modal-contenido">
             <p>¿Estás seguro de seleccionar este precio?</p>
             <div class="modal-botones">
-                <!--<button id="btnConfirmar">Sí, seleccionar</button>-->
-                <button onclick="confirmarSeleccion()">Sí, seleccionar</button>
+                <button id="btnConfirmar">Sí, seleccionar</button>
                 <button id="btnCancelar">Cancelar</button>
             </div>
         </div>
