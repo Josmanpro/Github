@@ -44,6 +44,7 @@ if(isset($_POST["btn-login-form"])){
 
         $_SESSION ["ndocumento"] = $fila["ndocumento"];
         $_SESSION ["nombre"] = $fila["nombre"];
+        $_SESSION["rol_id"] = $fila["rol_id"];
 
         header("Location: ahorro.php");
         exit();

@@ -50,3 +50,4 @@ function activarPanelPerfil() {
 function Abrirmodal(){
     document.getElementById("miModal").style.display = "block"
 }
+
