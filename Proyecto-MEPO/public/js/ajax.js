@@ -160,15 +160,22 @@ function abrirModalConfirmacion(nombre ,precio, peorPrecio) {
 function cerrarModal() {
     document.getElementById("modalConfirmacion").style.display = "none";
 }
+function confirmarSeleccion() {
 
-/*document.addEventListener("DOMContentLoaded", function () {*/
+    seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
+
+    cerrarModal();
+
+}
+
+/*document.addEventListener("DOMContentLoaded", function () {/
     document.getElementById("btnConfirmar").addEventListener("click", function () {
         seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
         cerrarModal();
-    /*});*/
+    });
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
-});
+});*/
 
 
 function seleccionarPrecio(precio, peorPrecio){
