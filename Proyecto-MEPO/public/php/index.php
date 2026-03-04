@@ -25,6 +25,7 @@ require_once("valini.php");
                 <a href="comparar.php" class="button">Comparar</a>
                 <a href="supermercados.php" class="button">Supermercados</a>
                 <a href="ofertas.php" class="button">Ofertas</a>
+                <a href="panel_vendedor.php" class="button">Panel Vendedor</a>
             </nav>
             <?php if (!$usuario): ?>
                 <a href="login.php" class="btn-login">Iniciar Sesión</a>

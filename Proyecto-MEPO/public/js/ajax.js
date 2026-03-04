@@ -57,7 +57,7 @@ const productos = {
     aseo: [
         {
             nombre: "Jabón en Polvo Fab 500g",
-            imagen: "../imagenes/comparar/fab.jpg",
+            imagen: "../imagenes/comparar/fab.jpeg",
             precios: {
                 "Éxito": 4800,
                 "D1": 4500,
