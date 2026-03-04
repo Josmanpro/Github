@@ -19,6 +19,7 @@ if (isset($_SESSION["ndocumento"])) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,18 +31,19 @@ if (isset($_SESSION["ndocumento"])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<header class="main-header">
-    <div class="container">
-        <a href="index.php" class="logo">Mepo</a>
-        <nav class="main-nav">
-            <a href="index.php">Inicio</a>
-            <a href="supermercados.php">Supermercados</a>
-            <a href="ofertas.php">Ofertas</a>
-        </nav>
-        
-        <?php if (!$usuario): ?>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.php" class="logo">Mepo</a>
+            <nav class="main-nav">
+                <a href="index.php">Inicio</a>
+                <a href="supermercados.php">Supermercados</a>
+                <a href="ofertas.php">Ofertas</a>
+            </nav>
+
+            <?php if (!$usuario): ?>
                 <a href="login.php" class="btn-login">Iniciar Sesión</a>
             <?php endif; ?>
 
@@ -50,61 +52,81 @@ if (isset($_SESSION["ndocumento"])) {
 
                     <img id="imgPerfil" src="../imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
-<div id="panelPerfil" class="panel-perfil">
+                    <div id="panelPerfil" class="panel-perfil">
 
-    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
+                        <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
-    <div class="nombre">
-        <?php echo $usuario["nombre"]; ?>
-    </div>
+                        <div class="nombre">
+                            <?php echo $usuario["nombre"]; ?>
+                        </div>
 
-    <div class="info">
-        <?php echo $usuario["correo_tel"]; ?>
-    </div>
+                        <div class="info">
+                            <?php echo $usuario["correo_tel"]; ?>
+                        </div>
 
-    <div class="info">
-        Documento: <?php echo $usuario["ndocumento"]; ?>
-    </div>
+                        <div class="info">
+                            Documento: <?php echo $usuario["ndocumento"]; ?>
+                        </div>
 
-    <a href="logout.php" class="btn-logout">
-        Cerrar sesión
-    </a>
+                        <a href="logout.php" class="btn-logout">
+                            Cerrar sesión
+                        </a>
 
-</div>
-</div>
-<?php endif;
- ?>
-    </div>
-</header>
+                    </div>
+                </div>
+            <?php endif;
+            ?>
+        </div>
+    </header>
 
-<main class="container">
-    <h1>Comparar precios</h1>
-    <p>Selecciona una categoría y descubre dónde te conviene más comprar.</p>
+    <main class="container">
+        <h1>Comparar precios</h1>
+        <p>Selecciona una categoría y descubre dónde te conviene más comprar.</p>
 
-    <div class="controls">
-        <label for="categoria">Selecciona una categoría:</label>
-        <select id="categoria">
-            <option value="lacteos">Lácteos</option>
-            <option value="granos">Granos</option>
-            <option value="aseo">Aseo</option>
-        </select>
+        <div class="controls">
+            <label for="categoria">Selecciona una categoría:</label>
+            <select id="categoria">
+                <option value="lacteos">Lácteos</option>
+                <option value="granos">Granos</option>
+                <option value="aseo">Aseo</option>
+            </select>
 
-        <button onclick="cargarCategoria()">Ver productos</button>
-    </div>
-    <div id="resultado" class="results-grid">
-    </div>
-</main>
-<div id="modalConfirmacion" class="modal">
-    <div class="modal-contenido">
-        <p>¿Estás seguro de seleccionar este precio?</p>
-        <div class="modal-botones">
-            <button id="btnConfirmar">Sí, seleccionar</button>
-            <button id="btnCancelar">Cancelar</button>
+            <button onclick="cargarCategoria()">Ver productos</button>
+        </div>
+        <div id="resultado" class="results-grid">
+        </div>
+            <!-- tabla de ahorro varios productos -->
+        <h2>Productos seleccionados</h2>
+
+        <table class="tabla-compras">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio seleccionado</th>
+                    <th>Precio más caro</th>
+                    <th>Ahorro</th>
+                </tr>
+            </thead>
+            <tbody id="listaCompras">
+            </tbody>
+        </table>
+
+        <div class="total-ahorro">
+            Total ahorrado: $<span id="totalAhorro">0</span>
+        </div>
+    </main>
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-contenido">
+            <p>¿Estás seguro de seleccionar este precio?</p>
+            <div class="modal-botones">
+                <button id="btnConfirmar">Sí, seleccionar</button>
+                <button id="btnCancelar">Cancelar</button>
+            </div>
         </div>
     </div>
-</div>
-<script src="../js/ajax.js"></script>
-<script src="../js/dom.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/dom.js"></script>
 
 </body>
+
 </html>

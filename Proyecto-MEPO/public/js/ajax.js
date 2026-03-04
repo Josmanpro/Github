@@ -141,29 +141,7 @@ function cargarCategoria() {
 window.onload = () => {
     cargarCategoria();
 };
-/*function seleccionarPrecio(precioElegido, precioMasCaro) {
 
-    let ahorro = precioMasCaro - precioElegido;
-
-    if (ahorro <= 0) {
-        alert("Elegiste el más caro. No hubo ahorro.");
-        return;
-    }
-
-    alert("Ahorraste $" + ahorro.toLocaleString('es-CO'));
-
-    fetch("sumar_ahorro.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: "monto=" + ahorro
-    })
-    .then(res => res.text())
-    .then(data => {
-        console.log("Ahorro guardado");
-    });//
-};*/
 let precioSeleccionado = null;
 let precioMasCaroSeleccionado = null;
 
@@ -181,7 +159,7 @@ function cerrarModal() {
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btnConfirmar").addEventListener("click", function () {
         seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
-        cerrarxModal();
+        cerrarModal();
     });
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
