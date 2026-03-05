@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-03-2026 a las 00:18:10
+-- Tiempo de generación: 05-03-2026 a las 15:29:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -145,21 +145,21 @@ CREATE TABLE `usuario` (
   `estado` enum('pendiente','activo','bloqueado') DEFAULT 'pendiente',
   `rol_id` int(11) DEFAULT 1,
   `supermercado_nit` int(11) DEFAULT NULL,
-  `reset_token` varchar(255) DEFAULT NULL,
-  `reset_expira` datetime DEFAULT NULL
+  `token` varchar(255) DEFAULT NULL,
+  `token_expira` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`, `reset_token`, `reset_expira`) VALUES
+INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`, `token`, `token_expira`) VALUES
 (0, '', '', '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'pendiente', 2, NULL, NULL, NULL),
 (12345, 'Fabio alonso', 'Cadiz', '3112700804', '56079abb59abac1579e3560515d4221aa19f1eea', 'pendiente', 2, NULL, NULL, NULL),
 (22222, 'biviana', 'saenz', 'oejaj@gmail.com', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL, NULL, NULL),
 (111111, 'Sebastian', 'Velasquez', 'sebitasgay12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
 (4444444, 'Sara', 'Rada', 'rada12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
-(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 2, NULL, NULL, NULL),
+(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '5b1d5b1569de26f631ba3edf0d89f65be5af4e3d', 'pendiente', 2, NULL, NULL, NULL),
 (1106785402, 'Deissy', 'Florez', 'deissydflor@gmail.com', '4c3e3ab8ee1c18601e7161d7810ea2a74a1f1dec', 'pendiente', 2, NULL, NULL, NULL),
 (1108150857, 'joseph|', 'alvarez', '2147483647', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
 (1110569630, 'andres ', 'carbonell', '321262898', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL, NULL, NULL),
@@ -214,6 +214,7 @@ ALTER TABLE `supermercados`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ndocumento`),
+  ADD UNIQUE KEY `token` (`token`),
   ADD KEY `fk_usuario_rol` (`rol_id`),
   ADD KEY `fk_usuario_supermercado` (`supermercado_nit`);
 
