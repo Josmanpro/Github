@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-02-2026 a las 15:43:09
+-- Tiempo de generación: 05-03-2026 a las 00:18:10
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,7 +43,8 @@ INSERT INTO `ahorro` (`id_ahorro`, `objetivo`, `monto_disp`, `meta`, `ndocumento
 (1, 'Viaje', 0, 1400, 4444444),
 (2, '', 0, 0, 22222),
 (7, '', 0, 0, 1110569630),
-(10, 'Viaje', 0, 2000000, 1016950224);
+(10, 'Viaje', 0, 2000000, 1016950224),
+(11, '', 0, 10000, 1106785402);
 
 -- --------------------------------------------------------
 
@@ -143,23 +144,27 @@ CREATE TABLE `usuario` (
   `contrasena` varchar(100) NOT NULL,
   `estado` enum('pendiente','activo','bloqueado') DEFAULT 'pendiente',
   `rol_id` int(11) DEFAULT 1,
-  `supermercado_nit` int(11) DEFAULT NULL
+  `supermercado_nit` int(11) DEFAULT NULL,
+  `reset_token` varchar(255) DEFAULT NULL,
+  `reset_expira` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`) VALUES
-(0, '', '', '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'pendiente', 2, NULL),
-(12345, 'Fabio alonso', 'Cadiz', '3112700804', '56079abb59abac1579e3560515d4221aa19f1eea', 'pendiente', 2, NULL),
-(22222, 'biviana', 'saenz', 'oejaj@gmail.com', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL),
-(111111, 'Sebastian', 'Velasquez', 'sebitasgay12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
-(4444444, 'Sara', 'Rada', 'rada12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
-(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 2, NULL),
-(1108150857, 'joseph|', 'alvarez', '2147483647', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL),
-(1110569630, 'andres ', 'carbonell', '321262898', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL),
-(2147483647, 'Andres', 'carbonell', '3116702356', '0caf711312d224809863a2c43fbddfbf8c2de642', 'pendiente', 2, NULL);
+INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`, `reset_token`, `reset_expira`) VALUES
+(0, '', '', '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'pendiente', 2, NULL, NULL, NULL),
+(12345, 'Fabio alonso', 'Cadiz', '3112700804', '56079abb59abac1579e3560515d4221aa19f1eea', 'pendiente', 2, NULL, NULL, NULL),
+(22222, 'biviana', 'saenz', 'oejaj@gmail.com', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL, NULL, NULL),
+(111111, 'Sebastian', 'Velasquez', 'sebitasgay12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
+(4444444, 'Sara', 'Rada', 'rada12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
+(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 2, NULL, NULL, NULL),
+(1106785402, 'Deissy', 'Florez', 'deissydflor@gmail.com', '4c3e3ab8ee1c18601e7161d7810ea2a74a1f1dec', 'pendiente', 2, NULL, NULL, NULL),
+(1108150857, 'joseph|', 'alvarez', '2147483647', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
+(1110569630, 'andres ', 'carbonell', '321262898', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL, NULL, NULL),
+(1111111111, 'josep', 'forero', 'jalfonsof@ut.edu.co', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 2, NULL, NULL, NULL),
+(2147483647, 'Andres', 'carbonell', '3116702356', '0caf711312d224809863a2c43fbddfbf8c2de642', 'pendiente', 2, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -220,7 +225,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `ahorro`
 --
 ALTER TABLE `ahorro`
-  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -232,7 +237,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
