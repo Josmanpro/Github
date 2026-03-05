@@ -32,7 +32,7 @@ if(isset($_POST['recoverEmail'])){
 
         mysqli_query($enlace, $update);
 
-        $enlace_recuperacion = "http://localhost/Proyecto-MEPO/public/php/guardar_nueva.php?token=$token";
+        $enlace_recuperacion = "http://localhost/Github/Proyecto-MEPO/public/php/guardar_nueva.php?token=$token";
 
         $mail = new PHPMailer(true);
 
