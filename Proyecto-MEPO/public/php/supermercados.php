@@ -49,6 +49,9 @@ require_once("valini.php");
             <a href="index.php">Inicio</a>
             <a href="comparar.php">Comparar</a>
             <a href="ofertas.php">Ofertas</a>
+            <?php
+                require_once("pvendedor.php");
+            ?>
         </nav>
         <?php if (!$usuario): ?>
                 <a href="login.php" class="btn-login">Iniciar Sesión</a>

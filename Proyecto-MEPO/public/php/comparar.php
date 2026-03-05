@@ -41,6 +41,9 @@ if (isset($_SESSION["ndocumento"])) {
                 <a href="index.php">Inicio</a>
                 <a href="supermercados.php">Supermercados</a>
                 <a href="ofertas.php">Ofertas</a>
+                <?php
+                require_once("pvendedor.php");
+                ?>
             </nav>
 
             <?php if (!$usuario): ?>
