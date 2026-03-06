@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-03-2026 a las 15:29:34
+-- Tiempo de generación: 06-03-2026 a las 13:25:00
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,11 +40,7 @@ CREATE TABLE `ahorro` (
 --
 
 INSERT INTO `ahorro` (`id_ahorro`, `objetivo`, `monto_disp`, `meta`, `ndocumento`) VALUES
-(1, 'Viaje', 0, 1400, 4444444),
-(2, '', 0, 0, 22222),
-(7, '', 0, 0, 1110569630),
-(10, 'Viaje', 0, 2000000, 1016950224),
-(11, '', 0, 10000, 1106785402);
+(15, '', 0, 0, 1016950224);
 
 -- --------------------------------------------------------
 
@@ -154,17 +150,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`, `token`, `token_expira`) VALUES
-(0, '', '', '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'pendiente', 2, NULL, NULL, NULL),
-(12345, 'Fabio alonso', 'Cadiz', '3112700804', '56079abb59abac1579e3560515d4221aa19f1eea', 'pendiente', 2, NULL, NULL, NULL),
-(22222, 'biviana', 'saenz', 'oejaj@gmail.com', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL, NULL, NULL),
-(111111, 'Sebastian', 'Velasquez', 'sebitasgay12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
-(4444444, 'Sara', 'Rada', 'rada12@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
-(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '5b1d5b1569de26f631ba3edf0d89f65be5af4e3d', 'pendiente', 2, NULL, NULL, NULL),
-(1106785402, 'Deissy', 'Florez', 'deissydflor@gmail.com', '4c3e3ab8ee1c18601e7161d7810ea2a74a1f1dec', 'pendiente', 2, NULL, NULL, NULL),
-(1108150857, 'joseph|', 'alvarez', '2147483647', '8cb2237d0679ca88db6464eac60da96345513964', 'pendiente', 2, NULL, NULL, NULL),
-(1110569630, 'andres ', 'carbonell', '321262898', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', 'pendiente', 2, NULL, NULL, NULL),
-(1111111111, 'josep', 'forero', 'jalfonsof@ut.edu.co', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 2, NULL, NULL, NULL),
-(2147483647, 'Andres', 'carbonell', '3116702356', '0caf711312d224809863a2c43fbddfbf8c2de642', 'pendiente', 2, NULL, NULL, NULL);
+(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '48058e0c99bf7d689ce71c360699a14ce2f99774', 'pendiente', 2, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -214,6 +200,7 @@ ALTER TABLE `supermercados`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ndocumento`),
+  ADD UNIQUE KEY `correo_tel` (`correo_tel`),
   ADD UNIQUE KEY `token` (`token`),
   ADD KEY `fk_usuario_rol` (`rol_id`),
   ADD KEY `fk_usuario_supermercado` (`supermercado_nit`);
@@ -226,7 +213,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `ahorro`
 --
 ALTER TABLE `ahorro`
-  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
