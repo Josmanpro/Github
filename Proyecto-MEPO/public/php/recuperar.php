@@ -12,18 +12,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- Nuestros CSS -->
-    <link rel="stylesheet" href="css/pagina.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="../css/pagina.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
 
-    <div class="form-background">
-        <h1>Recuperar Contraseña</h1>
-        <form action="enviar_token.php" method="POST">
-        
-        <input type="email" name="recoverEmail" placeholder="Ingresa tu correo" required>
-            <button type="submit">Recuperar contraseña</button>
-        </form>
+    <div class="login-page-wrapper">
+
+        <div class="form-container">
+
+            <div class="form-background">
+
+                <h1>Recuperar contraseña</h1>
+
+                    
+                    <form action="../php/enviar_token.php" method="POST">
+
+                        <div class="input-group">
+                            <label>Correo electrónico</label>
+                            <input type="email" name="recoverEmail" placeholder="Ingresa tu correo" required>
+                        </div>
+
+                        <button class="btn-login-form" type="submit">
+                            Enviar correo
+                        </button>
+
+                    </form>
+
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
