@@ -1,7 +1,7 @@
 <?php if ($usuario): ?>
 
 
-    <?php if ($usuario['rol_id'] == 1 && $usuario['estado'] == 'activo'): ?>
+    <?php if ($usuario['rol_id'] == 1 && $usuario['estado'] == 'activo' || $usuario['rol_id'] == 3): ?>
         <!-- Vendedor aprobado: botón activo -->
         <a href="panel_vendedor.php" class="button" id="pvendedor">
             Panel Vendedor
@@ -13,6 +13,18 @@
             Panel Vendedor (Pendiente aprobación)
         </a>
 
+    <?php endif; ?>
+
+<?php endif; ?>
+
+<?php if ($usuario): ?>
+
+
+    <?php if ($usuario['rol_id'] == 3): ?>
+        <!-- Vendedor aprobado: botón activo -->
+        <a href="panel_admin.php" class="button" id="padmin">
+            Panel administrador
+        </a>
     <?php endif; ?>
 
 <?php endif; ?>
