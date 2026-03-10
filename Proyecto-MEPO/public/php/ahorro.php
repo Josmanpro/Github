@@ -8,9 +8,11 @@ if (isset($_SESSION["ndocumento"])) {
 
     // Verificar si ya existe registro
     $consulta = mysqli_query(
+
         $enlace,
         "SELECT * FROM ahorro WHERE ndocumento='$ndocumento'"
     );
+  
 
     if (mysqli_num_rows($consulta) == 0) {
 
@@ -73,7 +75,7 @@ if (isset($_SESSION["ndocumento"])) {
 
                     <div id="panelPerfil" class="panel-perfil">
 
-                        <img src="imagenes/perfil/Perfil.jpg" class="avatar-panel">
+                        <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
                         <div class="nombre">
                             <?php echo $usuario["nombre"]; ?>

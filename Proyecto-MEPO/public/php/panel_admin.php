@@ -7,7 +7,7 @@ if(!isset($_SESSION['rol_id']) || $_SESSION['rol_id'] != 3){
     exit();
 }
 
-$sql = "SELECT 
+$sql = "SELECT
 usuario.ndocumento,
 usuario.nombre,
 usuario.apellido,
@@ -16,7 +16,7 @@ usuario.estado,
 usuario.rol_id,
 roles.nombre AS rol
 FROM usuario
-INNER JOIN roles 
+INNER JOIN roles
 ON usuario.rol_id = roles.id";
 
 $resultado = mysqli_query($enlace,$sql);
