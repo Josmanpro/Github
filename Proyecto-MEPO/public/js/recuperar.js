@@ -1,11 +1,5 @@
 // recuperar.js
 
-import { auth } from "./firebase-config.js";
-
-import { 
-    sendPasswordResetEmail 
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("recoverForm");
     const msg = document.getElementById("msg");

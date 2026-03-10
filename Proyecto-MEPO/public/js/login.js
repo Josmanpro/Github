@@ -1,15 +1,5 @@
 // login.js
 
-import { auth, db } from "./firebase-config.js";
-
-import { 
-    signInWithEmailAndPassword 
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-
-import { 
-    setDoc, doc 
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("loginForm");
     const errorMsg = document.getElementById("errorMsg");

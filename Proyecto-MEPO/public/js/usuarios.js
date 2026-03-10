@@ -1,11 +1,5 @@
 // usuarios.js
 
-import { db } from "./firebase-config.js";
-
-import { 
-    collection, getDocs 
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
 document.addEventListener("DOMContentLoaded", async () => {
     const tabla = document.getElementById("usuariosTabla");
 
