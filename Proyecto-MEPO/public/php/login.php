@@ -93,8 +93,8 @@ if(isset($_POST["btn-login-form"])){
                 <p id="errorMsg" class="error-messsage" style="color: red;"></p>
               <form id="loginForm" method="POST">
                 <div class="input-group">
-                    <label for="user">Usuario</label>
-                    <input required type="text" name="user" id="user" placeholder="ejemplo123@gmail.com">
+                    <label for="user">Correo</label>
+                    <input required type="email" name="user" id="user" placeholder="ejemplo123@gmail.com">
 
                 </div>
                 <div class="input-group">
