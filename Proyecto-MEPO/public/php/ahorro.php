@@ -33,7 +33,7 @@ if (isset($_SESSION["ndocumento"])) {
                                SET objetivo='$objetivo', meta='$meta'
                                WHERE ndocumento='$ndocumento'");
 
-        header("Location: ahorro.php");
+        header("Location: index.php");
         exit();
     }
 }
