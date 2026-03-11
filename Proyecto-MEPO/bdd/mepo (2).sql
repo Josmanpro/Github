@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-03-2026 a las 13:25:00
+-- Tiempo de generación: 11-03-2026 a las 12:24:19
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `ahorro` (
 --
 
 INSERT INTO `ahorro` (`id_ahorro`, `objetivo`, `monto_disp`, `meta`, `ndocumento`) VALUES
-(15, '', 0, 0, 1016950224);
+(15, '', 0, 0, 1016950224),
+(16, 'Casa', 0, 700000, 1034990193);
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `nombre`) VALUES
 (1, 'admin'),
-(2, 'cliente');
+(2, 'cliente'),
+(3, 'superadmin');
 
 -- --------------------------------------------------------
 
@@ -150,7 +152,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`, `token`, `token_expira`) VALUES
-(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '48058e0c99bf7d689ce71c360699a14ce2f99774', 'pendiente', 2, NULL, NULL, NULL);
+(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '48058e0c99bf7d689ce71c360699a14ce2f99774', 'pendiente', 2, NULL, NULL, NULL),
+(1034990193, 'Sebas', 'velasquez', 'osoriosebastian314@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 2, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -213,7 +216,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `ahorro`
 --
 ALTER TABLE `ahorro`
-  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -231,7 +234,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
