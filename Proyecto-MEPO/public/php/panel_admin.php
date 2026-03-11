@@ -71,7 +71,7 @@ $resultado = mysqli_query($enlace,$sql);
 
 <option value="bloqueado" <?php if($fila['estado']=="bloqueado") echo "selected"; ?>>Bloqueado</option>
 
-<option value="inactivo" <?php if($fila['estado']=="pendiente") echo "selected"; ?>>Pendiente</option>
+<option value="pendiente" <?php if($fila['estado']=="pendiente") echo "selected"; ?>>Pendiente</option>
 
 </select>
 </td>
