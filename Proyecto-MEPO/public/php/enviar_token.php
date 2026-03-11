@@ -51,12 +51,12 @@ if(isset($_POST['recoverEmail'])){
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'josephalfonsoforero@gmail.com';
-                $mail->Password   = 'yiwv hpvc sdnv bcqx';
+                $mail->Username   = 'adminmepo@gmail.com';
+                $mail->Password   = 'ykkj lxmi wsvh jelc';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port       = 587;
 
-                $mail->setFrom('josephalfonsoforero@gmail.com', 'MEPO');
+                $mail->setFrom('adminmepo@gmail.com', 'MEPO');
                 $mail->addAddress($correo_tel);
 
                 $mail->isHTML(true);
