@@ -1,4 +1,10 @@
 <?php
+
+if(!isset($_SESSION['rol_id']) || $_SESSION['rol_id'] != 1){
+    echo "Acceso denegado";
+    exit();
+}
+
 $conn = new mysqli("localhost", "root", "", "mepo");
 
 if ($conn->connect_error) {
