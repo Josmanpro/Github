@@ -55,6 +55,32 @@
     flex-direction: column;
 }
 
+.password-box{
+    position: relative;
+    width: 100%;
+}
+
+.password-box input{
+    width: 100%;
+    padding-right: 40px;
+}
+
+.ojo{
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* efecto al pasar el mouse */
+.ojo:hover{
+    color: #2a7cff;
+}
+
 .input-group {
     margin-bottom: 1.5rem;
     margin-right: 32.9px;
