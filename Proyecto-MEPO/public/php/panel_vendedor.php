@@ -1,5 +1,8 @@
 <?php
 
+require_once("valini.php");
+
+
 if(!isset($_SESSION['rol_id']) || $_SESSION['rol_id'] != 1){
     echo "Acceso denegado";
     exit();
@@ -37,7 +40,6 @@ $result = $conn->query("SELECT * FROM productos");
                 <a href="comparar.php" class="button">Comparar</a>
                 <a href="supermercados.php" class="button">Supermercados</a>
                 <a href="ofertas.php" class="button">Ofertas</a>
-                <a href="panel_vendedor.php" class="button">Panel Vendedor</a>
             </nav>
             <?php if (!$usuario): ?>
                 <a href="login.php" class="btn-login">Iniciar Sesión</a>
@@ -87,7 +89,7 @@ $result = $conn->query("SELECT * FROM productos");
         <?php while($row = $result->fetch_assoc()) { ?>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="imagenes/<?php echo $row['imagen']; ?>" class="card-img-top" height="200">
+                    <img src="../img/productos/<?php echo $row['imagen']; ?>" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['nombre']; ?></h5>
                         <p class="card-text"><?php echo $row['descripcion']; ?></p>
