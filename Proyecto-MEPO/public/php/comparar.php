@@ -129,9 +129,12 @@ if (isset($_SESSION["ndocumento"])) {
             </div>
         </div>
     </div>
-    <script src="../js/ajax.js"></script>
-    <script src="../js/dom.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../js/dom.js"></script>
+
 <script>
+window.addEventListener("load", function(){
+
 const params = new URLSearchParams(window.location.search);
 const productoBuscado = params.get("producto");
 
@@ -154,6 +157,7 @@ cargarCategoria();
 
 }
 
+});
 </script>
 </body>
 
