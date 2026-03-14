@@ -3,7 +3,7 @@
 require_once("valini.php");
 
 
-if(!isset($_SESSION['rol_id']) || $_SESSION['rol_id'] != 1){
+if(!isset($_SESSION['rol_id']) || $_SESSION['rol_id'] != 1 && $_SESSION['rol_id'] != 3){
     echo "Acceso denegado";
     exit();
 }
