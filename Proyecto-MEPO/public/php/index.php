@@ -75,7 +75,7 @@ require_once("valini.php");
                 <p>Encuentra los mejores precios de Éxito, D1, SurtiPlaza y más, ¡en un solo lugar!</p>
                 <div class="search-box">
                     <input id="buscador" type="text" placeholder="¿Qué estás buscando? Ej: Arroz, Leche, Jabón...">
-                    <button id="btn-search" class="btn-Buscar">Buscar</button>
+                    
                 </div>
                 <div id="resultados"></div>
             </div>

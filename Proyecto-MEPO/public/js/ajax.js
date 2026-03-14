@@ -198,10 +198,10 @@ function cerrarModal() {
     document.getElementById("btnConfirmar").addEventListener("click", function () {
         seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
         cerrarModal();
-    /*});*/
+    });
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
-});
+
 
 
 function seleccionarPrecio(precio, peorPrecio){
