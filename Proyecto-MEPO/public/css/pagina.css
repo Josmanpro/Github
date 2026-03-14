@@ -94,36 +94,41 @@ body {
     margin: 0 auto 2rem auto;
 }
 
-.search-box {
-    display: flex;
-    max-width: 600px;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 50px;
-    overflow: hidden;
+/* --- BUSCADOR --- */
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    max-width:600px;
+    margin:25px auto;
+    border-radius:50px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 
-.search-box input {
-    flex-grow: 1;
-    border: none;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    outline: none;
+.search-box input{
+    flex:1;
+    border:none;
+    padding:14px 20px;
+    font-size:16px;
+    outline:none;
+    background:#fff;
 }
 
-.search-box button {
-    border: none;
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.search-box button{
+    border:none;
+    background-color:var(--primary-color);
+    color:white;
+    padding:14px 28px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-.search-box button:hover {
-    background-color: var(--secondary-color);
+.search-box button:hover{
+    background-color:var(--secondary-color);
 }
 
 /* --- How it Works Section --- */
