@@ -221,13 +221,15 @@ function seleccionarPrecio(precio, peorPrecio){
     tabla.appendChild(fila);
     document.getElementById("totalAhorro").textContent =
         totalAhorro.toLocaleString('es-CO');
-}
+};
+document.addEventListener("DOMContentLoaded", function(){
+
 const buscador = document.getElementById("buscador");
 const resultados = document.getElementById("resultados");
 
-buscador.addEventListener("input", buscarProducto);
+if(buscador){
 
-function buscarProducto(){
+buscador.addEventListener("input", function(){
 
 let texto = buscador.value.toLowerCase();
 resultados.innerHTML = "";
@@ -259,4 +261,8 @@ resultados.innerHTML += html;
 
 }
 
+});
+
 }
+
+});
