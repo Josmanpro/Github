@@ -102,14 +102,22 @@ require_once("valini.php");
                     </div>
                 </div>
                 <div class="boton-ahorra">
-                    <?php
-                    if (isset($_SESSION["ndocumento"])) {
-                        $destino = "ahorro.php";
-                    } else {
-                        $destino = "login.php";
-                    }
-                    ?>
-
+<?php
+if (!isset($_SESSION["ndocumento"])) {
+    $destino = "login.php";
+} else {
+    $ndocumento = $_SESSION["ndocumento"];
+    $consulta = mysqli_query(
+    $enlace,
+    "SELECT * FROM ahorro WHERE ndocumento='$ndocumento' AND meta > 0"
+    );
+    if(mysqli_num_rows($consulta) > 0){
+        $destino = "panel_meta.php";
+    }else{
+        $destino = "ahorro.php";
+    }
+}
+?>
                     <a href="<?php echo $destino; ?>" class="btn-ahorro">
                         Empieza tu ahorro ahora
                     </a>
