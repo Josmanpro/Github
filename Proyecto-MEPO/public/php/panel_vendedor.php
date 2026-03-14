@@ -29,7 +29,63 @@ $result = $conn->query("SELECT * FROM productos");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .results-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    margin-top:30px;
+}
 
+.product-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+.product-img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.precio{
+    font-size:20px;
+    font-weight:bold;
+    color:#2e7d32;
+}
+
+.acciones{
+    margin-top:15px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.btn-editar{
+    background:#4CAF50;
+    color:white;
+    padding:6px 12px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+.btn-eliminar{
+    background:#e53935;
+    color:white;
+    padding:6px 12px;
+    border-radius:6px;
+    text-decoration:none;
+}
+    </style>
 </head>
 <body>
 
@@ -89,23 +145,28 @@ $result = $conn->query("SELECT * FROM productos");
 
     <a href="agregar_producto.php" class="btn btn-success mb-3">Agregar Producto</a>
 
-    <div class="row">
-        <?php while($row = $result->fetch_assoc()) { ?>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="../img/productos/<?php echo $row['imagen']; ?>" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $row['nombre']; ?></h5>
-                        <p class="card-text"><?php echo $row['descripcion']; ?></p>
-                        <p><strong>$<?php echo $row['precio']; ?></strong></p>
+    <div class="results-grid">
 
-                        <a href="editar_producto.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Modificar</a>
-                        <a href="eliminar_producto.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Eliminar</a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+<?php while($row = $result->fetch_assoc()) { ?>
+
+<div class="product-card">
+
+    <img src="../img/productos/<?php echo $row['imagen']; ?>" class="product-img">
+
+    <h3><?php echo $row['nombre']; ?></h3>
+
+    <p class="precio">$<?php echo $row['precio']; ?></p>
+
+    <div class="acciones">
+        <a href="editar_producto.php?id=<?php echo $row['id']; ?>" class="btn-editar">Modificar</a>
+        <a href="eliminar_producto.php?id=<?php echo $row['id']; ?>" class="btn-eliminar">Eliminar</a>
     </div>
+
+</div>
+
+<?php } ?>
+
+</div>
 </div>
 <script src="../js/dom.js"></script>
 </body>
