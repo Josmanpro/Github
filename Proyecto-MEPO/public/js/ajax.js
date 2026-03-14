@@ -243,13 +243,10 @@ productos[categoria].forEach(producto => {
 if(producto.nombre.toLowerCase().includes(texto)){
 
 let html = `
-<div class="producto">
+<div class="producto" onclick="irAComparar('${producto.nombre}')">
 <img src="${producto.imagen}" width="70">
 <h3>${producto.nombre}</h3>
-<p>Éxito: $${producto.precios["Éxito"]}</p>
-<p>D1: $${producto.precios["D1"]}</p>
-<p>Mercacentro: $${producto.precios["Mercacentro"]}</p>
-<p>Surtiplaza: $${producto.precios["Surtiplaza"]}</p>
+<p>Ver comparación de precios</p>
 </div>
 `;
 
@@ -266,12 +263,8 @@ resultadosIndex.innerHTML += html;
 }
 
 });
-function buscarProducto() {
+function irAComparar(nombreProducto){
 
-let texto = document.getElementById("buscadorIndex").value;
-
-if(texto.trim() !== ""){
-window.location.href = "comparar.php?buscar=" + encodeURIComponent(texto);
-}
+window.location.href = "comparar.php?producto=" + encodeURIComponent(nombreProducto);
 
 }

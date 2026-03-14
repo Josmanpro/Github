@@ -132,35 +132,19 @@ if (isset($_SESSION["ndocumento"])) {
     <script src="../js/ajax.js"></script>
     <script src="../js/dom.js"></script>
 <script>
-
 const params = new URLSearchParams(window.location.search);
-const busqueda = params.get("buscar");
+const productoBuscado = params.get("producto");
 
-if(busqueda){
-
-document.getElementById("buscador").value = busqueda;
-
-let texto = busqueda.toLowerCase();
-let resultados = document.getElementById("resultados");
+if(productoBuscado){
 
 for(let categoria in productos){
 
 productos[categoria].forEach(producto => {
 
-if(producto.nombre.toLowerCase().includes(texto)){
+if(producto.nombre === productoBuscado){
 
-let html = `
-<div class="producto">
-<img src="${producto.imagen}" width="80">
-<h3>${producto.nombre}</h3>
-<p>Éxito: $${producto.precios["Éxito"]}</p>
-<p>D1: $${producto.precios["D1"]}</p>
-<p>Mercacentro: $${producto.precios["Mercacentro"]}</p>
-<p>Surtiplaza: $${producto.precios["Surtiplaza"]}</p>
-</div>
-`;
-
-resultados.innerHTML += html;
+document.getElementById("categoria").value = categoria;
+cargarCategoria();
 
 }
 
