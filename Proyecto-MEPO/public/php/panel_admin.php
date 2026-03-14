@@ -1,6 +1,5 @@
 <?php
-session_start();
-require("regis2.php");
+require_once("valini.php");
 
 if(!isset($_SESSION['rol_id']) || $_SESSION['rol_id'] != 3){
     echo "Acceso denegado";
@@ -26,8 +25,63 @@ $resultado = mysqli_query($enlace,$sql);
 <html>
 <head>
 <title>Panel Super Administrador</title>
-</head>
+<link rel="stylesheet" href="../css/pagina.css">
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+</head>
+<header class="main-header">
+        <div class="container">
+            <a href="index.php" class="logo">Mepo</a>
+            <nav class="main-nav">
+                <a href="comparar.php" class="button">Comparar</a>
+                <a href="supermercados.php" class="button">Supermercados</a>
+                <a href="ofertas.php" class="button">Ofertas</a>
+               
+                <?php
+                require_once("pvendedor.php");
+                ?>
+
+            </nav>
+            <?php if (!$usuario): ?>
+                <a href="login.php" class="btn-login">Iniciar Sesión</a>
+            <?php endif; ?>
+
+            <?php if ($usuario): ?>
+                <div class="perfil" id="perfilUsuario">
+
+                    <img id="imgPerfil" src="../imagenes/perfil/Perfil.jpg" class="foto-perfil">
+
+<div id="panelPerfil" class="panel-perfil">
+
+    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
+
+    <div class="nombre">
+        <?php echo $usuario["nombre"]; ?>
+    </div>
+
+    <div class="info">
+        <?php echo $usuario["correo_tel"]; ?>
+    </div>
+
+    <div class="info">
+        Documento: <?php echo $usuario["ndocumento"]; ?>
+    </div>
+
+    <a href="logout.php" class="btn-logout">
+        Cerrar sesión
+    </a>
+
+</div>
+</div>
+<?php endif;
+ ?>
+
+        </div>
+        </div>
+    </header>
 <body>
 
 <h1>Panel Super Administrador</h1>
@@ -105,3 +159,4 @@ Cliente
 <?php } ?>
 
 </table>
+<script src="../js/dom.js"></script>
