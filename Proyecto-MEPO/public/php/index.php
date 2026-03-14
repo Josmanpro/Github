@@ -140,8 +140,8 @@ require_once("valini.php");
             </div>
         </div>
     </footer>
-
-    <script src="../js/dom.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/dom.js"  ></script>
 </body>
 
 </html>
