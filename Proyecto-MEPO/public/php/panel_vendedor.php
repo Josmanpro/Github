@@ -40,6 +40,10 @@ $result = $conn->query("SELECT * FROM productos");
                 <a href="comparar.php" class="button">Comparar</a>
                 <a href="supermercados.php" class="button">Supermercados</a>
                 <a href="ofertas.php" class="button">Ofertas</a>
+
+                <?php
+                require_once("pvendedor.php");
+                ?>
             </nav>
             <?php if (!$usuario): ?>
                 <a href="login.php" class="btn-login">Iniciar Sesión</a>
@@ -103,6 +107,6 @@ $result = $conn->query("SELECT * FROM productos");
         <?php } ?>
     </div>
 </div>
-
+<script src="../js/dom.js"></script>
 </body>
 </html>
