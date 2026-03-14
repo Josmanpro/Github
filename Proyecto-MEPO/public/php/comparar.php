@@ -86,10 +86,7 @@ if (isset($_SESSION["ndocumento"])) {
         <h1>Comparar precios</h1>
         <p>Selecciona una categoría y descubre dónde te conviene más comprar.</p>
 
-        <div class="buscador">
-            <input type="text" id="buscador" placeholder="Buscar producto...">
-        </div>
-        <div id="resultados" class="results-grid"></div>
+       
 
         <div class="controls">
             <label for="categoria">Selecciona una categoría:</label>
