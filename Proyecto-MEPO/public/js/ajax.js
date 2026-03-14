@@ -249,10 +249,12 @@ productos[categoria].forEach(producto => {
 if(producto.nombre.toLowerCase().includes(texto)){
 
 let html = `
-<div class="producto" onclick="irAComparar('${producto.nombre}')">
-<img src="${producto.imagen}" width="70">
-<h3>${producto.nombre}</h3>
+<div class="resultado-busqueda" onclick="irAComparar('${producto.nombre}')">
+<img src="${producto.imagen}">
+<div>
+<h4>${producto.nombre}</h4>
 <p>Ver comparación de precios</p>
+</div>
 </div>
 `;
 
