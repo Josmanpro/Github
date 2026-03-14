@@ -175,13 +175,7 @@ function cargarCategoria() {
 
 // Cargar la primera categoría (Lácteos) por defecto al cargar la página
 window.onload = () => {
-
-const categoria = document.getElementById("categoria");
-
-if(categoria){
     cargarCategoria();
-}
-
 };
 let totalAhorro = 0;
 let productoSeleccionadoNombre = "";
@@ -204,10 +198,10 @@ function cerrarModal() {
     document.getElementById("btnConfirmar").addEventListener("click", function () {
         seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
         cerrarModal();
-    });
+    /*});*/
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
-
+});
 
 
 function seleccionarPrecio(precio, peorPrecio){
@@ -227,18 +221,16 @@ function seleccionarPrecio(precio, peorPrecio){
     tabla.appendChild(fila);
     document.getElementById("totalAhorro").textContent =
         totalAhorro.toLocaleString('es-CO');
-};
-document.addEventListener("DOMContentLoaded", function(){
+}
+const buscador = document.getElementById("buscador");
+const resultados = document.getElementById("resultados");
 
-const buscadorIndex = document.getElementById("buscadorIndex");
-const resultadosIndex = document.getElementById("resultadosIndex");
+buscador.addEventListener("input", buscarProducto);
 
-if(buscadorIndex){
+function buscarProducto(){
 
-buscadorIndex.addEventListener("input", function(){
-
-let texto = buscadorIndex.value.toLowerCase();
-resultadosIndex.innerHTML = "";
+let texto = buscador.value.toLowerCase();
+resultados.innerHTML = "";
 
 if(texto === "") return;
 
@@ -249,30 +241,22 @@ productos[categoria].forEach(producto => {
 if(producto.nombre.toLowerCase().includes(texto)){
 
 let html = `
-<div class="resultado-busqueda" onclick="irAComparar('${producto.nombre}')">
-<img src="${producto.imagen}">
-<div>
-<h4>${producto.nombre}</h4>
-<p>Ver comparación de precios</p>
-</div>
+<div class="producto">
+<img src="${producto.imagen}" width="80">
+<h3>${producto.nombre}</h3>
+<p>Éxito: $${producto.precios["Éxito"]}</p>
+<p>D1: $${producto.precios["D1"]}</p>
+<p>Mercacentro: $${producto.precios["Mercacentro"]}</p>
+<p>Surtiplaza: $${producto.precios["Surtiplaza"]}</p>
 </div>
 `;
 
-resultadosIndex.innerHTML += html;
+resultados.innerHTML += html;
 
 }
 
 });
 
 }
-
-});
-
-}
-
-});
-function irAComparar(nombreProducto){
-
-window.location.href = "comparar.php?producto=" + encodeURIComponent(nombreProducto);
 
 }

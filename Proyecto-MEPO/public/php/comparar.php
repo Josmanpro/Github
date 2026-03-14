@@ -86,7 +86,10 @@ if (isset($_SESSION["ndocumento"])) {
         <h1>Comparar precios</h1>
         <p>Selecciona una categoría y descubre dónde te conviene más comprar.</p>
 
-       
+        <div class="buscador">
+            <input type="text" id="buscador" placeholder="Buscar producto...">
+        </div>
+        <div id="resultados" class="results-grid"></div>
 
         <div class="controls">
             <label for="categoria">Selecciona una categoría:</label>
@@ -129,25 +132,38 @@ if (isset($_SESSION["ndocumento"])) {
             </div>
         </div>
     </div>
-<script src="../js/ajax.js"></script>
-<script src="../js/dom.js"></script>
-
+    <script src="../js/ajax.js"></script>
+    <script src="../js/dom.js"></script>
 <script>
-window.addEventListener("load", function(){
 
 const params = new URLSearchParams(window.location.search);
-const productoBuscado = params.get("producto");
+const busqueda = params.get("buscar");
 
-if(productoBuscado){
+if(busqueda){
+
+document.getElementById("buscador").value = busqueda;
+
+let texto = busqueda.toLowerCase();
+let resultados = document.getElementById("resultados");
 
 for(let categoria in productos){
 
 productos[categoria].forEach(producto => {
 
-if(producto.nombre === productoBuscado){
+if(producto.nombre.toLowerCase().includes(texto)){
 
-document.getElementById("categoria").value = categoria;
-cargarCategoria();
+let html = `
+<div class="producto">
+<img src="${producto.imagen}" width="80">
+<h3>${producto.nombre}</h3>
+<p>Éxito: $${producto.precios["Éxito"]}</p>
+<p>D1: $${producto.precios["D1"]}</p>
+<p>Mercacentro: $${producto.precios["Mercacentro"]}</p>
+<p>Surtiplaza: $${producto.precios["Surtiplaza"]}</p>
+</div>
+`;
+
+resultados.innerHTML += html;
 
 }
 
@@ -157,7 +173,6 @@ cargarCategoria();
 
 }
 
-});
 </script>
 </body>
 
