@@ -266,3 +266,12 @@ resultados.innerHTML += html;
 }
 
 });
+function buscarProducto() {
+
+let texto = document.getElementById("buscadorIndex").value;
+
+if(texto.trim() !== ""){
+window.location.href = "comparar.php?buscar=" + encodeURIComponent(texto);
+}
+
+}
