@@ -75,7 +75,7 @@ require_once("valini.php");
                 <p>Encuentra los mejores precios de Éxito, D1, SurtiPlaza y más, ¡en un solo lugar!</p>
                 <div class="search-box">
                     <input id="buscador" type="text" placeholder="¿Qué estás buscando? Ej: Arroz, Leche, Jabón...">
-                    <button id="btn-search" class="btn-Buscar">Buscar</button>
+                    
                 </div>
                 <div id="resultados"></div>
             </div>
@@ -102,14 +102,22 @@ require_once("valini.php");
                     </div>
                 </div>
                 <div class="boton-ahorra">
-                    <?php
-                    if (isset($_SESSION["ndocumento"])) {
-                        $destino = "ahorro.php";
-                    } else {
-                        $destino = "login.php";
-                    }
-                    ?>
-
+<?php
+if (!isset($_SESSION["ndocumento"])) {
+    $destino = "login.php";
+} else {
+    $ndocumento = $_SESSION["ndocumento"];
+    $consulta = mysqli_query(
+    $enlace,
+    "SELECT * FROM ahorro WHERE ndocumento='$ndocumento' AND meta > 0"
+    );
+    if(mysqli_num_rows($consulta) > 0){
+        $destino = "panel_meta.php";
+    }else{
+        $destino = "ahorro.php";
+    }
+}
+?>
                     <a href="<?php echo $destino; ?>" class="btn-ahorro">
                         Empieza tu ahorro ahora
                     </a>
@@ -140,8 +148,8 @@ require_once("valini.php");
             </div>
         </div>
     </footer>
-
-    <script src="../js/dom.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/dom.js"  ></script>
 </body>
 
 </html>
