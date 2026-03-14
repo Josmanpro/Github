@@ -77,7 +77,43 @@ const productos = {
         }
     ]
 };
+const buscador = document.getElementById("buscador");
+const boton = document.getElementById("btnBuscar");
+const resultados = document.getElementById("resultados");
 
+boton.addEventListener("click", buscarProducto);
+
+function buscarProducto(){
+
+let texto = buscador.value.toLowerCase();
+resultados.innerHTML = "";
+
+for(let categoria in productos){
+
+productos[categoria].forEach(producto => {
+
+if(producto.nombre.toLowerCase().includes(texto)){
+
+let html = `
+<div class="producto">
+<img src="${producto.imagen}" width="100">
+<h3>${producto.nombre}</h3>
+<p>Éxito: $${producto.precios["Éxito"]}</p>
+<p>D1: $${producto.precios["D1"]}</p>
+<p>Mercacentro: $${producto.precios["Mercacentro"]}</p>
+<p>Surtiplaza: $${producto.precios["Surtiplaza"]}</p>
+</div>
+`;
+
+resultados.innerHTML += html;
+
+}
+
+});
+
+}
+
+}
 function cargarCategoria() {
     // 1. Obtener la categoría seleccionada del <select>
     const categoriaSeleccionada = document.getElementById('categoria').value;
