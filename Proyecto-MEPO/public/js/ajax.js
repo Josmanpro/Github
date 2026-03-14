@@ -175,7 +175,13 @@ function cargarCategoria() {
 
 // Cargar la primera categoría (Lácteos) por defecto al cargar la página
 window.onload = () => {
+
+const categoria = document.getElementById("categoria");
+
+if(categoria){
     cargarCategoria();
+}
+
 };
 let totalAhorro = 0;
 let productoSeleccionadoNombre = "";
