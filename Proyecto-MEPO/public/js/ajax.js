@@ -224,15 +224,15 @@ function seleccionarPrecio(precio, peorPrecio){
 };
 document.addEventListener("DOMContentLoaded", function(){
 
-const buscador = document.getElementById("buscador");
-const resultados = document.getElementById("resultados");
+const buscadorIndex = document.getElementById("buscadorIndex");
+const resultadosIndex = document.getElementById("resultadosIndex");
 
-if(buscador){
+if(buscadorIndex){
 
-buscador.addEventListener("input", function(){
+buscadorIndex.addEventListener("input", function(){
 
-let texto = buscador.value.toLowerCase();
-resultados.innerHTML = "";
+let texto = buscadorIndex.value.toLowerCase();
+resultadosIndex.innerHTML = "";
 
 if(texto === "") return;
 
@@ -244,7 +244,7 @@ if(producto.nombre.toLowerCase().includes(texto)){
 
 let html = `
 <div class="producto">
-<img src="${producto.imagen}" width="80">
+<img src="${producto.imagen}" width="70">
 <h3>${producto.nombre}</h3>
 <p>Éxito: $${producto.precios["Éxito"]}</p>
 <p>D1: $${producto.precios["D1"]}</p>
@@ -253,7 +253,7 @@ let html = `
 </div>
 `;
 
-resultados.innerHTML += html;
+resultadosIndex.innerHTML += html;
 
 }
 

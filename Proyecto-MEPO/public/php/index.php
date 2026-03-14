@@ -73,8 +73,9 @@ require_once("valini.php");
             <div class="container">         
                 <h1>Ahorra en cada compra. Compara precios de supermercados en Ibagué.</h1>
                 <p>Encuentra los mejores precios de Éxito, D1, SurtiPlaza y más, ¡en un solo lugar!</p>
-                <input type="text" id="buscadorIndex" placeholder="Buscar producto...">
-                <button onclick="buscarProducto()">Buscar</button>
+                
+               <input type="text" id="buscadorIndex" placeholder="Buscar producto...">
+                <div id="resultadosIndex"></div>
                 
             </div>
         </section>
