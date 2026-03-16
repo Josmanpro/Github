@@ -3,7 +3,7 @@
     <?php if (($usuario['rol_id'] == 1 && $usuario['estado'] == 'activo') || $usuario['rol_id'] == 3): ?>
         <!-- Vendedor aprobado: botón activo -->
         <a href="panel_vendedor.php" class="button" id="pvendedor">
-            Panel Vendedor
+            Vendedor
         </a>
 
     <?php elseif ($usuario['rol_id'] == 1 && $usuario['estado'] == 'pendiente'): ?>
@@ -54,7 +54,7 @@
     <?php if ($usuario['rol_id'] == 3): ?>
         <!-- Vendedor aprobado: botón activo -->
         <a href="panel_admin.php" class="button" id="padmin">
-            Panel administrador
+            Administrador
         </a>
     <?php endif; ?>
 
