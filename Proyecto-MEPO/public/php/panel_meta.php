@@ -100,7 +100,9 @@ if ($porcentaje > 100) {
 <a href="comparar.php" class="button">Comparar</a>
 <a href="supermercados.php" class="button">Supermercados</a>
 <a href="ofertas.php" class="button">Ofertas</a>
-
+<?php
+                require_once("pvendedor.php");
+                ?>
 </nav>
 
  <?php if (!$usuario): ?>
