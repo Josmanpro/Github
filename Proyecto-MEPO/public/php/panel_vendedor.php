@@ -97,6 +97,13 @@ $result = $conn->query("SELECT * FROM productos");
                 <a href="supermercados.php" class="button">Supermercados</a>
                 <a href="ofertas.php" class="button">Ofertas</a>
 
+                <?php if ($usuario['rol_id'] == 3): ?>
+        <!-- Vendedor aprobado: botón activo -->
+        <a href="panel_admin.php" class="button" id="padmin">
+            Administrador
+        </a>
+    <?php endif; ?>
+
                 
             </nav>
             <?php if (!$usuario): ?>
