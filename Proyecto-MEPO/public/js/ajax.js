@@ -1,4 +1,3 @@
-
 const productos = {
     lacteos: [
         {
@@ -222,41 +221,23 @@ function seleccionarPrecio(precio, peorPrecio){
     document.getElementById("totalAhorro").textContent =
         totalAhorro.toLocaleString('es-CO');
 }
-const buscador = document.getElementById("buscador");
-const resultados = document.getElementById("resultados");
+function buscarProductoIndex(){
 
-buscador.addEventListener("input", buscarProducto);
-
-function buscarProducto(){
-
-let texto = buscador.value.toLowerCase();
-resultados.innerHTML = "";
-
-if(texto === "") return;
+let texto = document.getElementById("buscadorIndex").value.toLowerCase();
 
 for(let categoria in productos){
 
-productos[categoria].forEach(producto => {
+let encontrado = productos[categoria].some(producto =>
+producto.nombre.toLowerCase().includes(texto)
+);
 
-if(producto.nombre.toLowerCase().includes(texto)){
-
-let html = `
-<div class="producto">
-<img src="${producto.imagen}" width="80">
-<h3>${producto.nombre}</h3>
-<p>Éxito: $${producto.precios["Éxito"]}</p>
-<p>D1: $${producto.precios["D1"]}</p>
-<p>Mercacentro: $${producto.precios["Mercacentro"]}</p>
-<p>Surtiplaza: $${producto.precios["Surtiplaza"]}</p>
-</div>
-`;
-
-resultados.innerHTML += html;
+if(encontrado){
+window.location.href = "comparar.php?categoria=" + categoria;
+return;
+}
 
 }
 
-});
-
-}
+alert("Producto no encontrado");
 
 }

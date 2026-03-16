@@ -298,3 +298,39 @@ body {
     pointer-events:none;
     cursor:not-allowed;
 }
+/* Contenedor del buscador */
+.hero input#buscadorIndex{
+width: 100%;
+max-width: 420px;
+padding: 12px 18px;
+font-size: 16px;
+border-radius: 25px;
+border: 1px solid #ccc;
+outline: none;
+margin-top: 15px;
+box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+transition: all 0.2s ease;
+}
+
+/* efecto al hacer clic */
+.hero input#buscadorIndex:focus{
+border-color: #3a86ff;
+box-shadow: 0 4px 12px rgba(58,134,255,0.25);
+}
+
+/* botón de búsqueda */
+.hero button{
+margin-left: 10px;
+padding: 12px 20px;
+border-radius: 25px;
+border: none;
+background-color:var(--primary-color);
+    color:rgb(3, 94, 18);
+font-size: 15px;
+cursor: pointer;
+transition: background 0.2s ease;
+}
+
+.hero button:hover{
+background-color:var(--secondary-color);
+}
