@@ -42,17 +42,30 @@ if(isset($_POST["btn-login-form"])){
     if(mysqli_num_rows($resultado) > 0){
         $fila = mysqli_fetch_assoc($resultado);
 
-        $_SESSION ["ndocumento"] = $fila["ndocumento"];
-        $_SESSION ["nombre"] = $fila["nombre"];
+        $_SESSION["ndocumento"] = $fila["ndocumento"];
+        $_SESSION["nombre"] = $fila["nombre"];
         $_SESSION["rol_id"] = $fila["rol_id"];
 
-        header("Location: ahorro.php");
+        $ndocumento = $fila["ndocumento"];
+
+        // 🔎 Verificar si ya tiene ahorro/meta creada
+        $consulta = mysqli_query(
+            $enlace,
+            "SELECT * FROM ahorro WHERE ndocumento='$ndocumento' AND meta > 0"
+        );
+
+        if(mysqli_num_rows($consulta) > 0){
+            header("Location: panel_meta.php");
+        }else{
+            header("Location: ahorro.php");
+        }
+
         exit();
-    }else {
+
+    }else{
         echo "Datos incorrectos o usuario no activo";
     }
 }
-
 ?>
 
 <!DOCTYPE html>

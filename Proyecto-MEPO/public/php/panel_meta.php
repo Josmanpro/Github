@@ -177,7 +177,7 @@ style="width: <?php echo $porcentaje; ?>%">
 
 </main>
 
-<script src="../js/dom.js"></script>
+
 
 </body>
 
