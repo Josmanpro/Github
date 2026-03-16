@@ -119,6 +119,7 @@ Cerrar sesión
 </header>
 
 <main>
+    <div class="container">
 
 <section class="panel-meta">
 
@@ -151,7 +152,7 @@ style="width: <?php echo $porcentaje; ?>%">
 </div>
 
 </section>
-
+</div>
 </main>
 <footer class="main-footer">
         <div class="container">

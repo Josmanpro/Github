@@ -139,7 +139,8 @@ $result = $conn->query("SELECT * FROM productos");
             </div>
     </header>
 
-
+<main>
+    <div class="container">
 <div class="container mt-4">
     <h2>Panel del Vendedor</h2>
 
@@ -168,6 +169,8 @@ $result = $conn->query("SELECT * FROM productos");
 
 </div>
 </div>
+            </div>
+</main>
 <footer class="main-footer">
         <div class="container">
             <p>&copy; 2026 - MEPO - Mercando con Propósito.</p>

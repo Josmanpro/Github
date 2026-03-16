@@ -82,7 +82,8 @@ $resultado = mysqli_query($enlace,$sql);
         </div>
         </div>
     </header>
-<body>
+<main>
+    <div class="container">
 
 <h1>Panel Super Administrador</h1>
 
@@ -159,6 +160,10 @@ Cliente
 <?php } ?>
 
 </table>
+
+<script src="../js/dom.js"></script>
+</div>
+</main>
 <footer class="main-footer">
         <div class="container">
             <p>&copy; 2026 - MEPO - Mercando con Propósito.</p>
@@ -167,5 +172,4 @@ Cliente
                 <a href="https://www.instagram.com/">Instagram</a>
             </div>
         </div>
-    </footer>
-<script src="../js/dom.js"></script>
+</footer>
