@@ -127,6 +127,15 @@ if (isset($_SESSION["ndocumento"])) {
             </div>
         </div>
     </div>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 - MEPO - Mercando con Propósito.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/?locale=es_LA">Facebook</a>
+                <a href="https://www.instagram.com/">Instagram</a>
+            </div>
+        </div>
+    </footer>
     <script src="../js/ajax.js"></script>
     <script src="../js/dom.js"></script>
 <script>
