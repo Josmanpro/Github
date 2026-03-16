@@ -97,9 +97,7 @@ $result = $conn->query("SELECT * FROM productos");
                 <a href="supermercados.php" class="button">Supermercados</a>
                 <a href="ofertas.php" class="button">Ofertas</a>
 
-                <?php
-                require_once("pvendedor.php");
-                ?>
+                
             </nav>
             <?php if (!$usuario): ?>
                 <a href="login.php" class="btn-login">Iniciar Sesión</a>
