@@ -103,36 +103,37 @@ if ($porcentaje > 100) {
 
 </nav>
 
-<?php if ($usuario): ?>
+ <?php if (!$usuario): ?>
+                <a href="login.php" class="btn-login">Iniciar Sesión</a>
+            <?php endif; ?>
 
-<div class="perfil" id="perfilUsuario">
+            <?php if ($usuario): ?>
+                <div class="perfil" id="perfilUsuario">
 
-<img src="../imagenes/perfil/Perfil.jpg" class="foto-perfil">
+                    <img id="imgPerfil" src="../imagenes/perfil/Perfil.jpg" class="foto-perfil">
 
-<div class="panel-perfil">
+<div id="panelPerfil" class="panel-perfil">
 
-<img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
+    <img src="../imagenes/perfil/Perfil.jpg" class="avatar-panel">
 
-<div class="nombre">
-<?php echo $usuario["nombre"]; ?>
+    <div class="nombre">
+        <?php echo $usuario["nombre"]; ?>
+    </div>
+
+    <div class="info">
+        <?php echo $usuario["correo_tel"]; ?>
+    </div>
+
+    <div class="info">
+        Documento: <?php echo $usuario["ndocumento"]; ?>
+    </div>
+
+    <a href="logout.php" class="btn-logout">
+        Cerrar sesión
+    </a>
+
 </div>
-
-<div class="info">
-<?php echo $usuario["correo_tel"]; ?>
 </div>
-
-<div class="info">
-Documento: <?php echo $usuario["ndocumento"]; ?>
-</div>
-
-<a href="logout.php" class="btn-logout">
-Cerrar sesión
-</a>
-
-</div>
-
-</div>
-
 <?php endif; ?>
 
 </div>
