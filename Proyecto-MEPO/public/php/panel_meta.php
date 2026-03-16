@@ -12,30 +12,19 @@ $ndocumento = $_SESSION["ndocumento"];
 
 /* obtener meta del usuario */
 $consulta = mysqli_query(
-<<<<<<< HEAD
-$enlace,
-"SELECT * FROM ahorro WHERE ndocumento='$ndocumento'"
-=======
     $enlace,
     "SELECT * FROM ahorro WHERE ndocumento='$ndocumento'"
->>>>>>> ecc1816558b39d189d30343ec38adafc46fe5dee
+
 );
 
 $datos = mysqli_fetch_assoc($consulta);
 
 /* si no tiene meta creada */
-<<<<<<< HEAD
+
 if(!$datos || $datos["meta"] == 0){
 
     header("Location: ahorro.php");
     exit();
-
-=======
-if (!$datos || $datos["meta"] == 0) {
-
-    header("Location: ahorro.php");
-    exit();
->>>>>>> ecc1816558b39d189d30343ec38adafc46fe5dee
 }
 
 $objetivo = $datos["objetivo"];
@@ -45,24 +34,19 @@ $ahorrado = $datos["monto_disp"];
 /* calcular progreso */
 $porcentaje = 0;
 
-<<<<<<< HEAD
-if($meta > 0){
-
-$porcentaje = ($ahorrado / $meta) * 100;
-
-}
-
-if($porcentaje > 100){
-$porcentaje = 100;
-=======
 if ($meta > 0) {
 
     $porcentaje = ($ahorrado / $meta) * 100;
+
 }
 
 if ($porcentaje > 100) {
     $porcentaje = 100;
->>>>>>> ecc1816558b39d189d30343ec38adafc46fe5dee
+
+if ($porcentaje > 100) {
+    $porcentaje = 100;
+
+}
 }
 ?>
 
@@ -71,8 +55,7 @@ if ($porcentaje > 100) {
 
 <head>
 
-<<<<<<< HEAD
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mi Meta - MEPO</title>
@@ -105,7 +88,7 @@ if ($porcentaje > 100) {
 
 <body>
 
-<<<<<<< HEAD
+
 <header class="main-header">
 
 <div class="container">
@@ -198,7 +181,7 @@ style="width: <?php echo $porcentaje; ?>%">
 
 </body>
 
-=======
+
     <header class="main-header">
 
         <div class="container">
@@ -267,5 +250,5 @@ style="width: <?php echo $porcentaje; ?>%">
     </main>
     <script src="../js/dom.js"></script>
 </body>
->>>>>>> ecc1816558b39d189d30343ec38adafc46fe5dee
+
 </html>
