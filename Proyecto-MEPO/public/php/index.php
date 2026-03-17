@@ -167,7 +167,6 @@ if (!isset($_SESSION["ndocumento"])) {
             </div>
         </div>
     </footer>
-    <script src="../js/ajax.js"></script>
     <script src="../js/dom.js"  ></script>
 </body>
 

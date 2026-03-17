@@ -294,6 +294,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div>
 </body>
+    <script src="../js/dom.js"  ></script>
     <script>
 
     const removeBtn = document.getElementById("removeBtn");

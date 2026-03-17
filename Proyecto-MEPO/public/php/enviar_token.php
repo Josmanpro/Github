@@ -51,16 +51,16 @@ if(isset($_POST['recoverEmail'])){
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'adminmepo@gmail.com';
-                $mail->Password   = 'ykkj lxmi wsvh jelc';
+                $mail->Username   = 'josephalfonsoforero@gmail.com';
+                $mail->Password   = 'jpsm pall kgyg qxzb';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port       = 587;
 
-                $mail->setFrom('adminmepo@gmail.com', 'MEPO');
+                $mail->setFrom('josephalfonsoforero@gmail.com', 'MEPO');
                 $mail->addAddress($correo_tel);
 
                 $mail->isHTML(true);
-                $mail->Subject = 'Recuperación de contraseña - MEPO';
+                $mail->Subject = 'Recuperacion de contrasena - MEPO';
 
                 $mail->Body = "
                 <h2>Recuperación de contraseña</h2>
