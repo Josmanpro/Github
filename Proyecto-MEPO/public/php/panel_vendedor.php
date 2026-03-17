@@ -93,6 +93,7 @@ $result = $conn->query("SELECT * FROM productos");
         <div class="container">
             <a href="index.php" class="logo">Mepo</a>
             <nav class="main-nav">
+                <a href="index.php" class="button">Inicio</a>
                 <a href="comparar.php" class="button">Comparar</a>
                 <a href="supermercados.php" class="button">Supermercados</a>
                 <a href="ofertas.php" class="button">Ofertas</a>
