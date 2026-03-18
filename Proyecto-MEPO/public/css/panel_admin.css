@@ -12,7 +12,7 @@ h1 {
     text-align: center;
     margin-top: 40px;
     font-size: 32px;
-    color: #2c3e50;
+    color: #2c5032;
 }
 h2 {
     text-align: center;
@@ -37,7 +37,7 @@ table {
 }
 /* ENCABEZADO TABLA */
 th {
-    background: #2c7be5;
+    background: #0a5225;
     color: white;
     padding: 14px;
     font-weight: 600;
@@ -66,8 +66,8 @@ button {
     padding: 6px 12px;
     border: none;
     border-radius: 6px;
-    background: #27ae60;
-    color: white;
+    background: #0a4412;
+    color: rgb(253, 249, 249);
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
