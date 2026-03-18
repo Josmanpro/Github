@@ -86,11 +86,6 @@ if (isset($_SESSION["ndocumento"])) {
         <h1>Comparar precios</h1>
         <p>Selecciona una categoría y descubre dónde te conviene más comprar.</p>
 
-        <div class="buscador">
-            <input type="text" id="buscador" placeholder="Buscar producto...">
-        </div>
-        <div id="resultados" class="results-grid"></div>
-
         <div class="controls">
             <label for="categoria">Selecciona una categoría:</label>
             <select id="categoria">
@@ -132,48 +127,29 @@ if (isset($_SESSION["ndocumento"])) {
             </div>
         </div>
     </div>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 - MEPO - Mercando con Propósito.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/?locale=es_LA">Facebook</a>
+                <a href="https://www.instagram.com/">Instagram</a>
+            </div>
+        </div>
+    </footer>
     <script src="../js/ajax.js"></script>
     <script src="../js/dom.js"></script>
 <script>
 
 const params = new URLSearchParams(window.location.search);
-const busqueda = params.get("buscar");
+const categoria = params.get("categoria");
 
-if(busqueda){
+if(categoria){
 
-document.getElementById("buscador").value = busqueda;
-
-let texto = busqueda.toLowerCase();
-let resultados = document.getElementById("resultados");
-
-for(let categoria in productos){
-
-productos[categoria].forEach(producto => {
-
-if(producto.nombre.toLowerCase().includes(texto)){
-
-let html = `
-<div class="producto">
-<img src="${producto.imagen}" width="80">
-<h3>${producto.nombre}</h3>
-<p>Éxito: $${producto.precios["Éxito"]}</p>
-<p>D1: $${producto.precios["D1"]}</p>
-<p>Mercacentro: $${producto.precios["Mercacentro"]}</p>
-<p>Surtiplaza: $${producto.precios["Surtiplaza"]}</p>
-</div>
-`;
-
-resultados.innerHTML += html;
-
-}
-
-});
-
-}
+document.getElementById("categoria").value = categoria;
+cargarCategoria();
 
 }
 
 </script>
-</body>
 
 </html>

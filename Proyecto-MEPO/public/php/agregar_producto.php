@@ -51,18 +51,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             font-family: Arial, Helvetica, sans-serif;
             background: linear-gradient(135deg,#f5f7fa,#e4e7ec);
             margin:0;
+        }
+        .page-wrapper{
             display:flex;
             justify-content:center;
-            align-items:center;
-            height:100vh;
+            margin-top:40px;
         }
 
         .form-container{
             background:white;
-            padding:35px;
-            width:380px;
+            padding:40px;
+            width:450px;
             border-radius:12px;
             box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: var(--primary-color) 1px 1px 20px;
         }
         h2{
             text-align:center;
@@ -70,18 +72,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
         label{
-            font-weight:bold;
+            font-weight:600;
             font-size:14px;
+            display:block;
+            margin-bottom:6px;
         }
 
         input, select{
             width:100%;
-            padding:10px;
-            margin-top:5px;
-            margin-bottom:15px;
+            padding:12px;
+            margin-bottom:18px;
             border:1px solid #ccc;
             border-radius:6px;
             font-size:14px;
+            box-sizing:border-box;
         }
 
         input:focus, select:focus{
@@ -237,56 +241,60 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </header>
 
-    <div class="form-container">
+    <div class="page-wrapper">
 
-        <form method="POST" enctype="multipart/form-data">
+        <div class="form-container">
 
-            <h2>Agregar Producto</h2>
+            <form method="POST" enctype="multipart/form-data">
 
-        <label>Nombre</label>
-        <input type="text" name="nombre" required>
+                <h2>Agregar Producto</h2>
 
-        <label>Precio</label>
-        <input type="number" name="precio" required>
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
 
-        <label>Categoría</label>
-        <select name="categoria_id" required>
-        <?php
-        $categorias = $conn->query("SELECT * FROM categoria");
-        while($cat = $categorias->fetch_assoc()){
-        echo "<option value='".$cat['id']."'>".$cat['nombre']."</option>";
-        }
-        ?>
-        </select>
+            <label>Precio</label>
+            <input type="number" name="precio" required>
 
-        <label>Imagen</label>
+            <label>Categoría</label>
+            <select name="categoria_id" required>
+            <?php
+            $categorias = $conn->query("SELECT * FROM categoria");
+            while($cat = $categorias->fetch_assoc()){
+            echo "<option value='".$cat['id']."'>".$cat['nombre']."</option>";
+            }
+            ?>
+            </select>
 
-        <br><br>
+            <label>Imagen</label>
 
-        <div class="upload-box" id="drop-area">
-            <div class="upload-content">
-                <div class="cloud-icon">☁️</div>
-                <p>Arrastra la imagen aquí<br>o haz clic para subir</p>
+            <br><br>
+
+            <div class="upload-box" id="drop-area">
+                <div class="upload-content">
+                    <div class="cloud-icon">☁️</div>
+                    <p>Arrastra la imagen aquí<br>o haz clic para subir</p>
+                </div>
+                <input type="file" name="imagen" id="imagenInput" hidden required>
             </div>
-            <input type="file" name="imagen" id="imagenInput" hidden required>
+
+            <div class="preview-container">
+                <img id="preview">
+                <button type="button" id="removeBtn">✖</button>
+            </div>
+
+            <p id="cambiarTexto" style="display:none;">
+            Haz clic o arrastra otra imagen para cambiarla
+            </p>
+            <br>
+
+            <button type="submit">Guardar Producto</button>
+
+            </form>
+
         </div>
-
-        <div class="preview-container">
-            <img id="preview">
-            <button type="button" id="removeBtn">✖</button>
-        </div>
-
-        <p id="cambiarTexto" style="display:none;">
-        Haz clic o arrastra otra imagen para cambiarla
-        </p>
-        <br>
-
-        <button type="submit">Guardar Producto</button>
-
-        </form>
-
     </div>
 </body>
+    <script src="../js/dom.js"  ></script>
     <script>
 
     const removeBtn = document.getElementById("removeBtn");

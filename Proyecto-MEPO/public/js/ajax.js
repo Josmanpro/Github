@@ -1,4 +1,3 @@
-
 const productos = {
     lacteos: [
         {
@@ -198,10 +197,10 @@ function cerrarModal() {
     document.getElementById("btnConfirmar").addEventListener("click", function () {
         seleccionarPrecio(precioSeleccionado, precioMasCaroSeleccionado);
         cerrarModal();
-    });
+    /*});*/
 
     document.getElementById("btnCancelar").addEventListener("click", cerrarModal);
-
+});
 
 
 function seleccionarPrecio(precio, peorPrecio){
@@ -221,57 +220,24 @@ function seleccionarPrecio(precio, peorPrecio){
     tabla.appendChild(fila);
     document.getElementById("totalAhorro").textContent =
         totalAhorro.toLocaleString('es-CO');
-};
-document.addEventListener("DOMContentLoaded", function(){
+}
+function buscarProductoIndex(){
 
-const buscador = document.getElementById("buscador");
-const resultados = document.getElementById("resultados");
-
-if(buscador){
-
-buscador.addEventListener("input", function(){
-
-let texto = buscador.value.toLowerCase();
-resultados.innerHTML = "";
-
-if(texto === "") return;
+let texto = document.getElementById("buscadorIndex").value.toLowerCase();
 
 for(let categoria in productos){
 
-productos[categoria].forEach(producto => {
+let encontrado = productos[categoria].some(producto =>
+producto.nombre.toLowerCase().includes(texto)
+);
 
-if(producto.nombre.toLowerCase().includes(texto)){
-
-let html = `
-<div class="producto">
-<img src="${producto.imagen}" width="80">
-<h3>${producto.nombre}</h3>
-<p>Éxito: $${producto.precios["Éxito"]}</p>
-<p>D1: $${producto.precios["D1"]}</p>
-<p>Mercacentro: $${producto.precios["Mercacentro"]}</p>
-<p>Surtiplaza: $${producto.precios["Surtiplaza"]}</p>
-</div>
-`;
-
-resultados.innerHTML += html;
+if(encontrado){
+window.location.href = "comparar.php?categoria=" + categoria;
+return;
+}
 
 }
 
-});
-
-}
-
-});
-
-}
-
-});
-function buscarProducto() {
-
-let texto = document.getElementById("buscadorIndex").value;
-
-if(texto.trim() !== ""){
-window.location.href = "comparar.php?buscar=" + encodeURIComponent(texto);
-}
+alert("Producto no encontrado");
 
 }

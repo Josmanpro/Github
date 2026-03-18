@@ -74,9 +74,30 @@ require_once("valini.php");
                 <h1>Ahorra en cada compra. Compara precios de supermercados en Ibagué.</h1>
                 <p>Encuentra los mejores precios de Éxito, D1, SurtiPlaza y más, ¡en un solo lugar!</p>
                 <input type="text" id="buscadorIndex" placeholder="Buscar producto...">
-                <button onclick="buscarProducto()">Buscar</button>
-                
+                <button onclick="buscarProductoIndex()">Buscar</button>                <div id="sugerencias"></div>
             </div>
+            <script>
+                function buscarProductoIndex(){
+
+let texto = document.getElementById("buscadorIndex").value.toLowerCase();
+
+for(let categoria in productos){
+
+let encontrado = productos[categoria].some(producto =>
+producto.nombre.toLowerCase().includes(texto)
+);
+
+if(encontrado){
+window.location.href = "comparar.php?categoria=" + categoria;
+return;
+}
+
+}
+
+alert("Producto no encontrado");
+
+}
+            </script>
         </section>
 
         <section class="how-it-works">
@@ -146,7 +167,6 @@ if (!isset($_SESSION["ndocumento"])) {
             </div>
         </div>
     </footer>
-    <script src="../js/ajax.js"></script>
     <script src="../js/dom.js"  ></script>
 </body>
 
