@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-03-2026 a las 12:24:19
+-- Tiempo de generación: 18-03-2026 a las 16:43:36
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,8 +40,10 @@ CREATE TABLE `ahorro` (
 --
 
 INSERT INTO `ahorro` (`id_ahorro`, `objetivo`, `monto_disp`, `meta`, `ndocumento`) VALUES
-(15, '', 0, 0, 1016950224),
-(16, 'Casa', 0, 700000, 1034990193);
+(15, 'Viaje', 0, 500000, 1016950224),
+(16, 'Casa', 0, 700000, 1034990193),
+(17, 'Viaje', 0, 250000, 123),
+(18, 'Casa', 0, 20000000, 12345);
 
 -- --------------------------------------------------------
 
@@ -50,16 +52,18 @@ INSERT INTO `ahorro` (`id_ahorro`, `objetivo`, `monto_disp`, `meta`, `ndocumento
 --
 
 CREATE TABLE `categoria` (
-  `id` int(50) NOT NULL
+  `id` int(50) NOT NULL,
+  `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`id`) VALUES
-(1),
-(2);
+INSERT INTO `categoria` (`id`, `nombre`) VALUES
+(3, 'Bebidas'),
+(4, 'Lácteos'),
+(5, 'Panadería');
 
 -- --------------------------------------------------------
 
@@ -80,8 +84,8 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `categoria_id`, `precio`, `imagen`) VALUES
-(4, 'lechuga', 2, 5000, 'lechugap.webp'),
-(5, 'leche', 1, 2300, 'leche.webp');
+(10, 'molipollo', 4, 5000, 'molipollo.jpeg'),
+(11, 'Cerveza Corona', 3, 4000, 'cerveza corona.jpeg');
 
 -- --------------------------------------------------------
 
@@ -152,8 +156,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ndocumento`, `nombre`, `apellido`, `correo_tel`, `contrasena`, `estado`, `rol_id`, `supermercado_nit`, `token`, `token_expira`) VALUES
-(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '48058e0c99bf7d689ce71c360699a14ce2f99774', 'pendiente', 2, NULL, NULL, NULL),
-(1034990193, 'Sebas', 'velasquez', 'osoriosebastian314@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 2, NULL, NULL, NULL);
+(123, 'Prueba', 'S', 'prueba123@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'activo', 1, NULL, NULL, NULL),
+(12345, 'jhon ', 'alvarez', 'jhonalvarez123@gmail.com', '074fe681c9742d991dc00dc287aba5094ff8c678', 'bloqueado', 1, NULL, NULL, NULL),
+(1016950224, 'Joseph', 'Alfonso Forero', 'josephalfonsoforero@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 1, NULL, NULL, NULL),
+(1034990193, 'Sebas', 'velasquez', 'osoriosebastian314@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'pendiente', 3, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -177,7 +183,7 @@ ALTER TABLE `categoria`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `FOREIGN KEY` (`categoria_id`);
+  ADD KEY `fk_categoria` (`categoria_id`);
 
 --
 -- Indices de la tabla `produ_super`
@@ -216,19 +222,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `ahorro`
 --
 ALTER TABLE `ahorro`
-  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_ahorro` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -250,7 +256,7 @@ ALTER TABLE `ahorro`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_categoria` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`);
 
 --
 -- Filtros para la tabla `produ_super`
